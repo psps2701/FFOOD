@@ -12,7 +12,6 @@ import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
 
 
-
 class OnBoardingScreen extends GetView<OnBoardingController>
 
 {
