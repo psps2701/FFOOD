@@ -12,7 +12,7 @@ Future <void> main() async{
   await dep.init();
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => MyApp(), // Wrap your app
     ),
   );
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         theme:  provider.theme,
         title: 'Flutter Demo',
         getPages: Routes.routes,
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: Routes.welcomeScreen,
       );
     },),
 

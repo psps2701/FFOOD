@@ -24,12 +24,14 @@ class SmallText extends StatelessWidget {
       text,
       overflow: overflow,
       maxLines: 50,
+      textAlign: TextAlign.center,
       style: TextStyle(
           color: color,
           fontWeight: fontWeight,
           fontSize: size,
           fontFamily: 'Sofiapro',
           height: height,
+
       ),
     );
   }

@@ -1,18 +1,32 @@
+import 'package:ffood/controllers/OnBoardingController.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
-
-import '../viewbindings/OnboardingBinding.dart';
-import '../views/OnboardingScreen.dart';
+import '../viewbindings/OnBoardingBinding.dart';
+import '../viewbindings/WelcomeBinding.dart';
+import '../views/HomeScreen.dart';
+import '../views/OnBoardingScreen.dart';
+import '../views/WelcomeScreen.dart';
 
 
 class Routes {
 
+  static const String welcomeScreen = '/welcomeScreen';
   static const String onBoardingScreen = '/onBoardingScreen';
+  static const String homeScreen = '/homeScreen';
 
   static final routes = [
     GetPage(
+      name: welcomeScreen,
+      page: () => const WelcomeScreen(),
+      binding: WelcomeBinding(),
+    ),
+    GetPage(
       name: onBoardingScreen,
       page: () => const OnBoardingScreen(),
+      binding: OnBoardingBinding(),
+    ),
+    GetPage(
+      name: homeScreen,
+      page: () => const HomeScreen(),
       binding: OnBoardingBinding(),
     ),
   ];

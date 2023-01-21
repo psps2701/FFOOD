@@ -1,4 +1,5 @@
-import 'package:ffood/controllers/OnBoardingController.dart';
+import 'package:ffood/Route/Routes.dart';
+import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,10 +13,10 @@ import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
 
 
-class OnBoardingScreen extends GetView<OnBoardingController>
+class WelcomeScreen extends GetView<WelcomeController>
 
 {
-  const OnBoardingScreen({super.key});
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +129,11 @@ class OnBoardingScreen extends GetView<OnBoardingController>
                         onTap: () {
                           /*=>
                               navigateToOnboardingScreen()*/
+
+                          Get.toNamed(Routes.onBoardingScreen);
+
+
+
                         },
                         child: Container(
                           width: 293.w,

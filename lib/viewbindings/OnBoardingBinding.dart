@@ -1,5 +1,7 @@
-import 'package:ffood/controllers/OnBoardingController.dart';
+import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:get/get.dart';
+
+import '../controllers/OnBoardingController.dart';
 
 
 class OnBoardingBinding extends Bindings {
