@@ -132,8 +132,6 @@ class WelcomeScreen extends GetView<WelcomeController>
 
                           Get.toNamed(Routes.onBoardingScreen);
 
-
-
                         },
                         child: Container(
                           width: 293.w,

@@ -23,7 +23,7 @@ class HomeScreen extends GetView<WelcomeController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.themeColor, // Navigation bar
+        systemNavigationBarColor: AppColors.white, // Navigation bar
         statusBarColor: AppColors.themeColor, //
 
           // Status bar

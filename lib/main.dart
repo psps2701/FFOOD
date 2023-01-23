@@ -12,7 +12,7 @@ Future <void> main() async{
   await dep.init();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => MyApp(), // Wrap your app
     ),
   );

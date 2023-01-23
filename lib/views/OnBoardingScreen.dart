@@ -25,7 +25,7 @@ class OnBoardingScreen extends GetView<OnBoardingController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.themeColor, // Navigation bar
+        systemNavigationBarColor: AppColors.white, // Navigation bar
         statusBarColor: AppColors.themeColor, //
 
         // Status bar
@@ -44,8 +44,6 @@ class OnBoardingScreen extends GetView<OnBoardingController>
                       child: Padding(
                         padding:  controller.isComplete.value ? EdgeInsets.symmetric(horizontal: 0.0.w) : EdgeInsets.symmetric(horizontal: 30.0.w) ,
                         child: Container(
-
-
                           height: MediaQuery.of(context).size.height * 0.7,
                           width: MediaQuery.of(context).size.width,
                           padding: const EdgeInsets.symmetric(vertical: 20),
@@ -60,8 +58,7 @@ class OnBoardingScreen extends GetView<OnBoardingController>
                                 children: [
                 Stack(
                   children: [
-                      Container(
-
+                      SizedBox(
                         height : MediaQuery.of(context).size.height * 0.5,
                         child: CommonImageView(
                         imagePath:
@@ -117,29 +114,51 @@ class OnBoardingScreen extends GetView<OnBoardingController>
                               ),
                               Column(
                                 children: [
-                                  Image.asset("assets/onboarding_pic2.png", height: 345.h,),
-                                  Center(
-                                    child: SmoothPageIndicator(
-                                      controller: controller.pageController,
-                                      count: 3,
-                                      effect: const WormEffect(
-                                          activeDotColor: orangeColor,
-                                          dotColor: loginPageLabelColor,
-                                          dotHeight: 4,
-                                          dotWidth: 8,
-                                          spacing: 4),
-                                      onDotClicked: (index) => controller.pageController.animateToPage(
-                                          index,
-                                          duration: Duration(milliseconds: 500),
-                                          curve: Curves.easeInCubic),
-                                    ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height : MediaQuery.of(context).size.height * 0.5,
+                                        child: CommonImageView(
+                                          imagePath:
+                                          Images.icOnBoardTwo,
+
+                                          fit: BoxFit.contain,
+                                          width: size.width,
+                                        ),
+                                      ),
+                                      Positioned.fill(
+                                        bottom: 50,
+                                        child: Align(
+
+                                          alignment: Alignment.bottomCenter,
+
+
+                                          child: SmoothPageIndicator(
+                                            controller: controller.pageController,
+                                            count: 3,
+                                            effect: const WormEffect(
+                                                activeDotColor: orangeColor,
+                                                dotColor: loginPageLabelColor,
+                                                dotHeight: 4,
+                                                dotWidth: 8,
+                                                spacing: 4),
+                                            onDotClicked: (index) => controller.pageController.animateToPage(
+                                                index,
+                                                duration: Duration(milliseconds: 500),
+                                                curve: Curves.easeInCubic),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
+
                                   SizedBox(height: 10.h,),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(width: 10.w,),
+
                                       SizedBox(
-                                          width: MediaQuery.of(context).size.width * 0.7,
+                                          width: MediaQuery.of(context).size.width * 0.8,
                                           child: SmallText(text: "Even to space with us! Together", size: 30.sp,color: blackColor,)),
                                     ],
                                   ),//36
@@ -150,29 +169,52 @@ class OnBoardingScreen extends GetView<OnBoardingController>
 
                               Column(
                                 children: [
-                                  Image.asset("assets/on_boarding_logo3.png", height: 345.h,),
-                                  Center(
-                                    child: SmoothPageIndicator(
-                                      controller: controller.pageController,
-                                      count: 3,
-                                      effect: const WormEffect(
-                                          activeDotColor: orangeColor,
-                                          dotColor: loginPageLabelColor,
-                                          dotHeight: 4,
-                                          dotWidth: 8,
-                                          spacing: 4),
-                                      onDotClicked: (index) => controller.pageController.animateToPage(
-                                          index,
-                                          duration: const Duration(milliseconds: 500),
-                                          curve: Curves.easeInCubic),
-                                    ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height : MediaQuery.of(context).size.height * 0.5,
+                                        child: CommonImageView(
+                                          imagePath:
+                                          Images.icOnBoardThree,
+
+                                          fit: BoxFit.contain,
+                                          width: size.width,
+                                        ),
+                                      ),
+                                      Positioned.fill(
+                                        bottom: 50,
+                                        child: Align(
+
+                                          alignment: Alignment.bottomCenter,
+
+
+                                          child: SmoothPageIndicator(
+                                            controller: controller.pageController,
+                                            count: 3,
+                                            effect: const WormEffect(
+                                                activeDotColor: orangeColor,
+                                                dotColor: loginPageLabelColor,
+                                                dotHeight: 4,
+                                                dotWidth: 8,
+                                                spacing: 4),
+                                            onDotClicked: (index) => controller.pageController.animateToPage(
+                                                index,
+                                                duration: Duration(milliseconds: 500),
+                                                curve: Curves.easeInCubic),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
+
                                   SizedBox(height: 10.h,),
                                   Row(
+
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(width: 10.w,),
+
                                       SizedBox(
-                                          width: MediaQuery.of(context).size.width * 0.7,
+                                          width: MediaQuery.of(context).size.width * 0.8,
                                           child: SmallText(text: "Pickup or Delivery at your door", size: 30.sp,color: blackColor,)),
                                     ],
                                   ),//36
