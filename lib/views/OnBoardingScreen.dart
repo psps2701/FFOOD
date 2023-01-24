@@ -231,7 +231,7 @@ class OnBoardingScreen extends GetView<OnBoardingController>
 
                     GestureDetector(
                         onTap: (){
-                          controller.isLastPage.value ?  Get.toNamed(Routes.homeScreen) : controller.pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                          controller.isLastPage.value ?  Get.toNamed(Routes.mainScreen) : controller.pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
                         },
                         child: Image.asset("assets/move_next.png", height: 130.h,))
 

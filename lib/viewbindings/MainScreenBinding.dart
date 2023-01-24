@@ -2,12 +2,13 @@ import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:get/get.dart';
 
 import '../controllers/MainScreen/HomeScreenController.dart';
+import '../controllers/MainScreen/MainScreenController.dart';
 
 
-class HomeScreenBinding extends Bindings {
+class MainScreenBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() =>HomeScreenController());
+    Get.lazyPut(() =>MainScreenController());
   }
 
 

@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
 
-class HomeScreenController extends GetxController with StateMixin<dynamic> {
+class FavoriteScreenController extends GetxController with StateMixin<dynamic> {
+
 
   @override
   Future<void> onInit() async {

@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../controllers/MainScreen/CartScreenController.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
@@ -11,22 +13,23 @@ import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
-import 'DrawerScreen.dart';
 
 
-class HomeScreen extends GetView<HomeScreenController>
-
+class CartScreen extends GetView<CartScreenController>
 {
-  const HomeScreen({super.key});
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: Stack(
-      children: [
-        DrawerScreen(),
-        HomeScreen(),
-      ],
-    ),);;
+
+    return  AnnotatedRegion<SystemUiOverlayStyle>(
+      value:   SystemUiOverlayStyle(
+        systemNavigationBarColor: AppColors.white, // Navigation bar
+        statusBarColor: AppColors.themeColor, //
+          // Status bar
+      ),
+      child: SafeArea(child: Text("Cart",style: TextStyle(fontSize: 20),)),
+    );;
   }
 
 }
