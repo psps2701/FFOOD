@@ -7,6 +7,7 @@ class SmallText extends StatelessWidget {
   double height;
   TextOverflow overflow;
   FontWeight fontWeight;
+  TextAlign textAlign;
 
   SmallText(
       {Key? key,
@@ -15,7 +16,10 @@ class SmallText extends StatelessWidget {
         this.overflow = TextOverflow.ellipsis,
         this.height = 1.2,
         this.fontWeight = FontWeight.normal,
-        this.size = 12})
+        this.size = 12,
+        this.textAlign = TextAlign.center,
+
+      })
       : super(key: key);
 
   @override
@@ -24,7 +28,7 @@ class SmallText extends StatelessWidget {
       text,
       overflow: overflow,
       maxLines: 50,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: TextStyle(
           color: color,
           fontWeight: fontWeight,

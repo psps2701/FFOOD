@@ -12,5 +12,13 @@ class Images {
   static String bottomCart = "assets/bottom_cart.png";
   static String bottomLocation = "assets/bottom_location.png";
   static String bottomNotification = "assets/bottom_notification.png";
+  static String homeMenu = "assets/ic_menu_new.png";
+  static String icUserPlaceHolder = "assets/ic_user_placeholder.png";
+  static String icStartNew = "assets/ic_start_new.png";
+  static String icBike = "assets/ic_bike.png";
+  static String icCheck = "assets/ic_check.png";
+  static String icClock = "assets/ic_clock.png";
+  static String icGrid = "assets/ic_grid.png";
+  static String icList = "assets/ic_list.png";
 
 }

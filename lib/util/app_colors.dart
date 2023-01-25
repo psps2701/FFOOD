@@ -5,6 +5,7 @@ class AppColors {
 
   static Color themeColor = fromHex('#FC8019');
   static Color white = fromHex('#FFFFFF');
+  static Color statusBarGrey = fromHex('#f8f8f8');
 
 
   static Color fromHex(String hexString) {

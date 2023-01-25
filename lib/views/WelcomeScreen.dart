@@ -24,34 +24,40 @@ class WelcomeScreen extends GetView<WelcomeController>
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.themeColor, // Navigation bar
-        statusBarColor: AppColors.themeColor, //
+        statusBarColor: AppColors.statusBarGrey,
+          statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark
 
-          // Status bar
+
+        // Status bar
       ),
       child: Scaffold(
-        body: Stack(
-          children: [
-            Center(
-                child:
-                CommonImageView(
-                  imagePath:
-                  Images.startBackground,
-                  height: size.height,
-                  fit: BoxFit.cover,
-                  width: size.width,
-                )),
-
-            Positioned(
-                right: 20,
-                top: 40,
-                child: Image.asset("assets/skip_btn.png", height: 37.h,)),
-            ListView(
+        body: SafeArea(
+          child: Container(
+            width: size.width,
+            height: size.height,
+            child: Stack(
               children: [
+                Center(
+                    child:
+                    CommonImageView(
+                      imagePath:
+                      Images.startBackground,
+                      height: size.height,
+                      fit: BoxFit.cover,
+                      width: size.width,
+                    )),
+
+                Positioned(
+                    right: 20,
+                    top: 10,
+                    child: Image.asset("assets/skip_btn.png", height: 37.h,)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    SizedBox(height: 60.h,),
+                    SizedBox(height: 80.h,),
                     Image.asset("assets/start_screen_logo.png"),
                     SizedBox(
                       height: 20.h,
@@ -59,6 +65,8 @@ class WelcomeScreen extends GetView<WelcomeController>
                     SizedBox(
                       height: 70.h,
                     ),
+                    Expanded(child: Container()),
+
                     Container(
                       // margin: EdgeInsets.only(left: 10),
                       child: Row(
@@ -181,10 +189,10 @@ class WelcomeScreen extends GetView<WelcomeController>
                     ),
                     SizedBox(height: 20.h,)
                   ],
-                ),
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );;

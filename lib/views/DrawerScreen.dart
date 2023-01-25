@@ -14,7 +14,7 @@ class DrawerScreen extends GetView<HomeScreenController>
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: Scaffold(
+    return  Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(bottom: 50.0),
         child: ListView(
@@ -264,7 +264,7 @@ class DrawerScreen extends GetView<HomeScreenController>
           // ),
         ),
       ),
-    ));
+    );
   }
 
 }

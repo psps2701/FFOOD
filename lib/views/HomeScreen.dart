@@ -1,5 +1,6 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
+import 'package:ffood/views/HomeView.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,9 +23,9 @@ class HomeScreen extends GetView<HomeScreenController>
   @override
   Widget build(BuildContext context) {
     return  SafeArea(child: Stack(
-      children: [
+      children: const [
         DrawerScreen(),
-        HomeScreen(),
+        HomeView(),
       ],
     ),);;
   }

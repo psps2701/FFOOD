@@ -1,8 +1,12 @@
+import 'package:ffood/util/app_colors.dart';
+import 'package:ffood/util/size_utils.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../util/colors.dart';
+import '../util/images.dart';
+import 'CustomCard.dart';
 import 'big_text.dart';
 
 
@@ -121,47 +125,47 @@ class _PopularItemCardState extends State<PopularItemCard> {
             ],
           ),
 
+
+
           Positioned(
             top:125.h,
             // bottom: 200,
-            child: Padding(
+            child: Container(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 // width: MediaQuery.of(context).size.width * 0.2,
                 // height: MediaQuery.of(context).size.height * 0.05,
                 // padding: EdgeInsets.symmetric(horizontal: 15),
-                decoration:  ShapeDecoration(
-                  // shadows: withShadow == true ? [
-                  //   BoxShadow(
-                  //     // color: Colors.grey.withOpacity(0.2),
-                  //       blurRadius: 3,
-                  //       color: greayColor,
-                  //       offset: Offset(1, 10))
-                  // ]: [],
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20.r))),
-                    color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0).r,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      BigText(
-                        text: widget.rating,
-                        size: 12.sp,
-                      ),
-                      Image.asset(
-                        "assets/star.png",
-                        width: 15.w,
-                        height: MediaQuery.of(context).size.height * 0.0177,
-                      ),
-                      SmallText(
-                        text: "(${widget.reviewsCount}+)",
-                        size: 8.5.sp,
-                      )
-                    ],
+                height: 30,
+                child: CustomCard(
+                  margin: 0,
+                  padding: 0,
+
+                  child: Container(
+                    margin: getMargin(left: 5,right: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        BigText(
+                          text: widget.rating,
+                          size: 12.sp,
+                        ),
+                        Container(
+                          margin: getMargin(left: 2,right: 2),
+                          child: Image.asset(
+                            Images.icStartNew,
+                            width: 10.w,
+                            height: MediaQuery.of(context).size.height * 0.0177,
+                          ),
+                        ),
+                        SmallText(
+                          text: "(${widget.reviewsCount}+)",
+                          size: 8.5.sp,
+                          color: Colors.grey,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -202,9 +206,10 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         ],
                       ),
                     ),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0).r,
-                        child: SmallText(text: widget.details,size: 14.sp,)
+                    Container(
+                      width: size.width,
+                        margin: getMargin(left: 10),
+                        child: SmallText(text: widget.details,size: 14.sp,textAlign: TextAlign.start,)
                     )
                   ],
                 ),

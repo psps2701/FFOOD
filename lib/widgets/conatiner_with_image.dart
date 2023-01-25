@@ -11,9 +11,10 @@ class ImageContainer extends StatefulWidget {
   double width;
   double height;
   bool isPressed;
+  double padding;
   final int themeValue;
 
-   ImageContainer({Key? key, required this.imageName, this.withShadow = false, required this.height, required this.width, this.isPressed = false, required this.themeValue}) : super(key: key);
+   ImageContainer( {Key? key, this.padding = 0 ,required this.imageName, this.withShadow = false, required this.height, required this.width, this.isPressed = false, required this.themeValue}) : super(key: key);
 
   @override
   State<ImageContainer> createState() => _ImageContainerState();
@@ -44,8 +45,10 @@ class _ImageContainerState extends State<ImageContainer> {
             ],
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.r))),
-            color: widget.isPressed ? orangeColor : widget.themeValue == 1 ?darkThemeContainerColor :Colors.white),
-        child: Image.asset(widget.imageName, color: widget.isPressed ? Colors.white :orangeColor,),
+            color: widget.isPressed ? orangeColor : Colors.white),
+        child: Container(
+            padding: EdgeInsets.all(widget.padding),
+            child: Image.asset(widget.imageName, color: widget.isPressed ? Colors.white :orangeColor,)),
       ),
     );
   }

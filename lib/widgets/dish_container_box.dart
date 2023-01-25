@@ -1,3 +1,4 @@
+import 'package:ffood/util/images.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -156,11 +157,11 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                         color: widget.themeValue == 1 ? darkThemeFontColor: fontColor,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
+                        padding: const EdgeInsets.only(left: 2.0),
                         child: Image.asset(
-                          "assets/clock.png",
-                          width: 15,
-                          height: 15,
+                          Images.icCheck,
+                          width: 14,
+                          height: 14,
                         ),
                       )
                     ],
@@ -171,7 +172,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset("assets/rider.png"),
+                      Image.asset(Images.icBike,height: 15,width: 15,),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: SmallText(
@@ -182,7 +183,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.07,
                       ),
-                      Image.asset("assets/stopwatch.png"),
+                      Image.asset(Images.icClock,height: 15,width: 15,),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: SmallText(

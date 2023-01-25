@@ -30,15 +30,10 @@ class MainScreen extends GetView<MainScreenController>
 
     return  Scaffold(
       backgroundColor: Colors.white,
-      body: GetX<MainScreenController>(
-
-        builder: (controller) {
-          return PageView(
-            controller: controller.pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            children: controller.mainScreenItems,
-          );
-        }
+      body: PageView(
+        controller: controller.pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: controller.mainScreenItems.value,
       ),
       bottomNavigationBar: Container(
         // width: 3.w,

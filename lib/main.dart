@@ -1,5 +1,7 @@
 import 'package:ffood/provider/theme_provider.dart';
+import 'package:ffood/util/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:device_preview/device_preview.dart';
@@ -9,6 +11,15 @@ import 'package:ffood/helper/dependency.dart' as dep;
 import 'Route/Routes.dart';
 Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  SystemUiOverlayStyle(
+      statusBarColor: AppColors.statusBarGrey,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: AppColors.white
+
+
+    // Status bar
+  );
   await dep.init();
   runApp(
     DevicePreview(

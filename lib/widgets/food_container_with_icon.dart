@@ -24,15 +24,15 @@ class _FoodVertialContainerState extends State<FoodVertialContainer> {
       width: 70.w,
       height: 98.h,
       decoration:  ShapeDecoration(
-          shadows: widget.themeValue == 0 ? [
+          shadows:  [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-                blurRadius: 3,
-                offset: Offset(1, 10))
-          ] : [],
+                color: Colors.grey.withOpacity(0.2),
+                blurRadius: 20,
+                offset: const Offset(1, 10))
+          ],
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(40).w)),
-          color: widget.onPressed ? orangeColor: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white),
+              borderRadius: BorderRadius.all(const Radius.circular(40).w)),
+          color: widget.onPressed ? orangeColor: widget.themeValue == 1 ? Colors.white :Colors.white),
       child: Column(
         children: [
       Padding(
@@ -57,7 +57,7 @@ class _FoodVertialContainerState extends State<FoodVertialContainer> {
 
     ),
       ),
-          SmallText( text: widget.name, color: widget.onPressed ? Colors.white : widget.themeValue == 1 ? Colors.white:blackColor, size: 16.sp,)
+          SmallText( text: widget.name, color: widget.onPressed ? Colors.white : widget.themeValue == 1 ? Colors.black:blackColor, size: 16.sp,)
         ],
       ),
 

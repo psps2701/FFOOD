@@ -25,8 +25,10 @@ class ReviewScreen extends GetView<ReviewScreenController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.white, // Navigation bar
-        statusBarColor: AppColors.themeColor, //
+          systemNavigationBarColor: AppColors.white, // Navigation bar
+          statusBarColor: AppColors.statusBarGrey,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark
           // Status bar
       ),
       child: SafeArea(child: Text("Review",style: TextStyle(fontSize: 20),)),
