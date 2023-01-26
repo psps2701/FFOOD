@@ -1,9 +1,19 @@
-import 'package:ffood/controllers/OnBoardingController.dart';
+import 'package:ffood/viewbindings/auth/LoginScreenBinding.dart';
+import 'package:ffood/viewbindings/auth/OtpScreenBinding.dart';
+import 'package:ffood/viewbindings/auth/RegisterScreenBinding.dart';
+import 'package:ffood/viewbindings/auth/ResetPasswordScreenBinding.dart';
+import 'package:ffood/views/auth/LoginScreen.dart';
+import 'package:ffood/views/auth/OtpScreen.dart';
+import 'package:ffood/views/auth/RegisterScreen.dart';
+import 'package:ffood/views/auth/RegistrationScreen.dart';
+import 'package:ffood/views/auth/ResetPasswordScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+
 import '../viewbindings/HomeScreenBinding.dart';
 import '../viewbindings/MainScreenBinding.dart';
 import '../viewbindings/OnBoardingBinding.dart';
 import '../viewbindings/WelcomeBinding.dart';
+import '../viewbindings/auth/RegistrationScreenBinding.dart';
 import '../views/HomeScreen.dart';
 import '../views/MainScreen.dart';
 import '../views/OnBoardingScreen.dart';
@@ -16,6 +26,11 @@ class Routes {
   static const String onBoardingScreen = '/onBoardingScreen';
   static const String homeScreen = '/homeScreen';
   static const String mainScreen = '/mainScreen';
+  static const String loginScreen = '/loginScreen';
+  static const String registerScreen = '/registerScreen';
+  static const String otpScreen = '/otpScreen';
+  static const String registrationScreen = '/registrationScreen';
+  static const String resetPasswordScreen = '/resetPasswordScreen';
 
   static final routes = [
     GetPage(
@@ -37,6 +52,31 @@ class Routes {
       name: mainScreen,
       page: () => const MainScreen(),
       binding: MainScreenBinding(),
+    ),
+    GetPage(
+      name: loginScreen,
+      page: () => const LoginScreen(),
+      binding: LoginScreenBinding(),
+    ),
+    GetPage(
+      name: registerScreen,
+      page: () => const RegisterScreen(),
+      binding: RegisterScreenBinding(),
+    ),
+    GetPage(
+      name: otpScreen,
+      page: () => const OtpScreen(),
+      binding: OtpScreenBinding(),
+    ),
+    GetPage(
+      name: resetPasswordScreen,
+      page: () => const ResetPasswordScreen(),
+      binding: ResetPasswordScreenBinding(),
+    ),
+    GetPage(
+      name: registrationScreen,
+      page: () => const RegistrationScreen(),
+      binding: RegistrationScreenBinding(),
     ),
   ];
 }

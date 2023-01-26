@@ -1,15 +1,18 @@
-import 'package:ffood/provider/theme_provider.dart';
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:ffood/helper/dependency.dart' as dep;
 import 'package:ffood/util/app_colors.dart';
+import 'package:ffood/util/app_themes.dart';
+import 'package:ffood/util/get_storage_key.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ffood/helper/dependency.dart' as dep;
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'Route/Routes.dart';
-Future <void> main() async{
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemUiOverlayStyle(
       statusBarColor: AppColors.statusBarGrey,
@@ -17,10 +20,10 @@ Future <void> main() async{
       statusBarIconBrightness: Brightness.dark,
       systemNavigationBarColor: AppColors.white
 
-
-    // Status bar
-  );
+      // Status bar
+      );
   await dep.init();
+  await GetStorage.init();
   runApp(
     DevicePreview(
       enabled: false,
@@ -30,29 +33,31 @@ Future <void> main() async{
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(builder: (BuildContext context, Widget? child) => ChangeNotifierProvider(create: (context) => ThemeProvider(),builder: (context, child){
+    final getStorage = GetStorage();
+    bool isDarkMode = getStorage.read(GetStorageKey.IS_DARK_MODE) ?? false;
+    getStorage.write(GetStorageKey.IS_DARK_MODE, isDarkMode);
 
-      final provider = Provider.of<ThemeProvider>(context);
-
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        useInheritedMediaQuery: true,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-        // theme: ThemeData.dark(), // default dark theme replaces default light theme
-        theme:  provider.theme,
-        title: 'Flutter Demo',
-        getPages: Routes.routes,
-        initialRoute: Routes.welcomeScreen,
-      );
-    },),
-
-      designSize:  const Size(375, 812),
+    return ScreenUtilInit(
+      builder: (context, child) => ThemeProvider(
+        initTheme:
+            isDarkMode ? AppThemes.darkThemeData : AppThemes.lightThemeData,
+        builder: (_, myTheme) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            useInheritedMediaQuery: true,
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
+            // theme: ThemeData.dark(), // default dark theme replaces default light theme
+            theme: myTheme,
+            title: 'FFood',
+            getPages: Routes.routes,
+            initialRoute: Routes.welcomeScreen,
+          );
+        },
+      ),
+      designSize: const Size(375, 812),
     );
   }
 }

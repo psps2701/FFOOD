@@ -3,8 +3,9 @@ import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+
 import '../util/app_colors.dart';
 import '../util/colors.dart';
 import '../util/images.dart';
@@ -12,10 +13,7 @@ import '../util/size_utils.dart';
 import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
 
-
-class WelcomeScreen extends GetView<WelcomeController>
-
-{
+class WelcomeScreen extends GetView<WelcomeController> {
   const WelcomeScreen({super.key});
 
   @override
@@ -138,8 +136,7 @@ class WelcomeScreen extends GetView<WelcomeController>
                           /*=>
                               navigateToOnboardingScreen()*/
 
-                          Get.toNamed(Routes.onBoardingScreen);
-
+                          Get.toNamed(Routes.loginScreen);
                         },
                         child: Container(
                           width: 293.w,
