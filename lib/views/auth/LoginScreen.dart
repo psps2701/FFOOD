@@ -21,8 +21,11 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.white, // Navigation bar
-        statusBarColor: AppColors.themeColor, //
+          statusBarColor: AppColors.statusBarGrey,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor: AppColors.white
+
         // Status bar
       ),
       child: Scaffold(
@@ -107,7 +110,9 @@ class LoginScreen extends GetView<LoginController> {
 
         Center(
         child: GestureDetector(
-        onTap: () => Get.toNamed(Routes.homeScreen),
+        onTap: () {
+          Get.toNamed(Routes.mainScreen);
+        },
 
         child: Container(
         width: 248.w,

@@ -22,7 +22,9 @@ class HomeScreen extends GetView<HomeScreenController>
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: Stack(
+    return  SafeArea(
+
+      child: Stack(
       children: const [
         DrawerScreen(),
         HomeView(),

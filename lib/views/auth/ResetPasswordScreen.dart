@@ -18,8 +18,11 @@ class ResetPasswordScreen extends GetView<ResetPasswordController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.white, // Navigation bar
-        statusBarColor: AppColors.themeColor, //
+          statusBarColor: AppColors.statusBarGrey,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor: AppColors.white
+//
         // Status bar
       ),
       child: SafeArea(

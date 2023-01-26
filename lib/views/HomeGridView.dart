@@ -70,11 +70,10 @@ class HomeGridView extends GetView<HomeScreenController>
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: GestureDetector(
-                    onTap: () => print(""),
+                    onTap: () => Get.toNamed(Routes.restaurantprofileScreen),
                     child: const FeatureResturantContainer(themeValue: 0,)),
               )),
         ),
-
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: BigText(
@@ -83,7 +82,6 @@ class HomeGridView extends GetView<HomeScreenController>
             color: Colors.black,
           ),
         ),
-
         Container(
           // width: ScreenUtil().screenWidth,
           height:280,

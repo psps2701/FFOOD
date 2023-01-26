@@ -1,7 +1,13 @@
+import 'package:ffood/viewbindings/RestaurantProfileScreenBinding.dart';
+import 'package:ffood/viewbindings/SearchFoodScreenBinding.dart';
+import 'package:ffood/viewbindings/SearchScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/LoginScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/OtpScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/RegisterScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/ResetPasswordScreenBinding.dart';
+import 'package:ffood/views/RestaurantProfileScreen.dart';
+import 'package:ffood/views/SearchFoodScreen.dart';
+import 'package:ffood/views/SearchScreen.dart';
 import 'package:ffood/views/auth/LoginScreen.dart';
 import 'package:ffood/views/auth/OtpScreen.dart';
 import 'package:ffood/views/auth/RegisterScreen.dart';
@@ -31,6 +37,9 @@ class Routes {
   static const String otpScreen = '/otpScreen';
   static const String registrationScreen = '/registrationScreen';
   static const String resetPasswordScreen = '/resetPasswordScreen';
+  static const String restaurantprofileScreen = '/restaurantprofileScreen';
+  static const String searchFoodScreen = '/searchFoodScreen';
+  static const String searchScreen = '/searchScreen';
 
   static final routes = [
     GetPage(
@@ -77,6 +86,20 @@ class Routes {
       name: registrationScreen,
       page: () => const RegistrationScreen(),
       binding: RegistrationScreenBinding(),
+    ),
+    GetPage(
+      name: restaurantprofileScreen,
+      page: () => const RestaurantProfileScreen(),
+      binding: RestaurantProfileScreenBinding(),
+    ),
+    GetPage(
+      name: searchScreen,
+      page: () => const SearchScreen(),
+      binding: SearchScreenBinding(),
+    ),GetPage(
+      name: searchFoodScreen,
+      page: () => const SearchFoodScreen(),
+      binding: SearchFoodScreenBinding(),
     ),
   ];
 }

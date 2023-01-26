@@ -9,6 +9,7 @@ class MainScreenBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() =>MainScreenController());
+    Get.lazyPut(() =>HomeScreenController());
   }
 
 

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,
             // theme: ThemeData.dark(), // default dark theme replaces default light theme
-            theme: myTheme,
+
             title: 'FFood',
             getPages: Routes.routes,
             initialRoute: Routes.welcomeScreen,

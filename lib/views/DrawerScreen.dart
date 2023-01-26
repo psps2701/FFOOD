@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../util/colors.dart';
 import 'package:lottie/lottie.dart';
+import '../util/images.dart';
 import '../widgets/big_text.dart';
 import '../widgets/small_text.dart';
 
@@ -22,12 +23,12 @@ class DrawerScreen extends GetView<HomeScreenController>
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
+                 Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage(
-                      "assets/sidemenuuser.png",
+                      Images.icUserPlaceHolder,
                     ),
                   ),
                 ),
@@ -217,6 +218,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset("assets/logo_side_menu.png", width: 125,),
                     ),
+
                     // SizedBox(
                     //   height: MediaQuery.of(context).size.height * 0.076,
                     // ),
@@ -228,7 +230,7 @@ class DrawerScreen extends GetView<HomeScreenController>
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.only(left: 16.0, bottom: 4),
+        padding: const EdgeInsets.only(left: 16.0, bottom: 10),
         child: Container(
             width: 117,
             height: 43,
@@ -249,12 +251,13 @@ class DrawerScreen extends GetView<HomeScreenController>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/logout_logo.png", width: 26,),
-                SizedBox(width: 10,),
+                SizedBox(height: 10,),
                 SmallText(
                   text: "Log Out",
                   size: 15,
                   color: Colors.white,
                 ),
+
               ],
             )
 

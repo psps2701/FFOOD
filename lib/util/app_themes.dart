@@ -48,7 +48,6 @@ class AppThemes {
     background: Color(0xff141A31),
     surface: Color(0xff1E2746),
     onBackground: Color(0x0DFFFFFF),
-    // White with 0.05 opacity
     error: Colors.red,
     onError: Colors.white,
     onPrimary: Colors.white,
