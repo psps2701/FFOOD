@@ -28,25 +28,30 @@ class _CustomBackButtonState extends State<CustomBackButton> {
   }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        width: 38,
-        height: 38,
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        decoration:  ShapeDecoration(
-          shadows: [
-            BoxShadow(
-              blurRadius: 3,
-              spreadRadius: 1,
-              offset: const Offset(1, 10),
-              color: Colors.grey.withOpacity(0.2),
-            )
-          ],
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.all(Radius.circular(10))),
-            color: Colors.white),
-        child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+    return GestureDetector(
+      onTap: (){
+        Navigator.pop(context);
+      },
+      child: SafeArea(
+        child: Container(
+          width: 38,
+          height: 38,
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          decoration:  ShapeDecoration(
+            shadows: [
+              BoxShadow(
+                blurRadius: 3,
+                spreadRadius: 1,
+                offset: const Offset(1, 10),
+                color: Colors.grey.withOpacity(0.2),
+              )
+            ],
+              shape: RoundedRectangleBorder(
+                  borderRadius:
+                  BorderRadius.all(Radius.circular(10))),
+              color: Colors.white),
+          child:  Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+        ),
       ),
     );
   }

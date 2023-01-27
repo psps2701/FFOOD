@@ -6,21 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../controllers/MainScreen/HomeScreenController.dart';
-import '../controllers/MainScreen/ReviewScreenController.dart';
-import '../controllers/SearchController.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
-import '../util/images.dart';
-import '../util/size_utils.dart';
 import '../widgets/back_button.dart';
 import '../widgets/big_text.dart';
-import '../widgets/common_image_view.dart';
 import '../widgets/conatiner_with_image.dart';
 import '../widgets/find_resturant_card.dart';
 import '../widgets/search_food_card.dart';
-import '../widgets/small_text.dart';
-import '../widgets/text_field_with_icon.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchFoodScreen extends GetView<SearchFoodController>  {

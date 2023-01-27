@@ -1,3 +1,6 @@
+import 'package:ffood/viewbindings/AddressListScreenBinding.dart';
+import 'package:ffood/viewbindings/AddressScreenBinding.dart';
+import 'package:ffood/viewbindings/ProfileScreenBinding.dart';
 import 'package:ffood/viewbindings/RestaurantProfileScreenBinding.dart';
 import 'package:ffood/viewbindings/SearchFoodScreenBinding.dart';
 import 'package:ffood/viewbindings/SearchScreenBinding.dart';
@@ -5,6 +8,10 @@ import 'package:ffood/viewbindings/auth/LoginScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/OtpScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/RegisterScreenBinding.dart';
 import 'package:ffood/viewbindings/auth/ResetPasswordScreenBinding.dart';
+import 'package:ffood/viewbindings/orders/MyOrdersScreenBinding.dart';
+import 'package:ffood/viewbindings/orders/OrderDetailsScreenBinding.dart';
+import 'package:ffood/viewbindings/orders/OrderEmptyScreenBinding.dart';
+import 'package:ffood/views/AddressScreen.dart';
 import 'package:ffood/views/RestaurantProfileScreen.dart';
 import 'package:ffood/views/SearchFoodScreen.dart';
 import 'package:ffood/views/SearchScreen.dart';
@@ -13,6 +20,11 @@ import 'package:ffood/views/auth/OtpScreen.dart';
 import 'package:ffood/views/auth/RegisterScreen.dart';
 import 'package:ffood/views/auth/RegistrationScreen.dart';
 import 'package:ffood/views/auth/ResetPasswordScreen.dart';
+import 'package:ffood/views/mainscreen/ProfileScreen.dart';
+import 'package:ffood/views/orders/MyOrdersScreen.dart';
+import 'package:ffood/views/orders/OrderDetailsScreen.dart';
+import 'package:ffood/views/orders/OrdersEmptyScreen.dart';
+import 'package:ffood/views/AddressListScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../viewbindings/HomeScreenBinding.dart';
@@ -40,6 +52,12 @@ class Routes {
   static const String restaurantprofileScreen = '/restaurantprofileScreen';
   static const String searchFoodScreen = '/searchFoodScreen';
   static const String searchScreen = '/searchScreen';
+  static const String myorderScreen = '/myOrderScreen';
+  static const String orderEmptyScreen = '/orderEmptyScreen';
+  static const String orderDetailScreen = '/orderDetailScreen';
+  static const String profileScreen = '/profileScreen';
+  static const String addressScreen = '/addressScreen';
+  static const String addressListScreen = '/addressListScreen';
 
   static final routes = [
     GetPage(
@@ -96,10 +114,41 @@ class Routes {
       name: searchScreen,
       page: () => const SearchScreen(),
       binding: SearchScreenBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: searchFoodScreen,
       page: () => const SearchFoodScreen(),
       binding: SearchFoodScreenBinding(),
+    ),
+    GetPage(
+      name: myorderScreen,
+      page: () => const MyOrdersScreen(),
+      binding: MyOrdersScreenBinding(),
+    ),
+    GetPage(
+      name: orderDetailScreen,
+      page: () => const OrderDetailsScreen(),
+      binding: OrderDetailsScreenBinding(),
+    ),
+    GetPage(
+      name: orderEmptyScreen,
+      page: () => const OrdersEmptyScreen(),
+      binding: OrderEmptyScreenBinding(),
+    ),
+    GetPage(
+      name: profileScreen,
+      page: () => const ProfileScreen(),
+      binding: ProfileScreenBinding(),
+    ),
+    GetPage(
+      name: addressScreen,
+      page: () => const AddressScreen(),
+      binding: AddressScreenBinding(),
+    ),
+    GetPage(
+      name: addressListScreen,
+      page: () => const AddressListScreen(),
+      binding: AddressListScreenBinding(),
     ),
   ];
 }

@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../Route/Routes.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../util/colors.dart';
 import 'package:lottie/lottie.dart';
@@ -59,7 +60,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                       // onTap: () => navigateToMyOrderScreen(),
+                        onTap: () => Get.toNamed(Routes.myorderScreen),
                         child: Row(
                           children: [
                             Image.asset(
@@ -82,6 +83,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                       onTap: () {
                         print("Pressed");
                       //  navigateToProfileScreen();
+                        Get.toNamed(Routes.profileScreen);
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -106,7 +108,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                        //onTap: () => navigateToNewAddressScreen(),
+                        onTap: () => Get.toNamed(Routes.addressListScreen),
                         child: Row(
                           children: [
                             Image.asset(
