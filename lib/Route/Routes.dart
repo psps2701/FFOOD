@@ -32,11 +32,17 @@ import '../viewbindings/MainScreenBinding.dart';
 import '../viewbindings/OnBoardingBinding.dart';
 import '../viewbindings/WelcomeBinding.dart';
 import '../viewbindings/auth/RegistrationScreenBinding.dart';
+import '../viewbindings/payment/PaymentScreenBinding.dart';
+import '../viewbindings/payment/ScanCardScreenBinding.dart';
+import '../viewbindings/sidemenu/PaymentMethodBinding.dart';
 import '../viewbindings/sidemenu/SettingBinding.dart';
 import '../views/HomeScreen.dart';
 import '../views/MainScreen.dart';
 import '../views/OnBoardingScreen.dart';
+import '../views/Payment/PaymentScreen.dart';
+import '../views/Payment/ScanCardScreen.dart';
 import '../views/WelcomeScreen.dart';
+import '../views/sidemenu/PaymentMethodScreen.dart';
 import '../views/sidemenu/SettingScreen.dart';
 
 
@@ -51,16 +57,19 @@ class Routes {
   static const String otpScreen = '/otpScreen';
   static const String registrationScreen = '/registrationScreen';
   static const String resetPasswordScreen = '/resetPasswordScreen';
-  static const String restaurantprofileScreen = '/restaurantprofileScreen';
+  static const String restaurantProfileScreen = '/restaurantProfileScreen';
   static const String searchFoodScreen = '/searchFoodScreen';
   static const String searchScreen = '/searchScreen';
-  static const String myorderScreen = '/myOrderScreen';
+  static const String myOrderScreen = '/myOrderScreen';
   static const String orderEmptyScreen = '/orderEmptyScreen';
   static const String orderDetailScreen = '/orderDetailScreen';
   static const String profileScreen = '/profileScreen';
   static const String addressScreen = '/addressScreen';
   static const String addressListScreen = '/addressListScreen';
   static const String settingScreen = '/settingScreen';
+  static const String paymentScreen = '/paymentScreen';
+  static const String scanCardScreen = '/scanCardScreen';
+  static const String paymentMethodScreen = '/paymentMethodScreen';
 
   static final routes = [
     GetPage(
@@ -109,7 +118,7 @@ class Routes {
       binding: RegistrationScreenBinding(),
     ),
     GetPage(
-      name: restaurantprofileScreen,
+      name: restaurantProfileScreen,
       page: () => const RestaurantProfileScreen(),
       binding: RestaurantProfileScreenBinding(),
     ),
@@ -124,7 +133,7 @@ class Routes {
       binding: SearchFoodScreenBinding(),
     ),
     GetPage(
-      name: myorderScreen,
+      name: myOrderScreen,
       page: () => const MyOrdersScreen(),
       binding: MyOrdersScreenBinding(),
     ),
@@ -157,6 +166,23 @@ class Routes {
       name: settingScreen,
       page: () => const SettingScreen(),
       binding: SettingBinding(),
+    ),
+
+    GetPage(
+      name: paymentScreen,
+      page: () => const PaymentScreen(),
+      binding: PaymentScreenBinding(),
+    ),
+
+    GetPage(
+      name: scanCardScreen,
+      page: () => const ScanCardScreen(),
+      binding: ScanCardScreenBinding(),
+    ),
+    GetPage(
+      name: paymentMethodScreen,
+      page: () => const PaymentMethodScreen(),
+      binding: PaymentMethodBinding(),
     ),
   ];
 }

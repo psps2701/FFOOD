@@ -1,4 +1,5 @@
 
+import 'package:ffood/controllers/MainScreen/CartScreenController.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/MainScreen/HomeScreenController.dart';
@@ -10,6 +11,7 @@ class MainScreenBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(() =>MainScreenController());
     Get.lazyPut(() =>HomeScreenController());
+
   }
 
 

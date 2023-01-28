@@ -26,6 +26,9 @@ class ThemeColors {
 
 
   var lightDark =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#000000');
+  var mainBgColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#2D2D3A') :  fromHex('#FFFFFF');
+  var mainColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#');
+  var statusBarColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#f8f8f8');
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

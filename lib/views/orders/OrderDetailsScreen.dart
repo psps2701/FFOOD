@@ -10,6 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../controllers/orders/OrdersEmptyController.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/images.dart';
+import '../../util/size_utils.dart';
+import '../../widgets/CustomCard.dart';
 import '../../widgets/back_button.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/order_screens_widgets/order_detail_header_card.dart';
@@ -44,11 +47,27 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: CustomBackButton(),
+                GestureDetector(
+                  // onTap: navigateToHomeScreen,
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: Container(
+                      width: 38,
+                      height: 38,
+                      margin: getMargin(left: 15,top: 10,bottom: 10),
+                      // padding: EdgeInsets.symmetric(horizontal: 15),
+
+                      child: CustomCard(
+                        margin: 0,
+                        child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                BigText(text: "My Orders", size: 18.sp,),
+                Expanded(child: Center(child: BigText(text: "My Orders"))),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
                   child: Container(

@@ -56,7 +56,7 @@ class HomeView extends GetView<HomeScreenController>
                   physics: const AlwaysScrollableScrollPhysics(),
                   child: Container(
 
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         left: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,16 +140,19 @@ class HomeView extends GetView<HomeScreenController>
 
                             Expanded(child: Container()),
                             // User image
-                            Container(
-                              width: 40,
-                              height: 40,
-                              margin: getMargin(right: 10,top: 10),
-                              // padding: EdgeInsets.symmetric(horizontal: 15.w),
-                              child: CustomCardImage(
-                                padding: 0,
-                                margin: 0,
-                                image: Images.icUserPlaceHolder,
-                                child: Container(),),
+                            GestureDetector(
+                              onTap: () =>Get.toNamed(Routes.profileScreen),
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                margin: getMargin(right: 10,top: 10),
+                                // padding: EdgeInsets.symmetric(horizontal: 15.w),
+                                child: CustomCardImage(
+                                  padding: 0,
+                                  margin: 0,
+                                  image: Images.icUserPlaceHolder,
+                                  child: Container(),),
+                              ),
                             ),
                           ],
                         ),

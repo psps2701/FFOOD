@@ -60,7 +60,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                         onTap: () => Get.toNamed(Routes.myorderScreen),
+                         onTap: () => Get.toNamed(Routes.myOrderScreen),
                         child: Row(
                           children: [
                             SizedBox(
@@ -151,6 +151,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                       child: GestureDetector(
                         onTap: () {
                           //navigateToPaymentMethodScreen();
+                          Get.toNamed(Routes.paymentMethodScreen);
                         },
                         child: Row(
                           children: [

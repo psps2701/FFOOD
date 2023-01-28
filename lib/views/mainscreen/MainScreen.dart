@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../controllers/MainScreen/CartScreenController.dart';
 import '../../controllers/MainScreen/MainScreenController.dart';
 import '../../util/colors.dart';
 
@@ -61,6 +62,10 @@ class MainScreen extends GetView<MainScreenController>
 
                             print("currentIndex==>${controller.currentIndex.value}");
                             HapticFeedback.mediumImpact();
+                            if(index == 2)
+                              {
+                                Get.lazyPut(() =>CartScreenController());
+                              }
                             controller.navigationTapped(index);
                             controller.currentIndex.refresh();
                           },

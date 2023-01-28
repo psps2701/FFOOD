@@ -29,5 +29,6 @@ class Images {
   static String icProfile = "assets/ic_profile.png";
   static String icWallet = "assets/ic_wallet.png";
   static String icDocument = "assets/ic_document.png";
+  static String icBack = "assets/ic_back.png";
 
 }

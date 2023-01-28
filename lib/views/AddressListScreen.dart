@@ -80,7 +80,7 @@ class AddressListScreen extends GetView<AddressListController>
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: GestureDetector(
-                        onTap: () => Get.toNamed(Routes.restaurantprofileScreen),
+                        onTap: () => Get.toNamed(Routes.restaurantProfileScreen),
                         child: AddressItemCard(name: controller.name[index],
                           details: controller.details[index],
                           rating: controller.rating[index],
