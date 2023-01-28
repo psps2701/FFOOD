@@ -32,10 +32,12 @@ import '../viewbindings/MainScreenBinding.dart';
 import '../viewbindings/OnBoardingBinding.dart';
 import '../viewbindings/WelcomeBinding.dart';
 import '../viewbindings/auth/RegistrationScreenBinding.dart';
+import '../viewbindings/sidemenu/SettingBinding.dart';
 import '../views/HomeScreen.dart';
 import '../views/MainScreen.dart';
 import '../views/OnBoardingScreen.dart';
 import '../views/WelcomeScreen.dart';
+import '../views/sidemenu/SettingScreen.dart';
 
 
 class Routes {
@@ -58,6 +60,7 @@ class Routes {
   static const String profileScreen = '/profileScreen';
   static const String addressScreen = '/addressScreen';
   static const String addressListScreen = '/addressListScreen';
+  static const String settingScreen = '/settingScreen';
 
   static final routes = [
     GetPage(
@@ -149,6 +152,11 @@ class Routes {
       name: addressListScreen,
       page: () => const AddressListScreen(),
       binding: AddressListScreenBinding(),
+    ),
+    GetPage(
+      name: settingScreen,
+      page: () => const SettingScreen(),
+      binding: SettingBinding(),
     ),
   ];
 }

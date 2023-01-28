@@ -24,7 +24,7 @@ class DrawerScreen extends GetView<HomeScreenController>
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Padding(
+                Padding(
                   padding: EdgeInsets.all(20.0),
                   child: CircleAvatar(
                     radius: 40,
@@ -60,12 +60,15 @@ class DrawerScreen extends GetView<HomeScreenController>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                        onTap: () => Get.toNamed(Routes.myorderScreen),
+                         onTap: () => Get.toNamed(Routes.myorderScreen),
                         child: Row(
                           children: [
+                            SizedBox(
+                              width: 7,
+                            ),
                             Image.asset(
-                              "assets/DrawerDocument.png",
-                              height: 40,
+                              Images.icWallet,
+                              height: 22,
                             ),
                             SizedBox(
                               width: 10,
@@ -79,19 +82,24 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     GestureDetector(
                       onTap: () {
                         print("Pressed");
-                      //  navigateToProfileScreen();
                         Get.toNamed(Routes.profileScreen);
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: [
+                            SizedBox(
+                              width: 5,
+                            ),
                             Image.asset(
-                              "assets/Profile.png",
-                              height: 40,
+                              Images.icProfile,
+                              height: 25,
                             ),
                             SizedBox(
                               width: 10,
@@ -105,15 +113,23 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
                         onTap: () => Get.toNamed(Routes.addressListScreen),
                         child: Row(
                           children: [
+
+                            SizedBox(
+                              width: 5,
+                            ),
                             Image.asset(
-                              "assets/DrawerLocation.png",
-                              height: 40,
+
+                              Images.icLocation,
+                              height: 25,
                             ),
                             SizedBox(
                               width: 10,
@@ -127,6 +143,9 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
@@ -135,9 +154,12 @@ class DrawerScreen extends GetView<HomeScreenController>
                         },
                         child: Row(
                           children: [
+                            SizedBox(
+                              width: 7,
+                            ),
                             Image.asset(
-                              "assets/Wallet.png",
-                              height: 40,
+                              Images.icWallet,
+                              height: 22,
                             ),
                             SizedBox(
                               width: 10,
@@ -151,13 +173,19 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
+                          SizedBox(
+                            width: 7,
+                          ),
                           Image.asset(
-                            "assets/Message.png",
-                            height: 40,
+                            Images.icWallet,
+                            height: 22,
                           ),
                           SizedBox(
                             width: 10,
@@ -170,17 +198,24 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
                         onTap: () {
-                         // navigateToSettingsScreen();
+                          // navigateToSettingsScreen();
+                          Get.toNamed(Routes.settingScreen);
                         },
                         child: Row(
                           children: [
+                            SizedBox(
+                              width: 5,
+                            ),
                             Image.asset(
-                              "assets/Setting.png",
-                              height: 40,
+                              Images.icSetting,
+                              height: 25,
                             ),
                             SizedBox(
                               width: 10,
@@ -194,13 +229,19 @@ class DrawerScreen extends GetView<HomeScreenController>
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
+                          SizedBox(
+                            width: 7,
+                          ),
                           Image.asset(
-                            "assets/Helps.png",
-                            height: 40,
+                            Images.icWallet,
+                            height: 22,
                           ),
                           SizedBox(
                             width: 10,

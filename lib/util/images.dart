@@ -21,4 +21,13 @@ class Images {
   static String icGrid = "assets/ic_grid.png";
   static String icList = "assets/ic_list.png";
 
+
+
+
+  static String icSetting = "assets/ic_setting.png";
+  static String icLocation = "assets/ic_location.png";
+  static String icProfile = "assets/ic_profile.png";
+  static String icWallet = "assets/ic_wallet.png";
+  static String icDocument = "assets/ic_document.png";
+
 }
