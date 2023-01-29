@@ -1,9 +1,11 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../util/colors.dart';
+import '../util/images.dart';
 import 'big_text.dart';
 
 class CategoryScreenFoodContainer extends StatefulWidget {
@@ -31,7 +33,7 @@ class _CategoryScreenFoodContainerState
       decoration:  ShapeDecoration(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.r))),
-        color: Colors.white,
+        color: ThemeColors().mainBgColor,
       ),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -70,7 +72,7 @@ class _CategoryScreenFoodContainerState
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                 BorderRadius.all(Radius.circular(20.r))),
-                            color: Colors.white),
+                            color: ThemeColors().mainBgColor),
                         child: Padding(
                           padding:  EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
                           child: Row(
@@ -85,7 +87,7 @@ class _CategoryScreenFoodContainerState
                               SmallText(
                                 text: widget.price,
                                 size: 18.sp,
-                                color: blackColor,
+                                color: ThemeColors().lightDark,
                               )
                             ],
                           ),
@@ -144,7 +146,7 @@ class _CategoryScreenFoodContainerState
                         shape: RoundedRectangleBorder(
                             borderRadius:
                             BorderRadius.all(Radius.circular(20.r))),
-                        color: Colors.white),
+                        color: ThemeColors().mainBgColor),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Row(
@@ -154,10 +156,11 @@ class _CategoryScreenFoodContainerState
                           BigText(
                             text: widget.rating,
                             size: 12.sp,
+                            color: ThemeColors().lightDark,
                           ),
                           Image.asset(
-                            "assets/star.png",
-                            width: 15.w,
+                            Images.icStar,
+                            width: 12.w,
                             height: MediaQuery.of(context).size.height * 0.0177,
                           ),
                           SmallText(
@@ -174,7 +177,7 @@ class _CategoryScreenFoodContainerState
 
             ],
           ),
-          SizedBox(height: 5.h,),
+          SizedBox(height: 10.h,),
           Container(
             width: double.infinity,
             decoration: ShapeDecoration(

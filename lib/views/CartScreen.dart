@@ -7,12 +7,15 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/MainScreen/CartScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/CustomCard.dart';
 import '../widgets/big_text.dart';
+import 'package:get_storage/get_storage.dart';
 import '../widgets/cart_screen_card.dart';
 import '../widgets/small_text.dart';
 
@@ -26,13 +29,14 @@ class CartScreen extends GetView<CartScreenController>
     Get.lazyPut(() =>CartScreenController());
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
           // Status bar
       ),
       child: Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -57,7 +61,9 @@ class CartScreen extends GetView<CartScreenController>
 
                             child: CustomCard(
                               margin: 0,
-                              child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                              bgColor: ThemeColors().mainColor,
+                              color: ThemeColors().shadow,
+                              child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
                               ),
                             ),
                           ),
@@ -65,7 +71,7 @@ class CartScreen extends GetView<CartScreenController>
                       ),
 
 
-                    Expanded(child: Center(child: BigText(text: "Cart", size: 20.sp,))),
+                    Expanded(child: Center(child: BigText(text: "Cart", size: 20.sp,color: ThemeColors().lightDark,))),
                     Container(
                       width: 38,
                       height: 38,
@@ -96,7 +102,7 @@ class CartScreen extends GetView<CartScreenController>
                       left: MediaQuery.of(context).size.height / 90.2,
                       right: MediaQuery.of(context).size.height / 90.2),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: ThemeColors().mainColor,
                     borderRadius: BorderRadius.circular(50.r),
                     boxShadow: const [
                       BoxShadow(
@@ -130,6 +136,7 @@ class CartScreen extends GetView<CartScreenController>
                                 text: "Apply",
                                 size: 15,
                                 color: Colors.white,
+
                               )),
                         ),
                       ),
@@ -140,25 +147,25 @@ class CartScreen extends GetView<CartScreenController>
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(
                             50.r),
-                        borderSide: const BorderSide(
+                        borderSide:  BorderSide(
                           width: 2.0,
-                          color: textFieldBorderColor,
+                          color: ThemeColors().mainColor,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(
                             50.r),
-                        borderSide: const BorderSide(
+                        borderSide:  BorderSide(
                           width: 2.0,
-                          color: textFieldBorderColor,
+                          color: ThemeColors().mainColor,
                         ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(
                             MediaQuery.of(context).size.height / 75.27),
-                        borderSide: const BorderSide(
+                        borderSide:  BorderSide(
                           width: 2.0,
-                          color: Colors.blue,
+                          color: ThemeColors().mainColor,
                         ),
                       ),
                     ),
@@ -171,14 +178,14 @@ class CartScreen extends GetView<CartScreenController>
                     children: [
                       SmallText(
                         text: "Subtotal",
-                        color: blackColor,
+                        color: ThemeColors().lightDark,
                         size: 16.sp,
                       ),
                       Row(
                         children: [
                           SmallText(
                             text: "\$27.30",
-                            color: blackColor,
+                            color: ThemeColors().lightDark,
                             size: 21.sp,
                           ),
                           SmallText(text: "USD",color: loginPageLabelColor),
@@ -201,14 +208,14 @@ class CartScreen extends GetView<CartScreenController>
                     children: [
                       SmallText(
                         text: "Tax and Fees",
-                        color: blackColor,
+                        color: ThemeColors().lightDark,
                         size: 16.sp,
                       ),
                       Row(
                         children: [
                           SmallText(
                             text: "\$7.30",
-                            color: blackColor,
+                            color: ThemeColors().lightDark,
                             size: 21.sp,
                           ),
                           SmallText(text: "USD",color: loginPageLabelColor),
@@ -231,14 +238,14 @@ class CartScreen extends GetView<CartScreenController>
                     children: [
                       SmallText(
                         text: "Delivery",
-                        color: blackColor,
+                        color: ThemeColors().lightDark,
                         size: 16.sp,
                       ),
                       Row(
                         children: [
                           SmallText(
                             text: "\$2.30",
-                            color: blackColor,
+                            color: ThemeColors().lightDark,
                             size: 21.sp,
                           ),
                           SmallText(text: "USD",color: loginPageLabelColor),
@@ -265,7 +272,7 @@ class CartScreen extends GetView<CartScreenController>
                         children: [
                           SmallText(
                             text: "Total",
-                            color: blackColor,
+                            color: ThemeColors().lightDark,
                             size: 16.sp,
                           ),
                           SizedBox(width: 4,),
@@ -280,7 +287,7 @@ class CartScreen extends GetView<CartScreenController>
                         children: [
                           SmallText(
                             text: "\$2.30",
-                            color: blackColor,
+                            color: ThemeColors().lightDark,
                             size: 21.sp,
                           ),
                           SmallText(text: "USD",color: loginPageLabelColor),
@@ -309,7 +316,7 @@ class CartScreen extends GetView<CartScreenController>
                               BoxShadow(
                                 blurRadius: 1,
                                 spreadRadius: 1,
-                                offset: Offset(1, 4),
+                                offset: Offset(1, 1),
                                 color: shadowOrangeColor,
                               )
                             ],

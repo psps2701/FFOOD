@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,7 +54,7 @@ class _ReviewCardState extends State<ReviewCard> {
                       child: Center(
                           child: SmallText(
                         text: "5.0",
-                        color: Colors.white,
+                        color: ThemeColors().lightDark,
                       )),
                     ),
                   )
@@ -67,7 +68,7 @@ class _ReviewCardState extends State<ReviewCard> {
                     SmallText(
                       text: "Alyce Lambo",
                       size: 15.sp,
-                      color: Colors.black,
+                      color: ThemeColors().lightDark,
                     ),
                     SmallText(
                       text: "25/06/2020",
@@ -83,6 +84,7 @@ class _ReviewCardState extends State<ReviewCard> {
             child: SmallText(
               color: reviewTextColor,
               fontWeight: FontWeight.normal,
+              textAlign: TextAlign.start,
               size: 15.sp,
                 text:
                     "Really convenient and the points system helps benefit loyalty. Some mild glitches here and there, but nothing too egregious. Obviously needs to roll out to more remote."),

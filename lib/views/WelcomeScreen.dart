@@ -26,7 +26,6 @@ class WelcomeScreen extends GetView<WelcomeController> {
           statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark
 
-
         // Status bar
       ),
       child: Scaffold(

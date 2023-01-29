@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ class DrawerScreen extends GetView<HomeScreenController>
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: ThemeColors().drawerColor,
       body: Padding(
         padding: const EdgeInsets.only(bottom: 50.0),
         child: ListView(
@@ -38,7 +40,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                       left: MediaQuery.of(context).size.width * 0.067),
                   child: BigText(
                     text: "Farion Wick",
-                    color: Colors.black,
+                    color: ThemeColors().lightDark,
                   ),
                 ),
                 Padding(
@@ -75,7 +77,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                             ),
                             SmallText(
                               text: "My Orders",
-                              color: Colors.black,
+                              color: ThemeColors().lightDark,
                               size: MediaQuery.of(context).size.height / 52.75,
                             )
                           ],
@@ -106,7 +108,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                             ),
                             SmallText(
                               text: "My Profile",
-                              color: Colors.black,
+                              color: ThemeColors().lightDark,
                               size: MediaQuery.of(context).size.height / 52.75,
                             )
                           ],
@@ -136,7 +138,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                             ),
                             SmallText(
                               text: "Delivery Address",
-                              color: Colors.black,
+                              color: ThemeColors().lightDark,
                               size: MediaQuery.of(context).size.height / 52.75,
                             )
                           ],
@@ -167,7 +169,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                             ),
                             SmallText(
                               text: "Payment Methods",
-                              color: Colors.black,
+                              color: ThemeColors().lightDark,
                               size: MediaQuery.of(context).size.height / 52.75,
                             )
                           ],
@@ -193,7 +195,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                           ),
                           SmallText(
                             text: "Contact Us",
-                            color: Colors.black,
+                            color: ThemeColors().lightDark,
                             size: MediaQuery.of(context).size.height / 52.75,
                           )
                         ],
@@ -223,7 +225,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                             ),
                             SmallText(
                               text: "Settings",
-                              color: Colors.black,
+                              color: ThemeColors().lightDark,
                               size: MediaQuery.of(context).size.height / 52.75,
                             )
                           ],
@@ -249,7 +251,7 @@ class DrawerScreen extends GetView<HomeScreenController>
                           ),
                           SmallText(
                             text: "Helps & FAQs",
-                            color: Colors.black,
+                            color: ThemeColors().lightDark,
                             size: MediaQuery.of(context).size.height / 52.75,
                           )
                         ],
@@ -273,7 +275,8 @@ class DrawerScreen extends GetView<HomeScreenController>
           ],
         ),
       ),
-      bottomSheet: Padding(
+      bottomSheet: Container(
+        color : ThemeColors().drawerColor,
         padding: const EdgeInsets.only(left: 16.0, bottom: 10),
         child: Container(
             width: 117,
@@ -281,7 +284,9 @@ class DrawerScreen extends GetView<HomeScreenController>
             // height: MediaQuery.of(context).size.height * 0.06,
             alignment: Alignment.center,
             // padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: BoxDecoration(boxShadow: [
+            decoration: BoxDecoration(
+
+                boxShadow: [
               BoxShadow(
                 blurRadius: 10,
                 spreadRadius: 1,

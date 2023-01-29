@@ -26,9 +26,17 @@ class ThemeColors {
 
 
   var lightDark =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#000000');
+  var darkLight =  !GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#2D2D3A');
   var mainBgColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#2D2D3A') :  fromHex('#FFFFFF');
-  var mainColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#');
-  var statusBarColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#f8f8f8');
+  var mainColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#FFFFFF');
+  var greyBlack =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#EEEEEE');
+  var outline =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#5B5B5E');
+  var shadow =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#BDBDBD');
+
+
+  var outline1 =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#FFFFFF');
+  var drawerColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#FAFAFA');
+  var statusBarColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#2D2D3A') :  fromHex('#f8f8f8');
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

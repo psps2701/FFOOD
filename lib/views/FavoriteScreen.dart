@@ -9,10 +9,13 @@ import '../controllers/MainScreen/CartScreenController.dart';
 import '../controllers/MainScreen/FavoriteScreenController.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../controllers/MainScreen/MainScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
+import 'package:get_storage/get_storage.dart';
 import '../widgets/CustomCard.dart';
 import '../widgets/big_text.dart';
 import '../widgets/category_screen_food_container.dart';
@@ -33,15 +36,17 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
-          // Status bar
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
+
+        // Status bar
       ),
  child:SafeArea(child: Column(
    children: [
      Row(
+
        mainAxisAlignment: MainAxisAlignment.spaceAround,
        children: [
          GestureDetector(
@@ -62,7 +67,9 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
 
                child: CustomCard(
                  margin: 0,
-                 child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                 bgColor: ThemeColors().mainColor,
+                 color: ThemeColors().shadow,
+                 child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
                  ),
                ),
              ),

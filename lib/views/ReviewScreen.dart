@@ -4,12 +4,15 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../controllers/MainScreen/MainScreenController.dart';
 import '../controllers/MainScreen/ReviewScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/CustomCard.dart';
@@ -31,14 +34,15 @@ class ReviewScreen extends GetView<ReviewScreenController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
           // Status bar
       ),
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: ThemeColors().mainBgColor,
           body: Column(
             children: [
               Row(
@@ -62,7 +66,10 @@ class ReviewScreen extends GetView<ReviewScreenController>
 
                         child: CustomCard(
                           margin: 0,
-                          child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                          color: ThemeColors().shadow.withOpacity(0.3),
+                          bgColor: ThemeColors().mainColor,
+                          blurRadius: 10,
+                          child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
                           ),
                         ),
                       ),
@@ -70,7 +77,7 @@ class ReviewScreen extends GetView<ReviewScreenController>
                   ),
 
 
-                  Expanded(child: Center(child: BigText(text: "Review", size: 20.sp,))),
+                  Expanded(child: Center(child: BigText(text: "Review", size: 20.sp,color: ThemeColors().lightDark,))),
                   Container(
                     width: 38,
                     height: 38,
@@ -88,7 +95,7 @@ class ReviewScreen extends GetView<ReviewScreenController>
                 margin: EdgeInsets.only(
                     left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: ThemeColors().mainBgColor,
                   borderRadius: BorderRadius.circular(30),
                   // boxShadow: [
                   //   BoxShadow(
@@ -113,27 +120,27 @@ class ReviewScreen extends GetView<ReviewScreenController>
                         ),
                       ),
                     ),
-                    hintStyle:  TextStyle(color: blackColor, fontSize: 14.sp),
+                    hintStyle:  TextStyle(color: ThemeColors().lightDark, fontSize: 14.sp),
                     hintText: "Write your review...",
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/75.27),
-                      borderSide: const BorderSide(
+                      borderSide:  BorderSide(
                         width: 2.0,
-                        color: textFieldBorderColor,
+                        color: ThemeColors().mainColor,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/75.27),
-                      borderSide: const BorderSide(
+                      borderSide:  BorderSide(
                         width: 2.0,
-                        color: textFieldBorderColor,
+                        color: ThemeColors().mainColor,
                       ),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/75.27),
-                      borderSide: const BorderSide(
+                      borderSide:  BorderSide(
                         width: 2.0,
-                        color: Colors.blue,
+                        color: ThemeColors().mainColor,
                       ),
                     ),
                   ),

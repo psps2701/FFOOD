@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/util/app_colors.dart';
 import 'package:ffood/util/size_utils.dart';
 import 'package:ffood/widgets/small_text.dart';
@@ -37,7 +38,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
 
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.r))),
-        color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
+        color: ThemeColors().mainColor,
       ),
       child: Stack(
         clipBehavior: Clip.none,
@@ -71,7 +72,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                       shape: RoundedRectangleBorder(
                           borderRadius:
                           BorderRadius.all(Radius.circular(20.r))),
-                      color: Colors.white),
+                      color: ThemeColors().mainColor),
                   child: Padding(
                     padding:  EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
                     child: Row(
@@ -86,7 +87,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         SmallText(
                           text: widget.price,
                           size: 18.sp,
-                          color: blackColor,
+                          color: ThemeColors().lightDark,
                         )
                       ],
                     ),
@@ -116,7 +117,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         color: orangeColor),
                     child: Icon(
                       Icons.favorite,
-                      color: Colors.white,
+                      color: ThemeColors().mainColor,
                       size: 22.sp,
                     ),
                   ),
@@ -131,17 +132,21 @@ class _PopularItemCardState extends State<PopularItemCard> {
             top:125.h,
             // bottom: 200,
             child: Container(
+
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 // width: MediaQuery.of(context).size.width * 0.2,
                 // height: MediaQuery.of(context).size.height * 0.05,
                 // padding: EdgeInsets.symmetric(horizontal: 15),
+
                 height: 30,
                 child: CustomCard(
                   margin: 0,
+                  bgColor: ThemeColors().mainColor,
                   padding: 0,
 
                   child: Container(
+
                     margin: getMargin(left: 5,right: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -150,6 +155,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         BigText(
                           text: widget.rating,
                           size: 12.sp,
+                          color: ThemeColors().lightDark,
                         ),
                         Container(
                           margin: getMargin(left: 2,right: 2),
@@ -177,8 +183,8 @@ class _PopularItemCardState extends State<PopularItemCard> {
               // width: double.infinity,
               height: 100,
               decoration: BoxDecoration(
-                color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
-                  borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height / 42.2),
+                color: ThemeColors().mainColor,
+                borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height / 42.2),
 
               ),
               child: SizedBox(
@@ -193,7 +199,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                           BigText(
                             text: widget.name,
                             size: 16.sp,
-                            color: widget.themeValue == 1 ? darkThemeFontColor : fontColor,
+                            color: ThemeColors().lightDark,
                           ),
                           // Padding(
                           //   padding: const EdgeInsets.only(left: 5.0),

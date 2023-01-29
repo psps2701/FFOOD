@@ -1,11 +1,21 @@
 import 'dart:ui';
+import 'package:get_storage/get_storage.dart';
 
-class AppColors {
+
+
+
+import 'get_storage_key.dart';class AppColors {
   static const Color darkBlue = Color(0xff0f5eaf);
 
   static Color themeColor = fromHex('#FC8019');
   static Color white = fromHex('#FFFFFF');
   static Color statusBarGrey = fromHex('#f8f8f8');
+
+  static Color lightDark =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#000000');
+  static Color themeDark =   fromHex('#2D2D3A');
+  static Color themeWhite =   fromHex('#FFFFFF');
+  static Color outline =   fromHex('#2D2D3A');
+
 
 
   static Color fromHex(String hexString) {

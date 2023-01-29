@@ -156,7 +156,7 @@ class HomeView extends GetView<HomeScreenController>
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
 

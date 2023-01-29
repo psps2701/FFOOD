@@ -5,22 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/CustomCard.dart';
 import '../widgets/CustomCardImage.dart';
 import '../widgets/CustomShadow.dart';
 import '../widgets/big_text.dart';
-import '../widgets/common_image_view.dart';
-import '../widgets/conatiner_with_image.dart';
 import '../widgets/food_container_with_icon.dart';
 import '../widgets/small_text.dart';
 import 'DrawerScreen.dart';
 import 'HomeGridView.dart';
 import 'HomeListView.dart';
 
+import 'package:get_storage/get_storage.dart';
 
 class HomeView extends GetView<HomeScreenController>
 
@@ -42,19 +43,19 @@ class HomeView extends GetView<HomeScreenController>
           builder: (controller) {
             return AnimatedContainer(
               decoration:  ShapeDecoration(
-                // shadows: [
-                //   BoxShadow(
-                //     // color: Colors.grey.withOpacity(0.2),
-                //       blurRadius: 3,
-                //       color: greayColor,
-                //       offset: Offset(1, 10))
-                // ],
+                shadows: [
+                  BoxShadow(
+                    // color: Colors.grey.withOpacity(0.2),
+                      blurRadius: 3,
+                      color: ThemeColors().outline1,
+                      offset: Offset(1, 10))
+                ],
                   shape: RoundedRectangleBorder(
                       borderRadius:
                       BorderRadius.all(Radius.circular(controller.isDrawerOpen.value ? 40: 0))),
-                  color: Colors.white ),
+                  color:   ThemeColors().mainBgColor, ),
               transform: Matrix4.translationValues(controller.xOffset.value, controller.yOffset.value, 0)..scale(controller.scaleFactor.value)..rotateY(0),
-              duration: Duration(milliseconds: 250),
+              duration: const Duration(milliseconds: 250),
               child: SafeArea(
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
@@ -96,7 +97,11 @@ class HomeView extends GetView<HomeScreenController>
 
                                 child: CustomCard(
                                   margin: 0,
-                                  child: Image.asset(Images.homeMenu, color: false ? Colors.white :Colors.black,
+                                  bgColor: ThemeColors().mainColor,
+                                  color: ThemeColors().shadow,
+                                  blurRadius :  GetStorage().read(GetStorageKey.IS_DARK_MODE) ? 20 : 10,
+
+                                  child: Image.asset(Images.homeMenu, color: ThemeColors().lightDark,
                                   ),
                                 ),
                               ),
@@ -120,12 +125,12 @@ class HomeView extends GetView<HomeScreenController>
                                           SmallText(
                                             text: "Deliver to",
                                             size: 14,
-                                            color: Colors.black,
+                                            color: ThemeColors().lightDark,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                          const Icon(
+                                           Icon(
                                             Icons.keyboard_arrow_down_rounded,
-                                            color: Colors.black,
+                                            color: ThemeColors().lightDark,
 
                                             size: 20,
                                           )
@@ -180,12 +185,12 @@ class HomeView extends GetView<HomeScreenController>
                                   margin: getMargin(left: 10,right: 10),
                                   child: CustomShadow(
                                     blur:  2,
-                                    color: Colors.grey,
+                                    color: ThemeColors().outline.withOpacity(0.3),
                                     offset: const Offset(1, 1),
                                     child: Container(
-                                      decoration:  const BoxDecoration(
+                                      decoration:   BoxDecoration(
                                         borderRadius: BorderRadius.all(Radius.circular(8)),
-                                        color: Colors.white,
+                                        color: ThemeColors().mainColor,
                                       ),
                                       height: 50,
 
@@ -212,18 +217,20 @@ class HomeView extends GetView<HomeScreenController>
                                 },
                                 child: CustomShadow(
                                   blur: controller.gridPressed.value ? 1 : 5,
-                                  color: Colors.grey,
+
+                                  color: ThemeColors().outline.withOpacity(0.3),
+
                                   offset: controller.gridPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
                                   child: Container(
                                     decoration:  BoxDecoration(
                                       borderRadius: const BorderRadius.all(Radius.circular(8)),
-                                      color: controller.gridPressed.value ? orangeColor: Colors.white,
+                                      color: controller.gridPressed.value ? orangeColor: ThemeColors().mainColor,
                                     ),
                                     height: 48,
                                     width: 48,
                                     child: Container(
                                         padding: const EdgeInsets.all(13),
-                                        child: Image.asset(Images.icGrid, color: controller.gridPressed.value ? Colors.white :orangeColor,)),
+                                        child: Image.asset(Images.icGrid, color: controller.gridPressed.value ? ThemeColors().darkLight :orangeColor,)),
                                   ),
                                 ),),
                               SizedBox(width: 10,),
@@ -236,18 +243,19 @@ class HomeView extends GetView<HomeScreenController>
                                 },
                                 child: CustomShadow(
                                   blur: controller.listPressed.value ? 1 : 5,
-                                  color: Colors.grey,
+                                  color: ThemeColors().outline.withOpacity(0.3),
+
                                   offset: controller.listPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
                                   child: Container(
                                     decoration:  BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                                      color: controller.listPressed.value ? orangeColor: Colors.white,
+                                      borderRadius: const BorderRadius.all(Radius.circular(8)),
+                                      color: controller.listPressed.value ? orangeColor:  ThemeColors().mainColor,
                                     ),
                                     height: 48,
                                     width: 48,
                                     child: Container(
                                         padding: const EdgeInsets.all(15),
-                                        child: Image.asset(Images.icList, color: controller.listPressed.value ? Colors.white :orangeColor,)),
+                                        child: Image.asset(Images.icList, color: controller.listPressed.value ? ThemeColors().darkLight :orangeColor,)),
                                   ),
                                 ),),
                               SizedBox(width: 10,)

@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,7 +41,7 @@ class _CartScreenCardState extends State<CartScreenCard> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BigText(text: "Red n hot pizza", size: 18.sp),
+                  BigText(text: "Red n hot pizza", size: 18.sp,color: ThemeColors().lightDark,),
                   SmallText(
                     text: "Spicy chicken, beef",
                     size: 12.sp,
@@ -123,7 +124,7 @@ class _CartScreenCardState extends State<CartScreenCard> {
                   dishCount.toString(),
                   maxLines: 1,
                   style: TextStyle(
-                    color: blackColor,
+                    color: ThemeColors().lightDark,
                     fontWeight: FontWeight.bold,
                     fontSize:
                     16.sp,

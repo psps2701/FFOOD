@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -26,13 +27,13 @@ class _FoodVertialContainerState extends State<FoodVertialContainer> {
       decoration:  ShapeDecoration(
           shadows:  [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
+                color: ThemeColors().outline.withOpacity(0.2),
                 blurRadius: 20,
                 offset: const Offset(1, 10))
           ],
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(const Radius.circular(40).w)),
-          color: widget.onPressed ? orangeColor: widget.themeValue == 1 ? Colors.white :Colors.white),
+          color: widget.onPressed ? orangeColor: ThemeColors().mainColor),
       child: Column(
         children: [
       Padding(
@@ -57,7 +58,7 @@ class _FoodVertialContainerState extends State<FoodVertialContainer> {
 
     ),
       ),
-          SmallText( text: widget.name, color: widget.onPressed ? Colors.white : widget.themeValue == 1 ? Colors.black:blackColor, size: 16.sp,)
+          SmallText( text: widget.name, color: widget.onPressed ? Colors.white : ThemeColors().lightDark,)
         ],
       ),
 

@@ -1,5 +1,6 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,7 +38,7 @@ class HomeGridView extends GetView<HomeScreenController>
               BigText(
                 text: "Featured Restaurants",
                 size: 18,
-                color: true? Colors.black:Color(0xFF332b2b),
+                color: ThemeColors().lightDark,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 22.0),
@@ -48,7 +49,7 @@ class HomeGridView extends GetView<HomeScreenController>
                       size: 16,
                       color: orangeColor,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.arrow_forward_ios,
                       size: 12,
                       color: orangeColor,
@@ -79,7 +80,7 @@ class HomeGridView extends GetView<HomeScreenController>
           child: BigText(
             text: "Popular items",
             size: 18,
-            color: Colors.black,
+            color: ThemeColors().lightDark,
           ),
         ),
         Container(

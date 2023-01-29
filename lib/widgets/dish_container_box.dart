@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/util/images.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
         // ],
         // border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(15.r),
-        color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
+        color: ThemeColors().mainColor,
       ),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -80,7 +81,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(MediaQuery.of(context).size.height/42.2))),
-                            color: Colors.white),
+                            color: ThemeColors().mainColor),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
@@ -89,12 +90,16 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               BigText(
                                 text: "4.5",
                                 size: MediaQuery.of(context).size.height * 0.0177,
+                                color: ThemeColors().lightDark,
                               ),
+                              SizedBox(width: 2,),
                               Image.asset(
-                                "assets/star.png",
-                                width: 15,
-                                height: 15,
+                                Images.icStar,
+                                width: 10,
+                                height: 10,
                               ),
+
+                              SizedBox(width: 2,),
                               SmallText(
                                 text: "(25+)",
                                 size: MediaQuery.of(context).size.height * 0.0144,
@@ -130,7 +135,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               color: orangeColor),
                           child: Icon(
                             Icons.favorite,
-                            color: Colors.white,
+                            color: ThemeColors().mainColor,
                             size: 20.w,
                           ),
                         ),
@@ -144,7 +149,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
           Container(
             // width: double.infinity,
             // height: 200,
-            color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
+            color: ThemeColors().mainColor,
             child: Column(
               children: [
                 Padding(
@@ -154,7 +159,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                       BigText(
                         text: "McDonald’s",
                         size: MediaQuery.of(context).size.height * 0.0177,
-                        color: widget.themeValue == 1 ? darkThemeFontColor: fontColor,
+                        color: ThemeColors().lightDark,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 2.0),
@@ -220,7 +225,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               padding: const EdgeInsets.all(8.0),
                               child: SmallText(
                                 text: "Burger",
-                                color: widget.themeValue == 1 ? darkThemeFontColor:loginPageLabelColor,
+                                color: ThemeColors().lightDark,
                               ),
                             ),
                           )),
@@ -247,7 +252,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               padding: const EdgeInsets.all(8.0),
                               child: SmallText(
                                 text: "Fast Food",
-                                color: widget.themeValue == 1 ? darkThemeFontColor:loginPageLabelColor,
+                                color: ThemeColors().lightDark,
                               ),
                             ),
                           )),
@@ -274,7 +279,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               padding: const EdgeInsets.all(8.0),
                               child: SmallText(
                                 text: "Chicken",
-                                color: widget.themeValue == 1 ? darkThemeFontColor:loginPageLabelColor,
+                                color: ThemeColors().lightDark,
                               ),
                             ),
                           )),

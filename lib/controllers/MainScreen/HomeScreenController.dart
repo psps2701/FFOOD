@@ -12,7 +12,7 @@ class HomeScreenController extends GetxController with StateMixin<dynamic> {
 
   var listPressed = false.obs;
   var gridPressed = true.obs;
-
+  var isDarkModel = false.obs;
   var popularItemName = ["Chicken Hawaiian", "Chicken", "Biryani", "Qorma"].obs;
 
   var popularItemPrice = ["3.45", "4.45", "5.45", "6.45"];
@@ -76,6 +76,21 @@ class HomeScreenController extends GetxController with StateMixin<dynamic> {
     } else {
       _getStorage.write(GetStorageKey.IS_DARK_MODE, true);
       isDarkMode.value = true;
+    }
+  }
+
+  void closeDrawer()
+  {
+    if(isDrawerOpen.value == true) {
+      xOffset.value = 0;
+      yOffset.value = 0;
+      scaleFactor.value = 1;
+      isDrawerOpen.value  = false;
+    }else{
+      isDrawerOpen.value = true;
+      xOffset.value = 200;
+      yOffset.value = 200;
+      scaleFactor.value = 0.6;
     }
   }
 }
