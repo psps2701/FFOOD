@@ -1,5 +1,6 @@
 
 
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../util/app_constants.dart';
 import '../util/colors.dart';
+import '../util/images.dart';
 
 class CustomBackButton extends StatefulWidget {
   const CustomBackButton({Key? key}) : super(key: key);
@@ -42,17 +44,18 @@ class _CustomBackButtonState extends State<CustomBackButton> {
           decoration:  ShapeDecoration(
               shadows: [
                 BoxShadow(
-                  blurRadius: 3,
-                  spreadRadius: 1,
-                  offset: const Offset(1, 10),
-                  color: Colors.grey.withOpacity(0.2),
+                  blurRadius: 4,
+                  spreadRadius: 0,
+                  offset: const Offset(0, 4),
+                  color: Colors.black.withOpacity(0.25),
                 )
               ],
               shape: RoundedRectangleBorder(
                   borderRadius:
                   BorderRadius.all(Radius.circular(10))),
-              color: Colors.white),
-          child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+              color: ThemeColors().mainColor),
+         // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+          child:   Image.asset(Images.icBack,color: ThemeColors().lightDark,),
         ),
       ),
     );

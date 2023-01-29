@@ -5,6 +5,11 @@ class Images {
   static String icOnBoardTwo = "assets/ic_onboard_two.png";
   static String icOnBoardThree = "assets/ic_onboard_three.png";
 
+  static String icFacebookB = "assets/ic_facebook_b.png";
+  static String icGoogleB = "assets/ic_google_b.png";
+  static String icRegisterB = "assets/ic_register_b.png";
+  static String icRegisterA = "assets/ic_register_a.png";
+
 
   // bottom bar
   static String bottomHome = "assets/bottom_home.png";

@@ -1,13 +1,15 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
+import 'package:get_storage/get_storage.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/common_image_view.dart';
@@ -22,13 +24,14 @@ class WelcomeScreen extends GetView<WelcomeController> {
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.themeColor, // Navigation bar
-        statusBarColor: AppColors.statusBarGrey,
+        statusBarColor: ThemeColors().statusBarColor,
           statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark
 
         // Status bar
       ),
       child: Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
         body: SafeArea(
           child: Container(
             width: size.width,
@@ -48,14 +51,14 @@ class WelcomeScreen extends GetView<WelcomeController> {
                 Positioned(
                     right: 20,
                     top: 10,
-                    child: Image.asset("assets/skip_btn.png", height: 37.h,)),
+                    child: Image.asset(GetStorage().read(GetStorageKey.IS_DARK_MODE)  ? "assets/skip_btn_n.png" : "assets/skip_btn.png", height: 37.h,)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     SizedBox(height: 80.h,),
-                    Image.asset("assets/start_screen_logo.png"),
+                    Image.asset(GetStorage().read(GetStorageKey.IS_DARK_MODE) ? "assets/start_screen_logo_back.png":"assets/start_screen_logo.png" ),
                     SizedBox(
                       height: 20.h,
                     ),
@@ -103,7 +106,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(vertical: 12.h),
                           decoration: ShapeDecoration(
-                              image: DecorationImage(image: AssetImage("assets/facebook_button.png")),
+                              image:  DecorationImage(image: AssetImage( GetStorage().read(GetStorageKey.IS_DARK_MODE) ? Images.icFacebookB :"assets/facebook_button.png")),
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(35.r))),
@@ -118,7 +121,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(vertical: 12.h),
                           decoration: ShapeDecoration(
-                              image: DecorationImage(image: AssetImage("assets/google_button.png")),
+                              image: DecorationImage(image: AssetImage(GetStorage().read(GetStorageKey.IS_DARK_MODE) ? Images.icGoogleB : "assets/google_button.png")),
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(35.r))),
@@ -133,29 +136,21 @@ class WelcomeScreen extends GetView<WelcomeController> {
                       child: GestureDetector(
                         onTap: () {
                           /*=>
-                              navigateToOnboardingScreen()*/
-
-                          Get.toNamed(Routes.loginScreen);
+                           navigateToOnboardingScreen()*/
+                          Get.toNamed(Routes.registerScreen);
                         },
                         child: Container(
                           width: 293.w,
                           height: 54.h,
                           alignment: Alignment.center,
                           padding: EdgeInsets.symmetric(vertical: 12.h),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30.r)),
-                              border: Border.all(
-                                color: Colors.white,
+                          decoration: ShapeDecoration(
+                              image: DecorationImage(image: AssetImage(GetStorage().read(GetStorageKey.IS_DARK_MODE) ? Images.icRegisterB : Images.icRegisterA )),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(35.r))),
                               ),
-                              color: whiteColorWithExtraTranspernt),
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 8.0.w),
-                            child: SmallText(
-                              text: "Start with email or phone",
-                              color: Colors.white,
-                              size: 17.sp,
-                            ),
-                          ),
+
                         ),
                       ),
                     ),
@@ -171,12 +166,14 @@ class WelcomeScreen extends GetView<WelcomeController> {
                             style: TextStyle(color: Colors.white),
                           ),
                           TextSpan(
+
                             text: 'Sign In',
                             style: TextStyle(
                                 color: Colors.white,
                                 decoration: TextDecoration.underline),
                             recognizer: TapGestureRecognizer()..onTap = () {
                               print('Tapped on hyperlink');
+                              Get.toNamed(Routes.loginScreen);
                              // navigateToSignIn();
                             },
                           ),

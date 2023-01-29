@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../util/colors.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:get_storage/get_storage.dart';
+
+import '../util/get_storage_key.dart';
 
 class AppTextField extends StatefulWidget {
   final TextEditingController textController;
@@ -8,7 +11,7 @@ class AppTextField extends StatefulWidget {
   final textInputType;
   bool isObscure;
   bool isPass;
-  var themeValue;
+
 
 
   AppTextField(
@@ -18,7 +21,7 @@ class AppTextField extends StatefulWidget {
         required this.textInputType,
         this.isPass = false,
         this.isObscure = false,
-      this.themeValue = 0})
+      })
       : super(key: key);
 
   @override
@@ -31,12 +34,12 @@ class _AppTextFieldState extends State<AppTextField> {
     return Neumorphic(
       // padding: EdgeInsets.all(10),
       style: NeumorphicStyle(
-          shape: widget.themeValue == 0 ? NeumorphicShape.concave : NeumorphicShape.flat,
+          shape: GetStorage().read(GetStorageKey.IS_DARK_MODE)  ? NeumorphicShape.concave : NeumorphicShape.flat,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-          depth: widget.themeValue == 0 ? -4 : 0,
-          intensity:widget.themeValue == 0 ?  0.7 : 0,
+          depth: GetStorage().read(GetStorageKey.IS_DARK_MODE) ? -4 : 0,
+          intensity:GetStorage().read(GetStorageKey.IS_DARK_MODE)  ?  0.7 : 0,
           lightSource: LightSource.top,
-          color: widget.themeValue == 0 ? Colors.white.withOpacity(0.8) : darkThemeContainerColor
+          color: GetStorage().read(GetStorageKey.IS_DARK_MODE)  ?darkThemeContainerColor :  Colors.white.withOpacity(0.8)
       ),
       child: TextField(
         obscureText: widget.isObscure ? true : false,
@@ -51,7 +54,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     widget.isObscure = !widget.isObscure;
                   });
                 },
-                child: Icon(Icons.remove_red_eye, color: passwordObsecureColor,)),
+                child: const Icon(Icons.remove_red_eye, color: passwordObsecureColor,)),
           ),
           hintStyle:  TextStyle(color: hintTextColor, fontSize: MediaQuery.of(context).size.height/52.75),
           hintText: widget.hintText,
@@ -66,7 +69,7 @@ class _AppTextFieldState extends State<AppTextField> {
             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/75.27),
             borderSide:  BorderSide(
               width: 2.0,
-              color: widget.themeValue == 0 ? textFieldBorderColor : darkThemeContainerColor,
+              color: GetStorage().read(GetStorageKey.IS_DARK_MODE)  ? darkThemeContainerColor : textFieldBorderColor,
             ),
           ),
           border: OutlineInputBorder(
