@@ -119,7 +119,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                           width: 28.w,
                           height: 28.h,
                           // padding: EdgeInsets.symmetric(horizontal: 15),
-                          decoration: const ShapeDecoration(
+                          decoration: ShapeDecoration(
                               // shadows: withShadow == true
                               //     ? [
                               //         BoxShadow(
@@ -132,10 +132,10 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(100))),
-                              color: orangeColor),
+                              color: ThemeColors().mainColor),
                           child: Icon(
                             Icons.favorite,
-                            color: ThemeColors().mainColor,
+                            color: ThemeColors().mainOrangeWhite,
                             size: 20.w,
                           ),
                         ),

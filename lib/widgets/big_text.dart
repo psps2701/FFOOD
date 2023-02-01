@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../themecolor/ThemeColors.dart';
+
 
 class BigText extends StatelessWidget {
   Color? color;

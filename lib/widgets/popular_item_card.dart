@@ -82,7 +82,7 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         BigText(
                           text: "\$",
                           size: 18.sp,
-                          color: orangeColor,
+                          color: ThemeColors().lightDark,
                         ),
                         SmallText(
                           text: widget.price,
@@ -114,10 +114,10 @@ class _PopularItemCardState extends State<PopularItemCard> {
                         shape: RoundedRectangleBorder(
                             borderRadius:
                             BorderRadius.all(Radius.circular(100.r))),
-                        color: orangeColor),
+                        color: ThemeColors().mainColor),
                     child: Icon(
                       Icons.favorite,
-                      color: ThemeColors().mainColor,
+                      color: ThemeColors().mainOrangeWhite,
                       size: 22.sp,
                     ),
                   ),

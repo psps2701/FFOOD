@@ -218,7 +218,7 @@ class HomeView extends GetView<HomeScreenController>
                                 child: CustomShadow(
                                   blur: controller.gridPressed.value ? 1 : 5,
 
-                                  color: ThemeColors().outline.withOpacity(0.3),
+                                    color: ThemeColors().outline.withOpacity(0.3),
 
                                   offset: controller.gridPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
                                   child: Container(

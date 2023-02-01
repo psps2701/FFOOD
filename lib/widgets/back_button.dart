@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 import '../../util/colors.dart';
 
@@ -49,8 +50,8 @@ class _CustomBackButtonState extends State<CustomBackButton> {
               shape: RoundedRectangleBorder(
                   borderRadius:
                   BorderRadius.all(Radius.circular(10))),
-              color: Colors.white),
-          child:  Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+              color: ThemeColors().kSecondaryTextColorReverse),
+          child:  Icon(Icons.arrow_back_ios, size: 15,color: ThemeColors().kPrimaryTextColor),
         ),
       ),
     );

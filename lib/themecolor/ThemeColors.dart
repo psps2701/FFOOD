@@ -16,14 +16,21 @@ class ThemeColors {
           Colors.deepPurple.shade300,
         ];
 
+
+
   var kPrimaryTextColor = GetStorage().read(GetStorageKey.IS_DARK_MODE)
       ? const Color(0xDDFFFFFF)
       : const Color(0xDD000000);
   var kSecondaryTextColor = GetStorage().read(GetStorageKey.IS_DARK_MODE)
       ? const Color(0x89FFFFFF)
       : const Color(0x89000000);
+
+  var kSecondaryTextColorReverse = GetStorage().read(GetStorageKey.IS_DARK_MODE)
+      ? const Color(0xDD393948)
+      : const Color(0xDDFFFFFF);
   var kBlackColor = Colors.black;
 
+  var mainOrangeWhite = GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#FC8019');
 
   var lightDark =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#000000');
   var darkLight =  !GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#2D2D3A');
@@ -32,6 +39,9 @@ class ThemeColors {
   var greyBlack =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#393948') :  fromHex('#EEEEEE');
   var outline =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#5B5B5E');
   var shadow =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#BDBDBD');
+  var tagBoxColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#F6F6F6');
+  var heartshaepColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FFFFFF');
+  var loginPageLabelColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FFFFFF');
 
 
   var outline1 =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#FFFFFF');

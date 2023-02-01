@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class _ResturentProfileListCardState extends State<ResturentProfileListCard> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: widget.themeValue == 1 ? darkThemeContainerColor: Colors.white,
+        color: ThemeColors().mainColor,
         borderRadius: BorderRadius.circular(16.r)
       ),
       child: Row(
@@ -84,10 +85,10 @@ class _ResturentProfileListCardState extends State<ResturentProfileListCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  BigText(text: widget.name, color: widget.themeValue == 1 ? darkThemeFontColor: fontColor,),
+                  BigText(text: widget.name, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.55,
-                      child: SmallText(text: "Features tomatoes, mozzarella from Campania basil, and extra virgin olive oil.", size: 9.sp,))
+                      child: SmallText(text: "Features tomatoes, mozzarella from Campania basil, and extra virgin olive oil.", size: 9.sp,color: ThemeColors().kPrimaryTextColor,))
                 ],
               ),
             ),

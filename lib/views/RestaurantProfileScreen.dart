@@ -2,14 +2,19 @@
 
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
+import 'package:ffood/widgets/back_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+import '../util/get_storage_key.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../controllers/MainScreen/ReviewScreenController.dart';
 import '../controllers/RestaurantProfileController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
 import '../util/images.dart';
@@ -36,16 +41,16 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
         builder: (controller) {
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
         // Status bar
       ),
       child:
         SafeArea(child:
         Scaffold(
-        backgroundColor: AppColors.white,
+        backgroundColor:ThemeColors().mainBgColor,
         body: SafeArea(
           child: ListView(
             physics: BouncingScrollPhysics(),
@@ -71,23 +76,7 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                         padding: EdgeInsets.all(20),
                         child: GestureDetector(
                           onTap: () => Navigator.pop(context),
-                          child: Center(
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.1,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                              padding: EdgeInsets.symmetric(horizontal: 15),
-                              decoration:  ShapeDecoration(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                                  color: AppColors.white),
-                              child:  Icon(
-                                Icons.arrow_back_ios,
-                                size: 15,
-                                color: fontColor,
-                              ),
-                            ),
-                          ),
+                          child: CustomBackButton(),
                         ),
                       ),
                     ),
@@ -129,11 +118,11 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                                   )),
                             ],
                           ),
-                          Center(child: BigText(text: "Pizza Hut", color: fontColor,)),
+                          Center(child: BigText(text: "Pizza Hut", color: ThemeColors().kPrimaryTextColor,)),
                           SmallText(
                             text: "4102  Pretty View Lanenda",
                             size: 13,
-                            color: loginPageLabelColor,
+                            color: ThemeColors().kSecondaryTextColor,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -152,8 +141,8 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                                               horizontal: 10.w),
                                           child: TagBoxWidget(
                                             tagLAbel: controller.tagBoxLabel[index],
-                                            color: greayColor,
-                                            textColor: blackColor,
+                                            color: ThemeColors().tagBoxColor,
+                                            textColor: ThemeColors().kPrimaryTextColor,
                                             labelSize: 12.sp.toInt(), themeValue: 0,
                                           ));
                                     }),
@@ -199,7 +188,7 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                               BigText(
                                 text: "4.5",
                                 size: MediaQuery.of(context).size.height * 0.0177,
-                                color: fontColor ,
+                                color: ThemeColors().kPrimaryTextColor ,
                               ),
                               SizedBox(
                                 width: 10,
@@ -241,8 +230,8 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(child: SmallText(text: "Menu", color: Colors.white, size: 12.sp,)),
-              Icon(Icons.arrow_drop_down_circle, color:  Colors.white, size: 15,)
+              Center(child: SmallText(text: "Menu", color: ThemeColors().kPrimaryTextColor, size: 12.sp,)),
+              Icon(Icons.arrow_drop_down_circle, color:  ThemeColors().kPrimaryTextColor, size: 15,)
             ],
           ),
         ),
@@ -259,7 +248,7 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
             ),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: BigText(text: "Pizza", color:  fontColor,),
+              child: BigText(text: "Pizza", color:  ThemeColors().kPrimaryTextColor,),
             ),
             Expanded(
               child: Container(
@@ -332,7 +321,7 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
             ),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: BigText(text: "Salad", color:  fontColor ,),
+              child: BigText(text: "Salad", color:  ThemeColors().kPrimaryTextColor ,),
             ),
             Expanded(
               child: Container(
@@ -412,7 +401,7 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
             mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BigText(text: "Featured items", color: fontColor,),
+              BigText(text: "Featured items", color: ThemeColors().kPrimaryTextColor,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 4.0.w),
                 child: Container(
@@ -486,8 +475,8 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                           decoration: BoxDecoration(
                               border: Border.all(color: greayColor),
                               borderRadius: BorderRadius.circular(25.r),
-                              color: controller.current == index ? orangeColor: Colors.white),
-                          child: Center(child: SmallText(text: controller.tabItems[index],color: controller.current == index ? Colors.white : loginPageLabelColor, size: 15.sp,),),
+                              color: controller.current == index ? orangeColor:ThemeColors().kSecondaryTextColorReverse),
+                          child: Center(child: SmallText(text: controller.tabItems[index],color: controller.current == index ? ThemeColors().kPrimaryTextColor : ThemeColors().kPrimaryTextColor, size: 15.sp,),),
                         ),
                       );
 

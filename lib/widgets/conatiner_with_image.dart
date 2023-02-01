@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +26,7 @@ class _ImageContainerState extends State<ImageContainer> {
   Widget build(BuildContext context) {
     return InnerShadow(
       blur: 5,
-      color:  widget.isPressed == true ? Colors.black12 : greayColor,
+      color:  widget.isPressed == true ? ThemeColors().outline.withOpacity(0.3) : ThemeColors().outline.withOpacity(0.3),
       offset: const Offset(0.5, 0.5),
       child: Container(
         width: widget.width,
@@ -35,20 +36,20 @@ class _ImageContainerState extends State<ImageContainer> {
 
             shadows: [
                BoxShadow(
-                color: greyColor,
+                color: ThemeColors().outline.withOpacity(0.3),
               ),
                BoxShadow(
-                color: greyColor,
+                color: ThemeColors().outline.withOpacity(0.3),
                 spreadRadius: -5.0,
                 blurRadius: 10.0,
               ),
             ],
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.r))),
-            color: widget.isPressed ? orangeColor : Colors.white),
+            color: widget.isPressed ? orangeColor:ThemeColors().mainColor),
         child: Container(
             padding: EdgeInsets.all(widget.padding),
-            child: Image.asset(widget.imageName, color: widget.isPressed ? Colors.white :orangeColor,)),
+            child: Image.asset(widget.imageName, color: widget.isPressed ? ThemeColors().kSecondaryTextColorReverse:ThemeColors().tagBoxColor,)),
       ),
     );
   }

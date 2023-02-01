@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
@@ -17,7 +18,7 @@ class HomeListView extends GetView<HomeScreenController>
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
-          child: BigText(text: "All restaurants", size: 18,color: 0 == 1 ? darkThemeFontColor:fontColor,),
+          child: BigText(text: "All restaurants", size: 18,color: 0 == 1 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,),
         ),
 
         Container(

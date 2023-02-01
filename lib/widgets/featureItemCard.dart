@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +31,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
       decoration:  ShapeDecoration(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.r))),
-        color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
+        color: widget.themeValue == 1 ? ThemeColors().mainColor:ThemeColors().mainColor,
       ),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -67,7 +68,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                           shape: RoundedRectangleBorder(
                               borderRadius:
                               BorderRadius.all(Radius.circular(20.r))),
-                          color: Colors.white),
+                          color: ThemeColors().mainColor),
                       child: Padding(
                         padding:  EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
                         child: Row(
@@ -77,12 +78,12 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                             BigText(
                               text: "\$",
                               size: 18.sp,
-                              color: orangeColor,
+                              color: ThemeColors().kPrimaryTextColor,
                             ),
                             SmallText(
                               text: widget.price,
                               size: 18.sp,
-                              color: blackColor,
+                              color: ThemeColors().kPrimaryTextColor,
                             )
                           ],
                         ),
@@ -97,7 +98,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                         width: 38.w,
                         height: 38.h,
                         // padding: EdgeInsets.symmetric(horizontal: 15),
-                        decoration: const ShapeDecoration(
+                        decoration: ShapeDecoration(
                           // shadows: withShadow == true
                           //     ? [
                           //         BoxShadow(
@@ -110,10 +111,10 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                 BorderRadius.all(Radius.circular(100))),
-                            color: orangeColor),
+                            color: ThemeColors().mainColor),
                         child: Icon(
                           Icons.favorite,
-                          color: Colors.white,
+                          color: ThemeColors().kPrimaryTextColor,
                           size: 22.sp,
                         ),
                       ),
@@ -140,7 +141,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                         shape: RoundedRectangleBorder(
                             borderRadius:
                             BorderRadius.all(Radius.circular(20.r))),
-                        color: widget.themeValue == 1 ? darkThemeContainerColor : Colors.white),
+                        color: widget.themeValue == 1 ? ThemeColors().mainColor:ThemeColors().mainColor),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0).r,
                       child: Row(
@@ -150,7 +151,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                           BigText(
                             text: widget.rating,
                             size: 12.sp,
-                            color: widget.themeValue == 1 ? darkThemeFontColor: fontColor,
+                            color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,
                           ),
                           Image.asset(
                             "assets/star.png",
@@ -175,7 +176,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
           Container(
             width: double.infinity,
             decoration: ShapeDecoration(
-                color: widget.themeValue == 1 ? darkThemeContainerColor:Colors.white,
+                color: widget.themeValue == 1 ? ThemeColors().mainColor:ThemeColors().mainColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                         Radius.circular(MediaQuery.of(context).size.height / 42.2)))
@@ -190,7 +191,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                       BigText(
                         text: widget.name,
                         size: 15.sp,
-                        color: widget.themeValue == 1 ? darkThemeFontColor:fontColor ,
+                        color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor ,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.only(left: 5.0),

@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:ffood/widgets/tag_box.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
       // width: 43.w,
       // height: 69.h,
       decoration: BoxDecoration(
-          color: widget.themeValue == 1 ? darkThemeContainerColor: Colors.white,
+          color: widget.themeValue == 1 ? ThemeColors().mainColor: ThemeColors().mainColor,
 
           borderRadius: BorderRadius.circular(10.r)
       ),
@@ -105,7 +106,7 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
                 children: [
                   Row(
                     children: [
-                      BigText(text: "Wendy’s", size: 14.sp,color: widget.themeValue == 1 ? darkThemeFontColor: fontColor,),
+                      BigText(text: "Wendy’s", size: 14.sp,color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
                       Icon(Icons.check_circle, color: greyColor,size: 10.h, )
 
                     ],
@@ -113,11 +114,11 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
 
                   Row(
                     children: [
-                      SmallText(text: "0.50", size: 14.sp, color: widget.themeValue == 1 ? dartThemeDeliveryTimeColors :deliveryTimeColors,),
+                      SmallText(text: "0.50", size: 14.sp, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
                       SizedBox(width: 2.w,),
                       Image.asset("assets/riderLogo.png", width: 16.w,),
                       SizedBox(width: 7.w,),
-                      SmallText(text: "10-15 mins", size: 14.sp, color: widget.themeValue == 1 ? dartThemeDeliveryTimeColors :deliveryTimeColors,),
+                      SmallText(text: "10-15 mins", size: 14.sp, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
                       SizedBox(width: 2.w,),
                       Image.asset("assets/stopwatch.png", width: 16.w,),
 
@@ -127,9 +128,9 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
 
                   Row(
                     children: [
-                      TagBoxWidget(tagLAbel: "Burger",labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? darkThemeBottomNavigationBarColor: orangeColor,),
+                      TagBoxWidget(tagLAbel: "Burger",labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? ThemeColors().tagBoxColor: ThemeColors().tagBoxColor,),
                       SizedBox(width: 7.w,),
-                      TagBoxWidget(tagLAbel: "FAST FOOD", labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? darkThemeBottomNavigationBarColor: orangeColor),
+                      TagBoxWidget(tagLAbel: "FAST FOOD", labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? ThemeColors().tagBoxColor: ThemeColors().tagBoxColor),
                     ],
                   ),
 
@@ -158,10 +159,10 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
                     //       ]
                     //     : [],
                       shape: BoxShape.circle,
-                      color: widget.themeValue ==1   ? darkThemeFontColor :orangeColor),
+                      color: widget.themeValue ==1   ? ThemeColors().mainColor :ThemeColors().mainColor),
                   child: Icon(
                     Icons.favorite,
-                    color: widget.themeValue ==1   ? dartThemeDeliveryTimeColors: Colors.white,
+                    color: widget.themeValue ==1   ? ThemeColors().kPrimaryTextColor :ThemeColors().kPrimaryTextColor,
                     size: 15.w,
                   ),
                 ),
