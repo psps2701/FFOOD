@@ -93,19 +93,6 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                             children: [
                               GestureDetector(
                                   onTap: () {
-                                    controller.gridPressed.value = true;
-                                  },
-                                  child: ImageContainer(
-                                    imageName: "assets/grid_option.png",
-                                    width: 51.w,
-                                    height: 51.h,
-                                    isPressed: controller.gridPressed.value, themeValue: 0,
-                                  )),
-                              SizedBox(
-                                width: 150.w,
-                              ),
-                              GestureDetector(
-                                  onTap: () {
 
                                     controller.gridPressed.value = false;
 
@@ -115,6 +102,20 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
                                     width: 51.w,
                                     height: 51.h,
                                     isPressed: !controller.gridPressed.value, themeValue: 0,
+                                  )),
+                              SizedBox(
+                                width: 150.w,
+                              ),
+
+                              GestureDetector(
+                                  onTap: () {
+                                    controller.gridPressed.value = true;
+                                  },
+                                  child: ImageContainer(
+                                    imageName: "assets/grid_option.png",
+                                    width: 51.w,
+                                    height: 51.h,
+                                    isPressed: controller.gridPressed.value, themeValue: 0,
                                   )),
                             ],
                           ),
@@ -230,8 +231,8 @@ class RestaurantProfileScreen extends GetView<RestaurantProfileController>
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(child: SmallText(text: "Menu", color: ThemeColors().kPrimaryTextColor, size: 12.sp,)),
-              Icon(Icons.arrow_drop_down_circle, color:  ThemeColors().kPrimaryTextColor, size: 15,)
+              Center(child: SmallText(text: "Menu", color: ThemeColors().kSecondaryTextColorReverse, size: 12.sp,)),
+              Icon(Icons.arrow_drop_down_circle, color:  ThemeColors().kSecondaryTextColorReverse, size: 15,)
             ],
           ),
         ),

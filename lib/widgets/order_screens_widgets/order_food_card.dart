@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../util/colors.dart';
@@ -30,13 +31,13 @@ class _OrderFoodCardState extends State<OrderFoodCard> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BigText(text: "Red n hot pizza", size: 18.sp,),
-            SmallText(text: "Spicy chicken, beef", size: 13.sp, fontWeight: FontWeight.w500,color: loginPageLabelColor,),
+            BigText(text: "Red n hot pizza", size: 18.sp,color: ThemeColors().kPrimaryTextColor,),
+            SmallText(text: "Spicy chicken, beef", size: 13.sp, fontWeight: FontWeight.w500,color: ThemeColors().kSecondaryTextColor,),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                BigText(text: "€", size: 18.sp,color: orangeColor,),
-                BigText(text: "9.50", size: 18.sp,),
+                BigText(text: "€", size: 18.sp,color: ThemeColors().kPrimaryTextColor,),
+                BigText(text: "9.50", size: 18.sp,color: ThemeColors().kPrimaryTextColor,),
               ],
             ),
 

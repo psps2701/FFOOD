@@ -14,7 +14,9 @@ import 'package:lottie/lottie.dart';
 import '../../Route/Routes.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import 'package:get_storage/get_storage.dart';
 
+import '../../util/get_storage_key.dart';
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
 
@@ -22,12 +24,12 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-            systemNavigationBarColor: ThemeColors().mainBgColor
+          systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
 
-            // Status bar
+          // Status bar
             ),
         child: Scaffold(
           backgroundColor: ThemeColors().mainBgColor,

@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/util/size_utils.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _AddressItemCardState extends State<AddressItemCard> {
       decoration:  ShapeDecoration(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.r))),
-        color: widget.themeValue == 1 ? darkThemeContainerColor :Colors.white,
+        color: ThemeColors().greyBlack,
       ),
       child: Row(
          crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,11 +58,11 @@ class _AddressItemCardState extends State<AddressItemCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
               SizedBox(height:10.h),
-              BigText(text: "Home"),
+              BigText(text: "Home",color: ThemeColors().kPrimaryTextColor,),
                 SizedBox(height:10.h),
-              SmallText(text: "542-154-5184",color: blackColor,size: 13.sp,),
+              SmallText(text: "542-154-5184",color: ThemeColors().kSecondaryTextColor,size: 13.sp,),
                 SizedBox(height:10.h),
-              SmallText(text: "4261 Kembery Drive, Chicago, LSA",color: blackColor,size: 13.sp),
+              SmallText(text: "4261 Kembery Drive, Chicago, LSA",color: ThemeColors().kSecondaryTextColor,size: 13.sp),
 
             ],),
           ),

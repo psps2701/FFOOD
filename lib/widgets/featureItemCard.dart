@@ -31,7 +31,7 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
       decoration:  ShapeDecoration(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.r))),
-        color: widget.themeValue == 1 ? ThemeColors().mainColor:ThemeColors().mainColor,
+        color: widget.themeValue == 1 ? ThemeColors().featuredMainColor:ThemeColors().featuredMainColor,
       ),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -111,10 +111,10 @@ class _FeatureItemCardState extends State<FeatureItemCard> {
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                 BorderRadius.all(Radius.circular(100))),
-                            color: ThemeColors().mainColor),
+                            color: ThemeColors().heartbgColor),
                         child: Icon(
                           Icons.favorite,
-                          color: ThemeColors().kPrimaryTextColor,
+                          color: ThemeColors().heartshaepColor,
                           size: 22.sp,
                         ),
                       ),

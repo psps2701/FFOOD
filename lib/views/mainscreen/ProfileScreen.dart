@@ -33,10 +33,11 @@ class ProfileScreen extends GetView<ProfileScreenController>
       ),
       child: SizedBox(
         child: Scaffold(
+          backgroundColor: ThemeColors().mainBgColor,
           body: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Colors.white,
+            color: ThemeColors().mainBgColor,
             child: Stack(
               children: [
                 Positioned(
@@ -63,7 +64,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
 
                         child: CustomCard(
                           margin: 0,
-                          child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                          child: Image.asset(Images.icBack, color: ThemeColors().kPrimaryTextColor,
                           ),
                         ),
                       ),
@@ -88,14 +89,14 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         ),
                       ),
 
-                      BigText(text: "Eljad Eendaz"),
+                      BigText(text: "Eljad Eendaz",color: ThemeColors().kPrimaryTextColor,),
                       GestureDetector(
                           onTap: ()=>{
 
                           },
 
 
-                          child: SmallText(text: "Edit Profile", color: loginPageLabelColor,size: 14,)),
+                          child: SmallText(text: "Edit Profile", color: ThemeColors().kPrimaryTextColor,size: 14,)),
                     ],
                   ),
                 ),
@@ -109,7 +110,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: SmallText(text: "Full name", size: 16, color: loginPageLabelColor,),
+                        child: SmallText(text: "Full name", size: 16, color: ThemeColors().kSecondaryTextColor,),
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -117,9 +118,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         margin: EdgeInsets.only(
                             left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: ThemeColors().greyBlack,
                           borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                          border: Border.all(color: textFieldBorderColor),
+                          border: Border.all(color: ThemeColors().greyBlack),
                           // boxShadow: [
                           //   BoxShadow(
                           //     blurRadius: 3,
@@ -132,7 +133,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         ),
                         child: Padding(
                             padding: EdgeInsets.only(top: 12, left: 10),
-                            child: BigText(text: "Eljad Eendaz",size: 16)),
+                            child: BigText(text: "Eljad Eendaz",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                       )
                     ],
                   ),
@@ -156,9 +157,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           margin: EdgeInsets.only(
                               left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: ThemeColors().greyBlack,
                             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                            border: Border.all(color: textFieldBorderColor),
+                            border: Border.all(color: ThemeColors().greyBlack),
                             // boxShadow: [
                             //   BoxShadow(
                             //     blurRadius: 3,
@@ -171,7 +172,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           ),
                           child: Padding(
                               padding: EdgeInsets.only(top: 12, left: 10),
-                              child: BigText(text: "prelookstudio@gmail.com",size: 16)),
+                              child: BigText(text: "prelookstudio@gmail.com",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                         )
                       ],
                     ),
@@ -196,9 +197,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           margin: EdgeInsets.only(
                               left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: ThemeColors().greyBlack,
                             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                            border: Border.all(color: textFieldBorderColor),
+                            border: Border.all(color: ThemeColors().greyBlack),
                             // boxShadow: [
                             //   BoxShadow(
                             //     blurRadius: 3,
@@ -211,7 +212,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           ),
                           child: Padding(
                               padding: EdgeInsets.only(top: 12, left: 10),
-                              child: BigText(text: "+1 (783) 0986 8786",size: 16,)),
+                              child: BigText(text: "+1 (783) 0986 8786",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                         )
                         // AppTextField(textController: _phoneTextController, hintText: "Full name", textInputType: TextInputType.text, )
                       ],

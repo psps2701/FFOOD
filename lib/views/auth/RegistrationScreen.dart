@@ -7,12 +7,14 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../Route/Routes.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../widgets/back_button.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
-
+import 'package:get_storage/get_storage.dart';
 class RegistrationScreen extends GetView<RegistrationController> {
   const RegistrationScreen({super.key});
 
@@ -20,15 +22,16 @@ class RegistrationScreen extends GetView<RegistrationController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
-            statusBarColor: AppColors.statusBarGrey,
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-            systemNavigationBarColor: AppColors.white
+          systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
 
           // Status bar
         ),
         child: SafeArea(
           child: Scaffold(
+            backgroundColor: ThemeColors().mainBgColor,
             body: Stack(
               children: [
                 // ,
@@ -69,7 +72,7 @@ class RegistrationScreen extends GetView<RegistrationController> {
                             BigText(
                               text: "Registration",
                               size: 36.sp,
-                              color: fontColor,
+                              color: ThemeColors().kPrimaryTextColor,
                             ),
                           ],
                         ),
@@ -84,7 +87,7 @@ class RegistrationScreen extends GetView<RegistrationController> {
                                   text:
                                       "Enter your phone number to verify your account ",
                                   size: 14.sp,
-                                  color: loginPageLabelColor,
+                                  color: ThemeColors().kSecondaryTextColor,
                                   fontWeight: FontWeight.w500,
                                 )),
                           ],
@@ -104,7 +107,7 @@ class RegistrationScreen extends GetView<RegistrationController> {
                                 child: CountryListPick(
                                     appBar: AppBar(
                                       backgroundColor: orangeColor,
-                                      title: Text('Country code'),
+                                      title: Text('Country code',style: TextStyle(color: ThemeColors().kPrimaryTextColor),),
                                     ),
 
                                     // if you need custome picker use this
@@ -153,6 +156,7 @@ class RegistrationScreen extends GetView<RegistrationController> {
                                   decoration: InputDecoration(
                                       hintText: "Enter your number",
                                       border: InputBorder.none),
+                                  style: TextStyle(color: ThemeColors().kPrimaryTextColor),
                                 ),
                               )
                             ],

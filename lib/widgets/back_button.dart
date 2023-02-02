@@ -43,8 +43,8 @@ class _CustomBackButtonState extends State<CustomBackButton> {
               BoxShadow(
                 blurRadius: 3,
                 spreadRadius: 1,
-                offset: const Offset(1, 10),
-                color: Colors.grey.withOpacity(0.2),
+                offset: const Offset(1, 1),
+                color: Colors.grey.withOpacity(0.1),
               )
             ],
               shape: RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:ffood/controllers/orders/OrderDetailController.dart';
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../controllers/orders/OrdersEmptyController.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../util/images.dart';
 import '../../util/size_utils.dart';
 import '../../widgets/CustomCard.dart';
@@ -19,7 +21,7 @@ import '../../widgets/order_screens_widgets/order_detail_header_card.dart';
 import '../../widgets/order_screens_widgets/order_food_card.dart';
 import '../../widgets/order_screens_widgets/user_detail_card.dart';
 import '../../widgets/small_text.dart';
-
+import 'package:get_storage/get_storage.dart';
 
 
 class OrderDetailsScreen extends GetView<OrderDetailController>
@@ -32,14 +34,16 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
+
         // Status bar
       ),
       child: SafeArea(child:
       Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -61,13 +65,13 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
 
                       child: CustomCard(
                         margin: 0,
-                        child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                        child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
                         ),
                       ),
                     ),
                   ),
                 ),
-                Expanded(child: Center(child: BigText(text: "My Orders"))),
+                Expanded(child: Center(child: BigText(text: "Order Details",color: ThemeColors().kPrimaryTextColor))),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
                   child: Container(
@@ -98,7 +102,7 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: BigText(text: "Orders food", size: 18.sp,),
+              child: BigText(text: "Orders food", size: 18.sp,color: ThemeColors().kPrimaryTextColor),
             ),
 
             Padding(
@@ -113,10 +117,10 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
               padding:  EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.h),
               child: Row(
                 children: [
-                  SmallText(text: "Total",size: 16.sp,fontWeight: FontWeight.w600,color: orderDetailTextColor,),
+                  SmallText(text: "Total",size: 16.sp,fontWeight: FontWeight.w600,color:  ThemeColors().kPrimaryTextColor,),
                   Expanded(child: Container()),
 
-                  BigText(text: "€59.08", size: 18.sp,),
+                  BigText(text: "€59.08", size: 18.sp,color: ThemeColors().kPrimaryTextColor),
                   SmallText(text: "EUR",size: 14.sp,color: loginPageLabelColor,),
 
 
@@ -140,12 +144,12 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
                         decoration:  BoxDecoration(
                             border: Border.all(
                                 width: 1,
-                                color: orangeColor,
+                                 color: ThemeColors().orangeWhiteColorunSelected,
                                 ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100.r)),
-                            color: AppColors.white),
-                        child: BigText(text: "DISCOVER NOW",size: 15.sp, color: orangeColor,)
+                            color:ThemeColors().greyBlack),
+                        child: BigText(text: "RATE",size: 15.sp, color:  ThemeColors().orangeWhiteColorunSelected,)
 
                       // Text(
                       //   'LOGIN',
@@ -168,8 +172,8 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                 BorderRadius.all(Radius.circular(100.r))),
-                            color: orangeColor),
-                        child: BigText(text: "DISCOVER NOW",size: 15.sp, color: Colors.white,)
+                            color: ThemeColors().btntxtColorUnSelected),
+                        child: BigText(text: "RE-ORDER",size: 15.sp, color:ThemeColors().kWhiteColor,)
 
                       // Text(
                       //   'LOGIN',

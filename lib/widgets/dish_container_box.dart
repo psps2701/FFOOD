@@ -30,8 +30,8 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
     return Container(
 
 
-      width: 266.w,
-      height: 223.h,
+      width: 260.w,
+      height: 226.h,
       // height: MediaQuery.of(context).size.height * 0.02,
       // padding: EdgeInsets.symmetric(horizontal: 15),
       decoration:  BoxDecoration(
@@ -55,10 +55,10 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
             child: Stack(
               children: [
                 ClipRRect(
-                    borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/42.2),
+                    borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/55.2),
                     child: Image.asset(
                       fit:BoxFit.cover,
-                      height: 136.h,
+                      height: 140.h,
                       "assets/dish1.png",
                     )),
                 Row(
@@ -200,7 +200,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(9.0),
                   child: Row(
                     children: [
                       Container(

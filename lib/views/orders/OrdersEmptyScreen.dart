@@ -7,10 +7,12 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../controllers/orders/OrdersEmptyController.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../widgets/big_text.dart';
-
+import 'package:get_storage/get_storage.dart';
 
 
 class OrdersEmptyScreen extends GetView<OrdersEmptyController>
@@ -23,10 +25,11 @@ class OrdersEmptyScreen extends GetView<OrdersEmptyController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
+
         // Status bar
       ),
       child: SafeArea(child: Column(
@@ -42,7 +45,7 @@ class OrdersEmptyScreen extends GetView<OrdersEmptyController>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(width: 10.w,),
-              BigText(text: "No upcoming orders ", size: 20.sp,),
+              BigText(text: "No upcoming orders ", size: 20.sp,color:ThemeColors().kPrimaryTextColor),
             ],
           ),
 
@@ -57,7 +60,7 @@ class OrdersEmptyScreen extends GetView<OrdersEmptyController>
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Padding(
                     padding: const EdgeInsets.only(bottom: 10).r,
-                    child: Text("No upcoming orders have been placed yet. Discover and order now!", style: TextStyle(fontSize: 14.sp, color: loginPageLabelColor),maxLines: 2,textAlign: TextAlign.center,)
+                    child: Text("No upcoming orders have been placed yet. Discover and order now!", style: TextStyle(fontSize: 14.sp, color: ThemeColors().kSecondaryTextColor),maxLines: 2,textAlign: TextAlign.center,)
                 ),
               ),
             ],

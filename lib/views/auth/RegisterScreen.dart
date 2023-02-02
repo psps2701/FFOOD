@@ -6,13 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import '../../Route/Routes.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../util/images.dart';
 import '../../widgets/app_text_field.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
-
+import 'package:get_storage/get_storage.dart';
 class RegisterScreen extends GetView<RegisterController> {
   const RegisterScreen({super.key});
 
@@ -20,11 +22,15 @@ class RegisterScreen extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: AppColors.white, // Navigation bar
-        statusBarColor: AppColors.themeColor, //
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+
         // Status bar
       ),
       child: Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
         body: SafeArea(
           child: Stack(
             // fit: StackFit.passthrough,
@@ -75,7 +81,7 @@ class RegisterScreen extends GetView<RegisterController> {
 
                           Row(
                             children: [
-                              BigText(text: "Sign Up", size: 36.sp,color: blackColor),
+                              BigText(text: "Sign Up", size: 36.sp,color:   ThemeColors().kPrimaryTextColor,),
                             ],
                           ),
                           SizedBox(
@@ -85,7 +91,7 @@ class RegisterScreen extends GetView<RegisterController> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10,left: 10).r,
-                                child: SmallText(text: "Full name", size: 16.sp, color:  darkThemeLabelColor,),
+                                child: SmallText(text: "Full name", size: 16.sp, color:  ThemeColors().kSecondaryTextColor,),
                               ),
                             ],
                           ),
@@ -203,14 +209,14 @@ class RegisterScreen extends GetView<RegisterController> {
 
                                   padding: EdgeInsets.all(10.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color:ThemeColors().mainBgColor,
                                       borderRadius: BorderRadius.all(Radius.circular(100.r)),
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 3,
                                           spreadRadius: 1,
                                           offset: const Offset(1, 10),
-                                          color: Colors.grey.withOpacity(0.1),
+                                          color: ThemeColors().shadow.withOpacity(0.1),
                                         )
                                       ]
                                   ),
@@ -221,7 +227,7 @@ class RegisterScreen extends GetView<RegisterController> {
                                       SizedBox(width: 5.w,),
                                       Column(
                                         children: [
-                                          SmallText(text: "FACEBOOK", size: 13.sp,color: Colors.black,),
+                                          SmallText(text: "FACEBOOK", size: 13.sp,color: ThemeColors().kPrimaryTextColor,),
                                         ],
                                       )
                                     ],
@@ -231,14 +237,14 @@ class RegisterScreen extends GetView<RegisterController> {
                                   width: 147.w,
                                   padding: EdgeInsets.all(10.w),
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: ThemeColors().mainBgColor,
                                       borderRadius: BorderRadius.all(Radius.circular(100.r)),
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 3,
                                           spreadRadius: 1,
                                           offset: const Offset(1, 10),
-                                          color: Colors.grey.withOpacity(0.1),
+                                          color: ThemeColors().shadow.withOpacity(0.1),
                                         )
                                       ]
                                   ),
@@ -250,7 +256,7 @@ class RegisterScreen extends GetView<RegisterController> {
                                       SizedBox(width: 5.w,),
                                       Column(
                                         children: [
-                                          SmallText(text: "GOOGLE", size: 13.sp,color: Colors.black,),
+                                          SmallText(text: "GOOGLE", size: 13.sp,color: ThemeColors().kPrimaryTextColor,),
                                         ],
                                       )
                                     ],

@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../controllers/orders/MyOrdersController.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../util/images.dart';
 import '../../util/size_utils.dart';
 import '../../widgets/CustomCard.dart';
@@ -17,6 +19,8 @@ import '../../widgets/order_screens_widgets/history_card.dart';
 import '../../widgets/order_screens_widgets/my_order_card.dart';
 
 
+
+import 'package:get_storage/get_storage.dart';
 
 class MyOrdersScreen extends GetView<MyOrdersController>
 
@@ -28,13 +32,15 @@ class MyOrdersScreen extends GetView<MyOrdersController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
+
         // Status bar
       ),
       child: SafeArea(child: Scaffold(
+          backgroundColor: ThemeColors().mainBgColor,
           body: SafeArea(
             child: SizedBox(
               height: MediaQuery.of(context).size.height,
@@ -57,13 +63,13 @@ class MyOrdersScreen extends GetView<MyOrdersController>
 
                             child: CustomCard(
                               margin: 0,
-                              child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                              child: Image.asset(Images.icBack,color: ThemeColors().lightDark,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Expanded(child: Center(child: BigText(text: "My Orders"))),
+                      Expanded(child: Center(child: BigText(text: "My Orders",color: ThemeColors().kPrimaryTextColor,))),
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
                         child: Container(
@@ -96,7 +102,7 @@ class MyOrdersScreen extends GetView<MyOrdersController>
                             color: orangeColor,
                             borderRadius: BorderRadius.circular(25.0)),
                         // labelColor: orangeColor,
-                        unselectedLabelColor: orangeColor,
+                        unselectedLabelColor: ThemeColors().kPrimaryTextColor,
                         controller: controller.tabController,
                         tabs: const [
                           Tab(

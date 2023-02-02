@@ -18,6 +18,7 @@ import '../widgets/food_container_with_icon.dart';
 import '../widgets/popular_item_card.dart';
 import '../widgets/small_text.dart';
 import 'DrawerScreen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class HomeGridView extends GetView<HomeScreenController>
@@ -64,7 +65,8 @@ class HomeGridView extends GetView<HomeScreenController>
 
         Container(
           width: size.width,
-          height: 250,
+          height: 243.h,
+
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: controller.name.length,

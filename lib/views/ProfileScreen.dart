@@ -1,21 +1,19 @@
-import 'package:ffood/Route/Routes.dart';
-import 'package:ffood/controllers/WelcomeController.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../controllers/MainScreen/HomeScreenController.dart';
-import '../controllers/MainScreen/MainScreenController.dart';
-import '../controllers/MainScreen/ProfileScreenController.dart';
-import '../util/app_colors.dart';
-import '../util/colors.dart';
-import '../util/images.dart';
-import '../util/size_utils.dart';
-import '../widgets/CustomCard.dart';
-import '../widgets/big_text.dart';
-import '../widgets/common_image_view.dart';
-import '../widgets/small_text.dart';
+import 'package:get_storage/get_storage.dart';
+import '../../controllers/MainScreen/ProfileScreenController.dart';
+import '../../themecolor/ThemeColors.dart';
+import '../../util/app_colors.dart';
+import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
+import '../../util/images.dart';
+import '../../util/size_utils.dart';
+import '../../widgets/CustomCard.dart';
+import '../../widgets/big_text.dart';
+import '../../widgets/small_text.dart';
 
 
 class ProfileScreen extends GetView<ProfileScreenController>
@@ -27,18 +25,19 @@ class ProfileScreen extends GetView<ProfileScreenController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
-          // Status bar
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        // Status bar
       ),
       child: SizedBox(
         child: Scaffold(
+          backgroundColor: ThemeColors().mainBgColor,
           body: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Colors.white,
+            color: ThemeColors().mainBgColor,
             child: Stack(
               children: [
                 Positioned(
@@ -54,11 +53,8 @@ class ProfileScreen extends GetView<ProfileScreenController>
                     // onTap: navigateToHomeScreen,
                     child: GestureDetector(
                       onTap: (){
-                        var cm = Get.find<MainScreenController>();
 
-                        cm.navigationTapped(0);
-                        cm.currentIndex.value = 0 ;
-                        cm.currentIndex.refresh();
+                        Get.back();
                       },
                       child: Container(
                         width: 38,
@@ -68,7 +64,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
 
                         child: CustomCard(
                           margin: 0,
-                          child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                          child: Image.asset(Images.icBack, color: ThemeColors().kPrimaryTextColor,
                           ),
                         ),
                       ),
@@ -93,14 +89,14 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         ),
                       ),
 
-                      BigText(text: "Eljad Eendaz"),
+                      BigText(text: "Eljad Eendaz",color: ThemeColors().kPrimaryTextColor,),
                       GestureDetector(
                           onTap: ()=>{
 
                           },
 
 
-                          child: SmallText(text: "Edit Profile", color: loginPageLabelColor,size: 14,)),
+                          child: SmallText(text: "Edit Profile", color: ThemeColors().kPrimaryTextColor,size: 14,)),
                     ],
                   ),
                 ),
@@ -114,7 +110,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: SmallText(text: "Full name", size: 16, color: loginPageLabelColor,),
+                        child: SmallText(text: "Full name", size: 16, color: ThemeColors().kSecondaryTextColor,),
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -122,9 +118,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         margin: EdgeInsets.only(
                             left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: ThemeColors().greyBlack,
                           borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                          border: Border.all(color: textFieldBorderColor),
+                          border: Border.all(color: ThemeColors().greyBlack),
                           // boxShadow: [
                           //   BoxShadow(
                           //     blurRadius: 3,
@@ -137,7 +133,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                         ),
                         child: Padding(
                             padding: EdgeInsets.only(top: 12, left: 10),
-                            child: BigText(text: "Eljad Eendaz",size: 16)),
+                            child: BigText(text: "Eljad Eendaz",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                       )
                     ],
                   ),
@@ -161,9 +157,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           margin: EdgeInsets.only(
                               left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: ThemeColors().greyBlack,
                             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                            border: Border.all(color: textFieldBorderColor),
+                            border: Border.all(color: ThemeColors().greyBlack),
                             // boxShadow: [
                             //   BoxShadow(
                             //     blurRadius: 3,
@@ -176,7 +172,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           ),
                           child: Padding(
                               padding: EdgeInsets.only(top: 12, left: 10),
-                              child: BigText(text: "prelookstudio@gmail.com",size: 16)),
+                              child: BigText(text: "prelookstudio@gmail.com",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                         )
                       ],
                     ),
@@ -201,9 +197,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           margin: EdgeInsets.only(
                               left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: ThemeColors().greyBlack,
                             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-                            border: Border.all(color: textFieldBorderColor),
+                            border: Border.all(color: ThemeColors().greyBlack),
                             // boxShadow: [
                             //   BoxShadow(
                             //     blurRadius: 3,
@@ -216,7 +212,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
                           ),
                           child: Padding(
                               padding: EdgeInsets.only(top: 12, left: 10),
-                              child: BigText(text: "+1 (783) 0986 8786",size: 16,)),
+                              child: BigText(text: "+1 (783) 0986 8786",size: 16,color: ThemeColors().kPrimaryTextColor,)),
                         )
                         // AppTextField(textController: _phoneTextController, hintText: "Full name", textInputType: TextInputType.text, )
                       ],
@@ -229,7 +225,7 @@ class ProfileScreen extends GetView<ProfileScreenController>
           ),
         ),
       ),
-    );;
+    );
   }
 
 }

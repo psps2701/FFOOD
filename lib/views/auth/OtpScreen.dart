@@ -8,12 +8,14 @@ import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 
 import '../../Route/Routes.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
+import '../../util/get_storage_key.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/custom_back_button.dart';
 import '../../widgets/small_text.dart';
-
+import 'package:get_storage/get_storage.dart';
 class OtpScreen extends GetView<OtpController> {
   const OtpScreen({super.key});
 
@@ -21,15 +23,15 @@ class OtpScreen extends GetView<OtpController> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarColor: AppColors.white
+        systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+        statusBarColor:  ThemeColors().statusBarColor,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
 
         // Status bar
       ),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: ThemeColors().mainBgColor,
         body:SafeArea(
           child: Stack(
             children: [

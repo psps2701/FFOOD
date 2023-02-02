@@ -34,6 +34,7 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
       ),
       child: SafeArea(
         child: Scaffold(
+          backgroundColor:ThemeColors().mainBgColor,
           body: Column(
             children: [
               Row(
@@ -53,13 +54,13 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
 
                         child: CustomCard(
                           margin: 0,
-                          child: Image.asset(Images.icBack, color: false ? Colors.white :Colors.black,
+                          child: Image.asset(Images.icBack, color: ThemeColors().kPrimaryTextColor,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  Expanded(child: Center(child: BigText(text: "Payment Method"))),
+                  Expanded(child: Center(child: BigText(text: "Payment Method",color: ThemeColors().kPrimaryTextColor,))),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
                     child: Container(
@@ -79,8 +80,8 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
                     padding: EdgeInsets.only(bottom: 30),
                     width: 323,
                     height: 90,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: textFieldBorderColor),
-                    child:                Center(child: BigText(text: "PAY WITH", size: 16,)),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: ThemeColors().greyBlack),
+                    child:                Center(child: BigText(text: "PAY WITH", size: 16,color: ThemeColors().lightDark,)),
                   ),
 
                   Positioned(
@@ -93,7 +94,7 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
                       decoration: BoxDecoration(
                         color: orangeColor,
                         borderRadius: BorderRadius.circular(25.0),
-                        border: Border.all(color: tabBorderColor),
+                        border: Border.all(color: ThemeColors().outline),
                       ),
                       child: Center(
                         child: Padding(
@@ -118,9 +119,9 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
                       height: 55,
                       padding: EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: ThemeColors().mainBgColor,
                         borderRadius: BorderRadius.circular(25.0),
-                        border: Border.all(color: tabBorderColor),
+                        border: Border.all(color: ThemeColors().themeBlack),
                       ),
 
                       child: GetX<PaymentMethodController>(
@@ -146,9 +147,9 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
 
                                       Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                        child: BigText(text: "Card", color: controller.index.value == 0 ? Colors.white:orangeColor,size: 14,),
+                                        child: BigText(text: "Card", color: controller.index.value == 0 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,size: 14,),
                                       ),
-                                      Image.asset("assets/pay_card_logo.png", width: 19,color: controller.index.value == 0 ? Colors.white:orangeColor,),
+                                      Image.asset("assets/pay_card_logo.png", width: 19,color: controller.index.value == 0 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,),
 
 
                                     ],),
@@ -160,9 +161,9 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
 
                                       Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                        child: BigText(text: "Cash", color: controller.index.value == 1 ? Colors.white:orangeColor,size: 14,),
+                                        child: BigText(text: "Cash", color: controller.index.value == 1 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,size: 14,),
                                       ),
-                                      Image.asset("assets/cash_logo.png", height: 14,color: controller.index.value == 1? Colors.white:orangeColor,),
+                                      Image.asset("assets/cash_logo.png", height: 14,color: controller.index.value == 1? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,),
 
 
                                     ],),

@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 import '../../util/colors.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -45,6 +46,7 @@ class _AppTextFieldState extends State<AppTextField> {
         obscureText: widget.isObscure ? true : false,
         controller: widget.textController,
         keyboardType: widget.textInputType,
+        style: TextStyle(color: ThemeColors().kPrimaryTextColor),
         decoration: InputDecoration(
           suffixIcon: Visibility(
             visible: widget.isPass ? true  :false,
@@ -58,6 +60,7 @@ class _AppTextFieldState extends State<AppTextField> {
           ),
           hintStyle:  TextStyle(color: hintTextColor, fontSize: MediaQuery.of(context).size.height/52.75),
           hintText: widget.hintText,
+
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/75.27),
             borderSide: const BorderSide(

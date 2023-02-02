@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/colors.dart';
 import '../big_text.dart';
 import '../small_text.dart';
@@ -18,12 +19,12 @@ class _UserDetailCardState extends State<UserDetailCard> {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 20.0),
-          child: SmallText(text: "Details", size: 18.sp, fontWeight: FontWeight.w600,color: orderDetailTextColor,),
+          child: SmallText(text: "Details", size: 18.sp, fontWeight: FontWeight.w600,color: ThemeColors().kPrimaryTextColor,),
         ),
         SizedBox(height: 5.h,),
         Padding(
           padding: const EdgeInsets.only(left: 20.0),
-          child: SmallText(text: "6391 Elgin St. Celina, Delaware 10299", size: 14.sp, fontWeight: FontWeight.w500,color: orderDetailTextColor,),
+          child: SmallText(text: "6391 Elgin St. Celina, Delaware 10299", size: 14.sp, fontWeight: FontWeight.w500,color: ThemeColors().kSecondaryTextColor,),
         ),
 
         Row(
@@ -43,8 +44,8 @@ class _UserDetailCardState extends State<UserDetailCard> {
             ),
             Column(
               children: [
-                SmallText(text: "ID: DKS-501F9", size: 12.sp, fontWeight: FontWeight.w500,color: loginPageLabelColor,),
-                BigText(text: "Farion Wick", size: 16,color: orderDetailTextColor,),
+                SmallText(text: "ID: DKS-501F9", size: 12.sp, fontWeight: FontWeight.w500,color: ThemeColors().kSecondaryTextColor,),
+                BigText(text: "Farion Wick", size: 16,color: ThemeColors().kPrimaryTextColor,),
 
               ],
             ),

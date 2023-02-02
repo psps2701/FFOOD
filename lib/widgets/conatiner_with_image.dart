@@ -46,10 +46,10 @@ class _ImageContainerState extends State<ImageContainer> {
             ],
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.r))),
-            color: widget.isPressed ? orangeColor:ThemeColors().mainColor),
+            color: widget.isPressed ? ThemeColors().rprofileselected:ThemeColors().rprofileunselected),
         child: Container(
             padding: EdgeInsets.all(widget.padding),
-            child: Image.asset(widget.imageName, color: widget.isPressed ? ThemeColors().kSecondaryTextColorReverse:ThemeColors().tagBoxColor,)),
+            child: Image.asset(widget.imageName, color: widget.isPressed ? ThemeColors().orangeWhiteColorSelected:ThemeColors().orangeWhiteColorunSelected,)),
       ),
     );
   }

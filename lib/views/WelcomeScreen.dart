@@ -110,7 +110,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(35.r))),
-                              color: Colors.white),
+                              color: ThemeColors().mainBgColor),
                         ),
                         SizedBox(
                           width: 10.w,
@@ -125,7 +125,7 @@ class WelcomeScreen extends GetView<WelcomeController> {
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(35.r))),
-                              color: Colors.white),
+                              color: ThemeColors().mainBgColor),
                         ),
                       ],
                     ),

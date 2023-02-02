@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -32,11 +33,11 @@ class CustomCard extends StatelessWidget {
 
       decoration: BoxDecoration(
 
-        color: bgColor,
+        color: ThemeColors().mainColor,
         borderRadius: BorderRadius.circular(borderRadius), //border corner radius
         boxShadow:[
           BoxShadow(
-            color: color.withOpacity(opacity), //color of shadow
+            color: ThemeColors().kSecondaryTextColorReverse.withOpacity(opacity), //color of shadow
             spreadRadius: spreadRadius, //spread radius
             blurRadius: blurRadius, // blur radius
             offset: const Offset(0, 2), // changes position of shadow

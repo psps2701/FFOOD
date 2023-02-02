@@ -8,13 +8,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/AddressListScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/size_utils.dart';
 import '../widgets/back_button.dart';
 import '../widgets/big_text.dart';
 import '../widgets/dish_container_box.dart';
 
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AddressListScreen extends GetView<AddressListController>
 
@@ -26,13 +30,16 @@ class AddressListScreen extends GetView<AddressListController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
-          // Status bar
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
+
+        // Status bar
       ),
-      child: SafeArea(child: Scaffold(body: Container(
+      child: SafeArea(child: Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
+        body: Container(
         width: size.width,
         height: size.height,
         child: ListView(
@@ -41,17 +48,14 @@ class AddressListScreen extends GetView<AddressListController>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).pop();
-                      },
-                      child: CustomBackButton()),
-                ),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: CustomBackButton()),
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
-                  child: BigText(text: "Delivery Address"),
+                  child: BigText(text: "Delivery Address",color: ThemeColors().kPrimaryTextColor,),
                 ),
                 Padding(
                     padding: const EdgeInsets.only(top: 20.0),

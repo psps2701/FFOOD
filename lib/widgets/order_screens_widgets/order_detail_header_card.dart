@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../themecolor/ThemeColors.dart';
 import '../../util/colors.dart';
 import '../big_text.dart';
 import '../small_text.dart';
@@ -42,10 +43,10 @@ class _ResturantDetailCardState extends State<HearderCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SmallText(text: "20 Jun, 10:30", color: loginPageLabelColor,size: 12.sp,),
+              SmallText(text: "20 Jun, 10:30", color: ThemeColors().kSecondaryTextColor,size: 12.sp,),
               Row(
                 children: [
-                  BigText(text: "Starbuck ", size: 16.sp,),
+                  BigText(text: "Starbuck ", size: 16.sp,color: ThemeColors().kPrimaryTextColor,),
                   Icon(Icons.check_circle, color: greyColor,size: 10,)
                 ],
               ),

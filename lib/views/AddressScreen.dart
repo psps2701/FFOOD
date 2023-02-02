@@ -8,8 +8,10 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../controllers/MainScreen/ReviewScreenController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/app_text_field.dart';
@@ -18,7 +20,8 @@ import '../widgets/big_text.dart';
 import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
 
-
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 class AddressScreen extends GetView<AddressController>
 
 {
@@ -29,13 +32,15 @@ class AddressScreen extends GetView<AddressController>
 
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.white, // Navigation bar
-          statusBarColor: AppColors.statusBarGrey,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark
-          // Status bar
+          systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar
+          statusBarColor:  ThemeColors().statusBarColor,
+          statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+          statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark
+
+        // Status bar
       ),
       child: SafeArea(child: Scaffold(
+        backgroundColor: ThemeColors().mainBgColor,
         body: SingleChildScrollView(
           child: Column(children: [
             Row(
@@ -43,7 +48,7 @@ class AddressScreen extends GetView<AddressController>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: 0),
                   child: GestureDetector(
                       onTap: (){
                         Navigator.of(context).pop();
@@ -52,7 +57,7 @@ class AddressScreen extends GetView<AddressController>
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
-                  child: BigText(text: "Add new address"),
+                  child: BigText(text: "Add new address",color: ThemeColors().kPrimaryTextColor,),
                 ),
                 Padding(
                     padding: const EdgeInsets.only(top: 20.0),
@@ -77,7 +82,7 @@ class AddressScreen extends GetView<AddressController>
                 SizedBox(width: 10.w,),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10).r,
-                  child: SmallText(text: "Full name", size: 16.sp, color: loginPageLabelColor,),
+                  child: SmallText(text: "Full name", size: 16.sp, color: ThemeColors().kSecondaryTextColor,),
                 ),
               ],
             ),
@@ -93,7 +98,7 @@ class AddressScreen extends GetView<AddressController>
                 SizedBox(width: 10.w,),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10).r,
-                  child: SmallText(text: "Mobile number", size: 16.sp, color: loginPageLabelColor,),
+                  child: SmallText(text: "Mobile number", size: 16.sp, color: ThemeColors().kSecondaryTextColor,),
                 ),
               ],
             ),
@@ -107,7 +112,7 @@ class AddressScreen extends GetView<AddressController>
                 SizedBox(width: 10.w,),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10).r,
-                  child: SmallText(text: "State", size: 16.sp, color: loginPageLabelColor,),
+                  child: SmallText(text: "State", size: 16.sp, color: ThemeColors().kSecondaryTextColor,),
                 ),
               ],
             ),
@@ -121,8 +126,8 @@ class AddressScreen extends GetView<AddressController>
               margin: EdgeInsets.only(
                   left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
               decoration: BoxDecoration(
-                border: Border.all(color: textFieldBorderColor),
-                color: Colors.white,
+                border: Border.all(color: ThemeColors().greyBlack),
+                color: ThemeColors().greyBlack,
                 borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
                 // boxShadow: [
                 //   BoxShadow(
@@ -138,8 +143,8 @@ class AddressScreen extends GetView<AddressController>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
-                  SmallText(text: "Select State", size: 16.sp, color: blackColor,),
-                  Icon(Icons.arrow_forward_ios, color: blackColor,size: 13,)
+                  SmallText(text: "Select State", size: 16.sp, color: ThemeColors().kPrimaryTextColor,),
+                  Icon(Icons.arrow_forward_ios, color: ThemeColors().kPrimaryTextColor,size: 13,)
 
                 ],
               ),
@@ -154,7 +159,7 @@ class AddressScreen extends GetView<AddressController>
                 SizedBox(width: 10.w,),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10).r,
-                  child: SmallText(text: "City", size: 16.sp, color: loginPageLabelColor,),
+                  child: SmallText(text: "City", size: 16.sp, color: ThemeColors().kSecondaryTextColor,),
                 ),
               ],
             ),
@@ -168,8 +173,8 @@ class AddressScreen extends GetView<AddressController>
               margin: EdgeInsets.only(
                   left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
               decoration: BoxDecoration(
-                border: Border.all(color: textFieldBorderColor),
-                color: Colors.white,
+                border: Border.all(color: ThemeColors().greyBlack),
+                color: ThemeColors().greyBlack,
                 borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
                 // boxShadow: [
                 //   BoxShadow(
@@ -185,8 +190,8 @@ class AddressScreen extends GetView<AddressController>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
-                  SmallText(text: "Select City", size: 16.sp, color: blackColor,),
-                  Icon(Icons.arrow_forward_ios, color: blackColor,size: 13,)
+                  SmallText(text: "Select City", size: 16.sp, color: ThemeColors().kPrimaryTextColor,),
+                  Icon(Icons.arrow_forward_ios, color: ThemeColors().kPrimaryTextColor,size: 13,)
 
                 ],
               ),
@@ -202,13 +207,13 @@ class AddressScreen extends GetView<AddressController>
                 SizedBox(width: 10.w,),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10).r,
-                  child: SmallText(text: "Street (Include house number)", size: 16.sp, color: loginPageLabelColor,),
+                  child: SmallText(text: "Street (Include house number)", size: 16.sp, color: ThemeColors().kSecondaryTextColor,),
                 ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(top:8.0,left:10,right: 10,bottom: 8),
-              child: AppTextField(textController: controller.streetTextController, hintText: "Street", textInputType:TextInputType.emailAddress, ),
+              child: AppTextField(textController: controller.streetTextController, hintText: "Street", textInputType:TextInputType.text),
             ),
 
             SizedBox(
