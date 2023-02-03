@@ -1,3 +1,4 @@
+import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +34,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
           child: Container(
             // width: double.infinity,
             decoration: ShapeDecoration(
-                color: Colors.white,
+                color: ThemeColors().mainColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                         Radius.circular(MediaQuery.of(context).size.height / 42.2)))
@@ -49,6 +50,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                       BigText(
                         text: widget.name,
                         size: 16.sp,
+                        color: ThemeColors().kPrimaryTextColor,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.only(left: 5.0),
@@ -63,7 +65,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                 ),
                 Padding(
                     padding: const EdgeInsets.all(8.0).r,
-                    child: SmallText(text: widget.details,size: 14.sp,)
+                    child: SmallText(text: widget.details,size: 14.sp,color: ThemeColors().kPrimaryTextColor,)
                 )
               ],
             ),
@@ -100,7 +102,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                       shape: RoundedRectangleBorder(
                           borderRadius:
                           BorderRadius.all(Radius.circular(20.r))),
-                      color: Colors.white),
+                      color: ThemeColors().mainColor),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -108,12 +110,12 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                       BigText(
                         text: "\$",
                         size: 16.sp,
-                        color: orangeColor,
+                        color: ThemeColors().mainOrangeWhite,
                       ),
                       SmallText(
                         text: widget.price,
                         size: 16.sp,
-                        color: blackColor,
+                        color: ThemeColors().kPrimaryTextColor,
                       )
                     ],
                   ),
@@ -137,10 +139,10 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                         shape: RoundedRectangleBorder(
                             borderRadius:
                             BorderRadius.all(Radius.circular(100.r))),
-                        color: orangeColor),
+                        color: ThemeColors().mainColor),
                     child: Icon(
                       Icons.favorite,
-                      color: Colors.white,
+                      color: ThemeColors().mainOrangeWhite,
                       size: 22.sp,
                     ),
                   ),
@@ -163,13 +165,13 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                   BoxShadow(
                     // color: Colors.grey.withOpacity(0.2),
                       blurRadius: 3,
-                      color: greayColor,
+                      color: ThemeColors().greyBlack,
                       offset: Offset(1, 10))
                 ],
                   shape: RoundedRectangleBorder(
                       borderRadius:
                       BorderRadius.all(Radius.circular(20.r))),
-                  color: Colors.white),
+                  color: ThemeColors().mainBgColor),
               child: Padding(
                 padding: const EdgeInsets.all(8.0).r,
                 child: Row(
@@ -179,6 +181,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                     BigText(
                       text: widget.rating,
                       size: MediaQuery.of(context).devicePixelRatio * 5,
+                      color: ThemeColors().kPrimaryTextColor,
                     ),
                     Image.asset(
                       "assets/star.png",
@@ -188,6 +191,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                     SmallText(
                       text: "(${widget.reviewsCount}+)",
                       size: 8.5.sp,
+                        color:ThemeColors().kPrimaryTextColor
                     )
                   ],
                 ),

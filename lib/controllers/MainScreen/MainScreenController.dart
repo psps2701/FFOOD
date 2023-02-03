@@ -1,5 +1,6 @@
 import 'package:ffood/util/images.dart';
 import 'package:ffood/views/HomeScreen.dart';
+import 'package:ffood/views/orders/MyOrdersScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class MainScreenController extends GetxController with StateMixin<dynamic> {
     ReviewScreen(),
     CartScreen(),
     FavoriteScreen(),
-    ProfileScreen()
+    MyOrdersScreen()
   ].obs;
 
   @override

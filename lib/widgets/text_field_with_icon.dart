@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../themecolor/ThemeColors.dart';
 import '../util/colors.dart';
 
 
@@ -28,9 +29,9 @@ class IconAppTextField extends StatelessWidget {
         // margin: EdgeInsets.only(
         //     left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
         decoration: BoxDecoration(
-            color: whiteColorWithExtraTranspernt,
+            color: ThemeColors().mainColor,
             borderRadius: BorderRadius.circular(20).w,
-            border: Border.all(color: borderColor),
+            border: Border.all(color: ThemeColors().mainColor),
             // boxShadow: [
             //   BoxShadow(
             //     blurRadius: 3,
@@ -44,25 +45,25 @@ class IconAppTextField extends StatelessWidget {
           obscureText: isObscure?true:false,
           controller: textController,
           decoration: InputDecoration(
-            hintStyle: TextStyle(color: Colors.grey, fontSize: 12.sp),
+            hintStyle: TextStyle(color: ThemeColors().kSecondaryTextColor, fontSize: 12.sp),
             hintText: hintText,
             prefixIcon: Icon(
               icon,
-              color: iconColor,
+              color: ThemeColors().kSecondaryTextColor,
               size: 20.w,
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/56.27),
-              borderSide: const BorderSide(
+              borderSide:  BorderSide(
                 width: 1.0,
-                color: textFieldBorderColor,
+                color: ThemeColors().greyBlack,
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20).w,
-              borderSide: const BorderSide(
+              borderSide: BorderSide(
                 width: 1.0,
-                color: textFieldBorderColor,
+                color: ThemeColors().greyBlack,
               ),
             ),
             // border: OutlineInputBorder(

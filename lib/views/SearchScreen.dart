@@ -8,8 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../controllers/MainScreen/ReviewScreenController.dart';
 import '../controllers/SearchController.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/back_button.dart';
@@ -18,6 +20,7 @@ import '../widgets/common_image_view.dart';
 import '../widgets/conatiner_with_image.dart';
 import '../widgets/small_text.dart';
 import '../widgets/text_field_with_icon.dart';
+import 'package:get_storage/get_storage.dart';
 
 
 class SearchScreen extends GetView<SearchController> {
@@ -30,15 +33,16 @@ class SearchScreen extends GetView<SearchController> {
         builder: (controller) {
           return AnnotatedRegion<SystemUiOverlayStyle>(
               value: SystemUiOverlayStyle(
-                  systemNavigationBarColor: AppColors.white, // Navigation bar
-                  statusBarColor: AppColors.statusBarGrey,
-                  statusBarBrightness: Brightness.dark,
-                  statusBarIconBrightness: Brightness.dark
-                // Status bar
+                systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+                statusBarColor:  ThemeColors().statusBarColor,
+                statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+                statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
+// Status bar
               ),
               child:
               SafeArea(child:
               Scaffold(
+                backgroundColor: ThemeColors().mainBgColor,
                 body: Column(
 
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +60,7 @@ class SearchScreen extends GetView<SearchController> {
                           },
                           child: CustomBackButton()),
                     ),
-                    BigText(text: "Search Food"),
+                    BigText(text: "Search Food",color: ThemeColors().kPrimaryTextColor,),
                     Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Container(
@@ -105,7 +109,7 @@ class SearchScreen extends GetView<SearchController> {
 
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0, top: 8),
-                  child: BigText(text: "Recent searches", size: 18.sp,),
+                  child: BigText(text: "Recent searches", size: 18.sp,color: ThemeColors().kPrimaryTextColor,),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -121,10 +125,10 @@ class SearchScreen extends GetView<SearchController> {
                             children: [
 
                               Icon(Icons.access_time_rounded,
-                                color: loginPageLabelColor, size: 19,),
+                                color: ThemeColors().kSecondaryTextColor, size: 19,),
                               SizedBox(width: 10.w,),
                               SmallText(text: controller.searchList[index],
-                                color: blackColor,
+                                color: ThemeColors().kSecondaryTextColor,
                                 size: 15.sp,),
 
                             ],
@@ -172,19 +176,18 @@ class SearchScreen extends GetView<SearchController> {
                                     pressAttention ? Offset(4, 10) : Offset(
                                         1, 4),
                                     color: pressAttention
-                                        ? orangeColor.withOpacity(0.2)
-                                        : Colors.grey.withOpacity(0.6),
+                                        ? ThemeColors().mainOrangeWhite.withOpacity(0.2)
+                                        : ThemeColors().greyBlack.withOpacity(0.6),
                                   )
                                 ],
                                 shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                         color: pressAttention
-                                            ? orangeColor
-                                            : Colors.white),
+                                            ? ThemeColors().mainColor
+                                            : ThemeColors().mainColor),
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(100.r))),
-                                color: pressAttention ? orangeColor : Colors
-                                    .white,
+                                color: pressAttention ? ThemeColors().greyBlack : ThemeColors().greyBlack,
                               ),
                               child: Row(
                                 children: [
@@ -214,8 +217,8 @@ class SearchScreen extends GetView<SearchController> {
                                         style: TextStyle(
                                             fontSize: 10.sp,
                                             color: pressAttention
-                                                ? Colors.white
-                                                : blackColor,
+                                                ? ThemeColors().kPrimaryTextColor
+                                                : ThemeColors().kPrimaryTextColor,
                                             fontWeight: FontWeight.w500
                                         ),
                                       )

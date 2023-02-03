@@ -30,6 +30,8 @@ class MyOrdersScreen extends GetView<MyOrdersController>
   @override
   Widget build(BuildContext context) {
 
+    Get.lazyPut(() => MyOrdersController());
+
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
           systemNavigationBarColor:  ThemeColors().mainBgColor  , // Navigation bar

@@ -43,131 +43,135 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
 
         // Status bar
       ),
- child:SafeArea(child: Column(
-   children: [
-     Row(
+ child:SafeArea(child:
+ Scaffold(
+   backgroundColor: ThemeColors().mainBgColor,
+   body: Column(
+     children: [
+       Row(
 
-       mainAxisAlignment: MainAxisAlignment.spaceAround,
-       children: [
-         GestureDetector(
-           // onTap: navigateToHomeScreen,
-           child: GestureDetector(
-             onTap: (){
-               var cm = Get.find<MainScreenController>();
+         mainAxisAlignment: MainAxisAlignment.spaceAround,
+         children: [
+           GestureDetector(
+             // onTap: navigateToHomeScreen,
+             child: GestureDetector(
+               onTap: (){
+                 var cm = Get.find<MainScreenController>();
 
-               cm.navigationTapped(0);
-               cm.currentIndex.value = 0 ;
-               cm.currentIndex.refresh();
-             },
-             child: Container(
-               width: 38,
-               height: 38,
-               margin: getMargin(left: 15,top: 10,bottom: 10),
-               // padding: EdgeInsets.symmetric(horizontal: 15),
+                 cm.navigationTapped(0);
+                 cm.currentIndex.value = 0 ;
+                 cm.currentIndex.refresh();
+               },
+               child: Container(
+                 width: 38,
+                 height: 38,
+                 margin: getMargin(left: 15,top: 10,bottom: 10),
+                 // padding: EdgeInsets.symmetric(horizontal: 15),
 
-               child: CustomCard(
-                 margin: 0,
-                 bgColor: ThemeColors().mainColor,
-                 color: ThemeColors().shadow,
-                 child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
+                 child: CustomCard(
+                   margin: 0,
+                   bgColor: ThemeColors().mainColor,
+                   color: ThemeColors().shadow,
+                   child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
+                   ),
                  ),
                ),
              ),
            ),
-         ),
-         Expanded(child: Center(child: BigText(text: "Favorites"))),
-         Padding(
-           padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
-           child: Container(
-             height: 38.h,
-             width: 38.w,
-             decoration: BoxDecoration(
-                 borderRadius: BorderRadius.circular(10),
-                 image: DecorationImage(image: AssetImage(
-                   "assets/sidemenuuser.png",
-                 ),)
-             ),
-           ),
-         ),
-       ],
-     ),
-     Container(
-       margin: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-       width: MediaQuery.of(context).size.width,
-       padding: EdgeInsets.all(3.w),
-       height: 55.h,
-       decoration: BoxDecoration(
-         borderRadius: BorderRadius.circular(25.0.r),
-         border: Border.all(color: orangeColor),
-       ),
-       child: TabBar(
-           indicator: BoxDecoration(
-               color: orangeColor,
-               borderRadius: BorderRadius.circular(30.0.r)),
-           // labelColor: orangeColor,
-           unselectedLabelColor: orangeColor,
-           controller: controller.tabController,
-           tabs: const [
-             Tab(
-               text: "Food Items",
-             ),
-             Tab(
-               text: "Resturents",
-             )
-           ]),
-     ),
-
-     Expanded(child: Container(
-       child: TabBarView(
-         controller: controller.tabController,
-         children: [
+           Expanded(child: Center(child: BigText(text: "Favorites",color: ThemeColors().kPrimaryTextColor,))),
            Padding(
-             padding: const EdgeInsets.all(16.0),
-             child: ListView.builder(
-                 shrinkWrap: true,
-                 scrollDirection: Axis.vertical,
-                 physics: AlwaysScrollableScrollPhysics(),
-                 itemCount: controller.name.length,
-                 itemBuilder: (context, index) => Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: GestureDetector(
-                     // onTap: () => navigateToFoodDetail(),
-                       child: CategoryScreenFoodContainer(
-                         name: controller.name[index],
-                         details: controller.details[index],
-                         rating: controller.rating[index],
-                         imageUrl: controller.imageUril[index],
-                         price: controller.price[index],
-                         reviewsCount: controller.reviewCount[index],
-                       )),
-                 )),
-           ),
-           Padding(
-             padding: const EdgeInsets.all(16.0),
-             child: ListView.builder(
-                 shrinkWrap: true,
-                 scrollDirection: Axis.vertical,
-                 physics: AlwaysScrollableScrollPhysics(),
-                 itemCount: controller.name.length,
-                 itemBuilder: (context, index) => Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: GestureDetector(
-                     // onTap: () => navigateToFoodDetail(),
-                       child: CategoryScreenFoodContainer(
-                         name: controller.name[index],
-                         details: controller.details[index],
-                         rating: controller.rating[index],
-                         imageUrl: controller.favResList[index],
-                         price: controller.price[index],
-                         reviewsCount: controller.reviewCount[index],
-                       )),
-                 )),
+             padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
+             child: Container(
+               height: 38.h,
+               width: 38.w,
+               decoration: BoxDecoration(
+                   borderRadius: BorderRadius.circular(10),
+                   image: DecorationImage(image: AssetImage(
+                     "assets/sidemenuuser.png",
+                   ),)
+               ),
+             ),
            ),
          ],
        ),
-     ))
+       Container(
+         margin: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+         width: MediaQuery.of(context).size.width,
+         padding: EdgeInsets.all(3.w),
+         height: 55.h,
+         decoration: BoxDecoration(
+           borderRadius: BorderRadius.circular(25.0.r),
+           border: Border.all(color: tabBorderColor),
+         ),
+         child: TabBar(
+             indicator: BoxDecoration(
+                 color: orangeColor,
+                 borderRadius: BorderRadius.circular(30.0.r)),
+             // labelColor: orangeColor,
+             unselectedLabelColor: ThemeColors().kPrimaryTextColor,
+             controller: controller.tabController,
+             tabs: const [
+               Tab(
+                 text: "Food Items",
+               ),
+               Tab(
+                 text: "Resturents",
+               )
+             ]),
+       ),
 
-   ],
+       Expanded(child: Container(
+         child: TabBarView(
+           controller: controller.tabController,
+           children: [
+             Padding(
+               padding: const EdgeInsets.all(16.0),
+               child: ListView.builder(
+                   shrinkWrap: true,
+                   scrollDirection: Axis.vertical,
+                   physics: AlwaysScrollableScrollPhysics(),
+                   itemCount: controller.name.length,
+                   itemBuilder: (context, index) => Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: GestureDetector(
+                       // onTap: () => navigateToFoodDetail(),
+                         child: CategoryScreenFoodContainer(
+                           name: controller.name[index],
+                           details: controller.details[index],
+                           rating: controller.rating[index],
+                           imageUrl: controller.imageUril[index],
+                           price: controller.price[index],
+                           reviewsCount: controller.reviewCount[index],
+                         )),
+                   )),
+             ),
+             Padding(
+               padding: const EdgeInsets.all(16.0),
+               child: ListView.builder(
+                   shrinkWrap: true,
+                   scrollDirection: Axis.vertical,
+                   physics: AlwaysScrollableScrollPhysics(),
+                   itemCount: controller.name.length,
+                   itemBuilder: (context, index) => Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: GestureDetector(
+                       // onTap: () => navigateToFoodDetail(),
+                         child: CategoryScreenFoodContainer(
+                           name: controller.name[index],
+                           details: controller.details[index],
+                           rating: controller.rating[index],
+                           imageUrl: controller.favResList[index],
+                           price: controller.price[index],
+                           reviewsCount: controller.reviewCount[index],
+                         )),
+                   )),
+             ),
+           ],
+         ),
+       ))
+
+     ],
+   ),
  )),
     );;
   }

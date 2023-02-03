@@ -102,7 +102,7 @@ class _CategoryScreenFoodContainerState
                           width: 38.w,
                           height: 38.h,
                           // padding: EdgeInsets.symmetric(horizontal: 15),
-                          decoration: const ShapeDecoration(
+                          decoration:ShapeDecoration(
                             // shadows: withShadow == true
                             //     ? [
                             //         BoxShadow(
@@ -115,10 +115,10 @@ class _CategoryScreenFoodContainerState
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(100))),
-                              color: orangeColor),
+                              color: ThemeColors().mainColor),
                           child: Icon(
                             Icons.favorite,
-                            color: Colors.white,
+                            color: ThemeColors().mainOrangeWhite,
                             size: 22.sp,
                           ),
                         ),
@@ -166,6 +166,7 @@ class _CategoryScreenFoodContainerState
                           SmallText(
                             text: "(${widget.reviewsCount}+)",
                             size: 8.5.sp,
+                            color: ThemeColors().kPrimaryTextColor,
                           )
                         ],
                       ),
@@ -181,7 +182,7 @@ class _CategoryScreenFoodContainerState
           Container(
             width: double.infinity,
             decoration: ShapeDecoration(
-                color: Colors.white,
+                color: ThemeColors().mainColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                         Radius.circular(MediaQuery.of(context).size.height / 42.2)))
@@ -196,6 +197,7 @@ class _CategoryScreenFoodContainerState
                       BigText(
                         text: widget.name,
                         size: 18.sp,
+                        color: ThemeColors().kPrimaryTextColor,
                       ),
                       // Padding(
                       //   padding: const EdgeInsets.only(left: 5.0),

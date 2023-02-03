@@ -3,6 +3,7 @@ import 'package:ffood/widgets/tag_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../themecolor/ThemeColors.dart';
 import '../util/colors.dart';
 import 'big_text.dart';
 
@@ -23,14 +24,16 @@ class _FindResurentCardState extends State<FindResurentCard> {
     return Container(
       padding: EdgeInsets.all(8).w,
       decoration: BoxDecoration(
-        border: Border.all(color: greayColor),
+        color: ThemeColors().mainColor,
+        border: Border.all(color:
+        ThemeColors().greyBlack),
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
-          const BoxShadow(
-            color: greayColor,
+          BoxShadow(
+            color: ThemeColors().greyBlack,
           ),
-          const BoxShadow(
-            color: Colors.white,
+          BoxShadow(
+            color: ThemeColors().kWhiteColor,
             spreadRadius: -3,
             blurRadius: 4.0,
           ),
@@ -55,7 +58,7 @@ class _FindResurentCardState extends State<FindResurentCard> {
                             blurRadius: 3,
                             spreadRadius: 1,
                             offset: const Offset(1, 10),
-                            color: Colors.grey.withOpacity(0.2),
+                            color: ThemeColors().kWhiteColor.withOpacity(0.2),
                           ),
                         ]
                       ),
@@ -90,7 +93,7 @@ class _FindResurentCardState extends State<FindResurentCard> {
                         child: Center(
                             child: SmallText(
                               text: "5.0",
-                              color: Colors.white,
+                              color: ThemeColors().kPrimaryTextColor,
                             )),
                       ),
                     )
@@ -100,19 +103,19 @@ class _FindResurentCardState extends State<FindResurentCard> {
               ),
               Expanded(child: Container()),
               Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
+                padding:  EdgeInsets.only(bottom: 10.0),
                 child: GestureDetector(
                   child: Container(
                     width: 28.w,
                     height: 28.h,
                     // padding: EdgeInsets.symmetric(horizontal: 15),
-                    decoration: const BoxDecoration(
-                      color: orangeColor,
+                    decoration: BoxDecoration(
+                      color: ThemeColors().mainColor,
                       shape: BoxShape.circle
                     ),
                     child: Icon(
                       Icons.favorite,
-                      color: Colors.white,
+                      color: ThemeColors().mainOrangeWhite,
                       size: 16.sp,
                     ),
                   ),
@@ -124,8 +127,8 @@ class _FindResurentCardState extends State<FindResurentCard> {
 
           Row(
             children: [
-              BigText(text: "Starbuck ", size: 15.sp,),
-              Icon(Icons.check_circle, color: greyColor,size: 10,)
+              BigText(text: "Starbuck ", size: 15.sp,color: ThemeColors().kPrimaryTextColor,),
+              Icon(Icons.check_circle, color: ThemeColors().kPrimaryTextColor,size: 10,)
             ],
           ),
           Row(
@@ -137,7 +140,7 @@ class _FindResurentCardState extends State<FindResurentCard> {
               SmallText(
                 text: "Free",
                 size: 12.sp,
-                color: loginPageLabelColor,
+                color: ThemeColors().kSecondaryTextColor,
               ),
               SizedBox(
                 width: 10,
@@ -149,14 +152,14 @@ class _FindResurentCardState extends State<FindResurentCard> {
               SmallText(
                 text: "10-15 mins",
                 size: 12.sp,
-                color: loginPageLabelColor,
+                color: ThemeColors().kSecondaryTextColor,
               ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: SizedBox(
-              height: 22.h,
+              height: 32.h,
               width: ScreenUtil().screenWidth,
               child: Align(
                 alignment: Alignment.center,
@@ -169,8 +172,8 @@ class _FindResurentCardState extends State<FindResurentCard> {
                         padding: const EdgeInsets.symmetric(horizontal: 3.0),
                         child: TagBoxWidget(
                           tagLAbel: tagBoxLabel[index],
-                          color: greayColor,
-                          textColor: blackColor, themeValue: 0,
+                          color: ThemeColors().tagBoxColorNew,
+                          textColor: ThemeColors().kPrimaryTextColor, themeValue: 0,
                         ),
                       );
                     }),

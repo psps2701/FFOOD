@@ -42,6 +42,7 @@ class ThemeColors {
   var outline =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#5B5B5E');
   var shadow =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#BDBDBD');
   var tagBoxColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#F6F6F6');
+  var tagBoxColorNew =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#474755');
   var heartshaepColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#FFFFFF');
   var heartbgColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#FC8019');
   var loginPageLabelColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FFFFFF');

@@ -6,15 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../themecolor/ThemeColors.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
+import '../util/get_storage_key.dart';
 import '../widgets/back_button.dart';
 import '../widgets/big_text.dart';
 import '../widgets/conatiner_with_image.dart';
 import '../widgets/find_resturant_card.dart';
 import '../widgets/search_food_card.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
+import 'package:get_storage/get_storage.dart';
 class SearchFoodScreen extends GetView<SearchFoodController>  {
   const SearchFoodScreen({super.key});
 
@@ -25,15 +27,17 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
         builder: (controller) {
           return AnnotatedRegion<SystemUiOverlayStyle>(
               value: SystemUiOverlayStyle(
-                  systemNavigationBarColor: AppColors.white, // Navigation bar
-                  statusBarColor: AppColors.statusBarGrey,
-                  statusBarBrightness: Brightness.dark,
-                  statusBarIconBrightness: Brightness.dark
+                systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
+                statusBarColor:  ThemeColors().statusBarColor,
+                statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+                statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
+
                 // Status bar
               ),
               child:
               SafeArea(child:
               Scaffold(
+                backgroundColor: ThemeColors().mainBgColor,
                 body: SingleChildScrollView(physics: AlwaysScrollableScrollPhysics(),
 
                   child: SizedBox(
@@ -44,14 +48,14 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: EdgeInsets.only(left: 0),
                               child: GestureDetector(
                                   onTap: (){
                                     Navigator.of(context).pop();
                                   },
                                   child: CustomBackButton()),
                             ),
-                            BigText(text: "Search Food"),
+                            BigText(text: "Search Food",color: ThemeColors().kPrimaryTextColor,),
                             Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: Container(
@@ -75,17 +79,18 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                                 child: GestureDetector(
                                   onTap: () =>Get.toNamed(Routes.searchScreen),
                                   child: Container(
+
                                     height: 51.h,
                                     // width: MediaQuery.of(context).size.width * 0.73,
                                     padding: EdgeInsets.all(6).w,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(16.r),
-                                        border: Border.all(color: textFieldBorderColor)
+                                        border: Border.all(color: ThemeColors().greyBlack)
                                     ),
                                     child: Row(children: [
-                                      Icon(Icons.search_outlined),
+                                      Icon(Icons.search_outlined,color: ThemeColors().greyBlack,),
                                       SizedBox(width: 5.w,),
-                                      BigText(text: "Find for food or restaurant...",size: 14.sp,color: searchTextColor,)
+                                      BigText(text: "Find for food or restaurant...",size: 14.sp,color: ThemeColors().kSecondaryTextColor,)
                                     ],),
                                   ),
                                 ),
@@ -132,7 +137,7 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                                       color: orangeColor,
                                       borderRadius: BorderRadius.circular(25.0)),
                                   // labelColor: orangeColor,
-                                  unselectedLabelColor: orangeColor,
+                                  unselectedLabelColor: ThemeColors().kPrimaryTextColor,
                                   controller: controller.tabController,
                                   tabs: const [
                                     Tab(
