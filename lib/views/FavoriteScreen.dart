@@ -134,7 +134,7 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
                    itemBuilder: (context, index) => Padding(
                      padding: const EdgeInsets.all(8.0),
                      child: GestureDetector(
-                       // onTap: () => navigateToFoodDetail(),
+                         onTap: () => Get.toNamed(Routes.foodDetailsScreen),
                          child: CategoryScreenFoodContainer(
                            name: controller.name[index],
                            details: controller.details[index],
@@ -155,7 +155,7 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
                    itemBuilder: (context, index) => Padding(
                      padding: const EdgeInsets.all(8.0),
                      child: GestureDetector(
-                       // onTap: () => navigateToFoodDetail(),
+                        onTap: () => Get.toNamed(Routes.categoryScreen),
                          child: CategoryScreenFoodContainer(
                            name: controller.name[index],
                            details: controller.details[index],

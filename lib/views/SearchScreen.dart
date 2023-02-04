@@ -61,18 +61,23 @@ class SearchScreen extends GetView<SearchController> {
                           child: CustomBackButton()),
                     ),
                     BigText(text: "Search Food",color: ThemeColors().kPrimaryTextColor,),
-                    Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          height: 38.h,
-                          width: 38.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                          child: ClipRRect(
+                    GestureDetector(
+                      onTap: (){
+                        Get.toNamed(Routes.filterScreen);
+                      },
+                      child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            height: 38.h,
+                            width: 38.w,
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16.r),
-                              child: Image.asset("assets/sidemenuuser.png")),
-                        )),
+                            ),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16.r),
+                                child: Image.asset("assets/sidemenuuser.png")),
+                          )),
+                    ),
                   ],
                 ),
 
@@ -89,19 +94,19 @@ class SearchScreen extends GetView<SearchController> {
                       ),
                       // Expanded(child: Container()),
                       SizedBox(width: 4,),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: GestureDetector(
-                            onTap: () {
-
-
-                            },
-                            child: ImageContainer(
-                              imageName: "assets/filter_button.png",
-                              width: 48.w,
-                              height: 48.h, themeValue: 0,
-                              // isPressed: gridPressed,
-                            )),
+                      GestureDetector(
+                        onTap: (){
+                          Get.toNamed(Routes.filterScreen);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: ImageContainer(
+                            imageName: "assets/filter_button.png",
+                            width: 48.w,
+                            height: 48.h, themeValue: 0,
+                            // isPressed: () => Get.toNamed(Routes.filterScreen),
+                          ),
+                        ),
                       ),
                     ],
                   ),
