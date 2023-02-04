@@ -13,6 +13,7 @@ import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/CustomCard.dart';
 import '../widgets/CustomCardImage.dart';
+import '../widgets/CustomImageButton.dart';
 import '../widgets/CustomShadow.dart';
 import '../widgets/big_text.dart';
 import '../widgets/food_container_with_icon.dart';
@@ -62,7 +63,10 @@ class HomeView extends GetView<HomeScreenController>
                   child: Container(
 
                     padding: EdgeInsets.only(
-                        left: 0),
+                        left: controller.isDrawerOpen.value ? 10 : 0,
+                        top: controller.isDrawerOpen.value ? 10 : 0,
+                        bottom: controller.isDrawerOpen.value ? 10 : 0,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -82,28 +86,32 @@ class HomeView extends GetView<HomeScreenController>
                                   controller.isDrawerOpen.value  = false;
                                 }else{
                                   controller.isDrawerOpen.value = true;
-                                  controller.xOffset.value = 200;
-                                  controller.yOffset.value = 200;
-                                  controller.scaleFactor.value = 0.6;
+                                  controller.xOffset.value = 230;
+                                  controller.yOffset.value = 150;
+                                  controller.scaleFactor.value = 0.7;
                                 }
-
 
                               },
                               child: Container(
                                 width: 38,
                                 height: 38,
-                                margin: getMargin(left: 10,top: 10),
-                                // padding: EdgeInsets.symmetric(horizontal: 15),
-
-                                child: CustomCard(
-                                  margin: 0,
-                                  bgColor: ThemeColors().mainColor,
-                                  color: ThemeColors().shadow,
-                                  blurRadius :  GetStorage().read(GetStorageKey.IS_DARK_MODE) ? 20 : 10,
-
-                                  child: Image.asset(Images.homeMenu, color: ThemeColors().lightDark,
-                                  ),
-                                ),
+                                margin: getMargin(left: 10,top:10),
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                decoration:  ShapeDecoration(
+                                    shadows: [
+                                      BoxShadow(
+                                        blurRadius: 4,
+                                        spreadRadius: 0,
+                                        offset: const Offset(0, 4),
+                                        color: Colors.black.withOpacity(0.25),
+                                      )
+                                    ],
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                    color: ThemeColors().mainColor),
+                                // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                                child:   Image.asset(Images.homeMenu,color: ThemeColors().lightDark,),
                               ),
                             ),
 

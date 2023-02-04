@@ -65,8 +65,7 @@ class HomeGridView extends GetView<HomeScreenController>
 
         Container(
           width: size.width,
-          height: 243.h,
-
+          height: 250.h,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: controller.name.length,

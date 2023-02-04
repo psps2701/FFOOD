@@ -1,4 +1,5 @@
 import 'package:ffood/themecolor/ThemeColors.dart';
+import 'package:ffood/util/size_utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -283,6 +284,7 @@ class DrawerScreen extends GetView<HomeScreenController>
             height: 43,
             // height: MediaQuery.of(context).size.height * 0.06,
             alignment: Alignment.center,
+            margin: getMargin(bottom: 80),
             // padding: const EdgeInsets.symmetric(vertical: 12),
             decoration: BoxDecoration(
 

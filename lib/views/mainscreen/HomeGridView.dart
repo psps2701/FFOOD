@@ -52,11 +52,11 @@ class HomeGridView extends GetView<HomeScreenController>
             ],
           ),
         ),
-        SizedBox(height: 15,),
-
+        const SizedBox(height: 15,),
         Container(
           width: size.width,
-          height: 223.h,
+          height: 240.h,
+
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: controller.name.length,

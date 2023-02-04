@@ -3,8 +3,6 @@ import 'package:ffood/util/images.dart';
 import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../util/colors.dart';
 import 'big_text.dart';
 
 
@@ -31,7 +29,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
 
 
       width: 260.w,
-      height: 226.h,
+      
       // height: MediaQuery.of(context).size.height * 0.02,
       // padding: EdgeInsets.symmetric(horizontal: 15),
       decoration:  BoxDecoration(
@@ -50,6 +48,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
+
         children: [
           Container(
             child: Stack(

@@ -40,7 +40,7 @@ class _CustomBackButtonState extends State<CustomBackButton> {
         child: Container(
           width: 38,
           height: 38,
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           decoration:  ShapeDecoration(
               shadows: [
                 BoxShadow(

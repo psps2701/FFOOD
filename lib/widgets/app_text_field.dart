@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../util/colors.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get_storage/get_storage.dart';
-
 import '../util/get_storage_key.dart';
 
 class AppTextField extends StatefulWidget {
@@ -12,8 +11,6 @@ class AppTextField extends StatefulWidget {
   final textInputType;
   bool isObscure;
   bool isPass;
-
-
 
   AppTextField(
       {Key? key,
@@ -38,8 +35,7 @@ class _AppTextFieldState extends State<AppTextField> {
           shape: GetStorage().read(GetStorageKey.IS_DARK_MODE)  ? NeumorphicShape.concave : NeumorphicShape.flat,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
           depth: GetStorage().read(GetStorageKey.IS_DARK_MODE) ? -4 : 0,
-          intensity:GetStorage().read(GetStorageKey.IS_DARK_MODE)  ?  0.7 : 0,
-          lightSource: LightSource.top,
+          intensity:GetStorage().read(GetStorageKey.IS_DARK_MODE)  ?  0.7 : 0, lightSource: LightSource.top,
           color: GetStorage().read(GetStorageKey.IS_DARK_MODE)  ?darkThemeContainerColor :  Colors.white.withOpacity(0.8)
       ),
       child: TextField(
@@ -84,19 +80,6 @@ class _AppTextFieldState extends State<AppTextField> {
           ),
         ),
       )
-
-      // Container(
-      //   width: double.infinity,
-      //   margin: EdgeInsets.only(
-      //       left: MediaQuery.of(context).size.height/90.2, right: MediaQuery.of(context).size.height/90.2),
-      //   decoration: BoxDecoration(
-      //       color: Colors.white,
-      //       borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height/80.27),
-      //
-      //
-      //   ),
-      //   child: ,
-      // ),
     );
   }
 }
