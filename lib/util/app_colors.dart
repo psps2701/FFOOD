@@ -31,5 +31,7 @@ import 'get_storage_key.dart';class AppColors {
   static Color acceptColor  = fromHex('#52bfa3');
   static Color rejectColor  = fromHex('#ed506c');
 
+  static Color textGrayColor  = fromHex('#515053');
+
 
 }

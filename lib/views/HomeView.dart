@@ -60,251 +60,303 @@ class HomeView extends GetView<HomeScreenController>
               child: SafeArea(
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
-                  child: Container(
+                  child: Stack(
+                    children: [
 
-                    padding: EdgeInsets.only(
-                        left: controller.isDrawerOpen.value ? 10 : 0,
-                        top: controller.isDrawerOpen.value ? 10 : 0,
-                        bottom: controller.isDrawerOpen.value ? 10 : 0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                      Container(
+
+                        padding: EdgeInsets.only(
+                            left: controller.isDrawerOpen.value ? 10 : 0,
+                            top: controller.isDrawerOpen.value ? 10 : 0,
+                            bottom: controller.isDrawerOpen.value ? 10 : 0,
+                        ),
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-
                           children: [
-                            // Drawer
-                            GestureDetector(
-                              onTap: (){
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
 
-                                print("tapped");
-                                if(controller.isDrawerOpen.value == true) {
-                                  controller.xOffset.value = 0;
-                                  controller.yOffset.value = 0;
-                                  controller.scaleFactor.value = 1;
-                                  controller.isDrawerOpen.value  = false;
-                                }else{
-                                  controller.isDrawerOpen.value = true;
-                                  controller.xOffset.value = 230;
-                                  controller.yOffset.value = 150;
-                                  controller.scaleFactor.value = 0.7;
-                                }
+                              children: [
+                                // Drawer
+                                GestureDetector(
+                                  onTap: (){
 
-                              },
-                              child: Container(
-                                width: 38,
-                                height: 38,
-                                margin: getMargin(left: 10,top:10),
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
-                                decoration:  ShapeDecoration(
-                                    shadows: [
-                                      BoxShadow(
-                                        blurRadius: 4,
-                                        spreadRadius: 0,
-                                        offset: const Offset(0, 4),
-                                        color: Colors.black.withOpacity(0.25),
-                                      )
-                                    ],
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
-                                    color: ThemeColors().mainColor),
-                                // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
-                                child:   Image.asset(Images.homeMenu,color: ThemeColors().lightDark,),
-                              ),
-                            ),
+                                    print("tapped");
+                                    if(controller.isDrawerOpen.value == true) {
+                                      controller.xOffset.value = 0;
+                                      controller.yOffset.value = 0;
+                                      controller.scaleFactor.value = 1;
+                                      controller.isDrawerOpen.value  = false;
+                                    }else{
+                                      controller.isDrawerOpen.value = true;
+                                      controller.xOffset.value = 230;
+                                      controller.yOffset.value = 150;
+                                      controller.scaleFactor.value = 0.7;
+                                    }
 
-                            Expanded(child: Container()),
-
-                            //Deliver to
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0,right: 8.0,top: 8.0),
-                                    child: SizedBox(
-                                      width: 180,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        // crossAxisAlignment: CrossAxisAlignment.stretch,
-                                        children: [
-                                          SmallText(
-                                            text: "Deliver to",
-                                            size: 14,
-                                            color: ThemeColors().lightDark,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                           Icon(
-                                            Icons.keyboard_arrow_down_rounded,
-                                            color: ThemeColors().lightDark,
-
-                                            size: 20,
+                                  },
+                                  child: Container(
+                                    width: 38,
+                                    height: 38,
+                                    margin: getMargin(left: 10,top:10),
+                                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                                    decoration:  ShapeDecoration(
+                                        shadows: [
+                                          BoxShadow(
+                                            blurRadius: 4,
+                                            spreadRadius: 0,
+                                            offset: const Offset(0, 4),
+                                            color: Colors.black.withOpacity(0.25),
                                           )
                                         ],
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                            BorderRadius.all(Radius.circular(10))),
+                                        color: ThemeColors().mainColor),
+                                    // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                                    child:   Image.asset(Images.homeMenu,color: ThemeColors().lightDark,),
+                                  ),
+                                ),
+
+                                Expanded(child: Container()),
+
+                                //Deliver to
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 8.0,right: 8.0,top: 8.0),
+                                        child: SizedBox(
+                                          width: 180,
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            // crossAxisAlignment: CrossAxisAlignment.stretch,
+                                            children: [
+                                              SmallText(
+                                                text: "Deliver to",
+                                                size: 14,
+                                                color: ThemeColors().lightDark,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                               Icon(
+                                                Icons.keyboard_arrow_down_rounded,
+                                                color: ThemeColors().lightDark,
+
+                                                size: 20,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SmallText(
+                                        text: "4102  Pretty View Lane ",
+                                        size: 12,
+                                        color: orangeColor,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                Expanded(child: Container()),
+                                // User image
+                                Container(
+                                  width: 40,
+                                  height: 40,
+                                  margin: getMargin(right: 10,top: 10),
+                                  // padding: EdgeInsets.symmetric(horizontal: 15.w),
+                                  child: CustomCardImage(
+                                    padding: 0,
+                                    margin: 0,
+                                    image: Images.icUserPlaceHolder,
+                                    child: Container(),),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            // Haading text
+                            // SizedBox(
+                            //   height: 40.h,
+                            // ),
+
+                            //Search row
+                            GestureDetector(
+                              onTap: (){
+                                Get.toNamed(Routes.searchFoodScreen);
+                              },
+                              child: Row(
+
+                                children: [
+
+                                  Expanded(
+                                    child: Container(
+                                      margin: getMargin(left: 10,right: 10),
+                                      child: CustomShadow(
+                                        blur:  2,
+                                        color: ThemeColors().outline.withOpacity(0.3),
+                                        offset: const Offset(1, 1),
+                                        child: Container(
+                                          decoration:   BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                                            color: ThemeColors().mainColor,
+                                          ),
+                                          height: 50,
+
+                                          child: Row(children: [
+                                            SizedBox(width: 10,),
+                                            Icon(Icons.search_outlined, color: orangeColor,),
+                                            SizedBox(width: 5,),
+                                            Expanded(child: BigText(text: "Find for food or restaurant...",size: 12,color: Colors.grey,))
+                                          ],),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  SmallText(
-                                    text: "4102  Pretty View Lane ",
-                                    size: 12,
-                                    color: orangeColor,
-                                  ),
+
+
+
+
+                                  GestureDetector(
+                                    onTap: () {
+
+                                      controller.listPressed.value = false;
+                                      controller.gridPressed.value = true;
+                                      // return navigateToCategoryPage();
+                                    },
+                                    child: CustomShadow(
+                                      blur: controller.gridPressed.value ? 1 : 5,
+
+                                        color: ThemeColors().outline.withOpacity(0.3),
+
+                                      offset: controller.gridPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
+                                      child: Container(
+                                        decoration:  BoxDecoration(
+                                          borderRadius: const BorderRadius.all(Radius.circular(8)),
+                                          color: controller.gridPressed.value ? orangeColor: ThemeColors().mainColor,
+                                        ),
+                                        height: 48,
+                                        width: 48,
+                                        child: Container(
+                                            padding: const EdgeInsets.all(13),
+                                            child: Image.asset(Images.icGrid, color: controller.gridPressed.value ? ThemeColors().darkLight :orangeColor,)),
+                                      ),
+                                    ),),
+                                  SizedBox(width: 10,),
+                                  GestureDetector(
+                                    onTap: () {
+
+                                      controller.listPressed.value = true;
+                                      controller.gridPressed.value = false;
+                                      // return navigateToCategoryPage();
+                                    },
+                                    child: CustomShadow(
+                                      blur: controller.listPressed.value ? 1 : 5,
+                                      color: ThemeColors().outline.withOpacity(0.3),
+
+                                      offset: controller.listPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
+                                      child: Container(
+                                        decoration:  BoxDecoration(
+                                          borderRadius: const BorderRadius.all(Radius.circular(8)),
+                                          color: controller.listPressed.value ? orangeColor:  ThemeColors().mainColor,
+                                        ),
+                                        height: 48,
+                                        width: 48,
+                                        child: Container(
+                                            padding: const EdgeInsets.all(15),
+                                            child: Image.asset(Images.icList, color: controller.listPressed.value ? ThemeColors().darkLight :orangeColor,)),
+                                      ),
+                                    ),),
+                                  SizedBox(width: 10,)
                                 ],
                               ),
                             ),
-
-                            Expanded(child: Container()),
-                            // User image
-                            Container(
-                              width: 40,
-                              height: 40,
-                              margin: getMargin(right: 10,top: 10),
-                              // padding: EdgeInsets.symmetric(horizontal: 15.w),
-                              child: CustomCardImage(
-                                padding: 0,
-                                margin: 0,
-                                image: Images.icUserPlaceHolder,
-                                child: Container(),),
+                            SizedBox(
+                              height: 30,
                             ),
+                            Container(
+                              width: size.width,
+                              height: 130,
+                              child: GetX<HomeScreenController>(
+
+                                  builder: (controller) {
+                                    return ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: controller.name.length,
+                                        itemBuilder: (context, index)  {
+
+                                          print("image==>${controller.imageUrl[index]}");
+                                          return Padding(
+                                            padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 20),
+                                            child: GetX<HomeScreenController>(
+                                              builder: (controller) {
+                                                return GestureDetector(
+                                                  onTap: ()
+                                                  {
+                                                    controller.onPress.asMap().forEach((key, value) {
+                                                      controller.onPress[key] = false;
+                                                    });
+
+                                                    controller.onPress[index] = !controller.onPress[index];
+
+                                                  },
+                                                  child: Container(
+                                                    width: 65,
+                                                    height: 98,
+                                                    decoration:  ShapeDecoration(
+                                                        shadows:  [
+                                                          BoxShadow(
+                                                              color: controller.onPress[index] ? orangeColor.withOpacity(0.2) : ThemeColors().outline.withOpacity(0.2),
+                                                              blurRadius: 20,
+                                                              offset: const Offset(1, 10))
+                                                        ],
+                                                        shape: const RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.all(Radius.circular(40))),
+                                                        color: controller.onPress[index] ? orangeColor : ThemeColors().mainColor),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: Container(
+                                                            width: 65,
+                                                            height: 50,
+                                                            decoration:  const ShapeDecoration(
+                                                                shape: RoundedRectangleBorder(
+                                                                    borderRadius: BorderRadius.all(Radius.circular(100))),
+                                                                color: Colors.white),
+                                                            child: ClipRRect(
+                                                                borderRadius: BorderRadius.circular(90),
+
+                                                                child: Image.asset(controller.imageUrl[index], fit: BoxFit.cover,)),
+
+                                                          ),
+                                                        ),
+                                                        SmallText( text: controller.name[index], color: controller.onPress[index] ? Colors.white : ThemeColors().lightDark,)
+                                                      ],
+                                                    ),
+
+                                                  ),
+                                                )
+                                                ;
+                                              }
+                                            ),
+                                          );});
+                                  }
+                              ),
+                            ),
+
+                            Visibility(
+                                visible: controller.gridPressed.value ? true : false,
+                                child: HomeGridView()),
+                            Visibility(
+                                visible: controller.listPressed.value ? true : false,
+                                child: HomeListView()),
                           ],
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-
-                        // Haading text
-                        // SizedBox(
-                        //   height: 40.h,
-                        // ),
-
-                        //Search row
-                        GestureDetector(
-                          onTap: (){
-                            Get.toNamed(Routes.searchFoodScreen);
-                          },
-                          child: Row(
-
-                            children: [
-
-                              Expanded(
-                                child: Container(
-                                  margin: getMargin(left: 10,right: 10),
-                                  child: CustomShadow(
-                                    blur:  2,
-                                    color: ThemeColors().outline.withOpacity(0.3),
-                                    offset: const Offset(1, 1),
-                                    child: Container(
-                                      decoration:   BoxDecoration(
-                                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                                        color: ThemeColors().mainColor,
-                                      ),
-                                      height: 50,
-
-                                      child: Row(children: [
-                                        SizedBox(width: 10,),
-                                        Icon(Icons.search_outlined, color: orangeColor,),
-                                        SizedBox(width: 5,),
-                                        Expanded(child: BigText(text: "Find for food or restaurant...",size: 12,color: Colors.grey,))
-                                      ],),
-                                    ),
-                                  ),
-                                ),
-                              ),
-
-
-
-
-                              GestureDetector(
-                                onTap: () {
-
-                                  controller.listPressed.value = false;
-                                  controller.gridPressed.value = true;
-                                  // return navigateToCategoryPage();
-                                },
-                                child: CustomShadow(
-                                  blur: controller.gridPressed.value ? 1 : 5,
-
-                                    color: ThemeColors().outline.withOpacity(0.3),
-
-                                  offset: controller.gridPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
-                                  child: Container(
-                                    decoration:  BoxDecoration(
-                                      borderRadius: const BorderRadius.all(Radius.circular(8)),
-                                      color: controller.gridPressed.value ? orangeColor: ThemeColors().mainColor,
-                                    ),
-                                    height: 48,
-                                    width: 48,
-                                    child: Container(
-                                        padding: const EdgeInsets.all(13),
-                                        child: Image.asset(Images.icGrid, color: controller.gridPressed.value ? ThemeColors().darkLight :orangeColor,)),
-                                  ),
-                                ),),
-                              SizedBox(width: 10,),
-                              GestureDetector(
-                                onTap: () {
-
-                                  controller.listPressed.value = true;
-                                  controller.gridPressed.value = false;
-                                  // return navigateToCategoryPage();
-                                },
-                                child: CustomShadow(
-                                  blur: controller.listPressed.value ? 1 : 5,
-                                  color: ThemeColors().outline.withOpacity(0.3),
-
-                                  offset: controller.listPressed.value ?  const Offset(0.5, 0.5) : const Offset(1, 1),
-                                  child: Container(
-                                    decoration:  BoxDecoration(
-                                      borderRadius: const BorderRadius.all(Radius.circular(8)),
-                                      color: controller.listPressed.value ? orangeColor:  ThemeColors().mainColor,
-                                    ),
-                                    height: 48,
-                                    width: 48,
-                                    child: Container(
-                                        padding: const EdgeInsets.all(15),
-                                        child: Image.asset(Images.icList, color: controller.listPressed.value ? ThemeColors().darkLight :orangeColor,)),
-                                  ),
-                                ),),
-                              SizedBox(width: 10,)
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          width: size.width,
-                          height: 130,
-                          child: GetX<HomeScreenController>(
-
-                              builder: (controller) {
-                                return ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: controller.name.length,
-                                    itemBuilder: (context, index)  {
-
-                                      print("image==>${controller.imageUrl[index]}");
-                                      return Padding(
-                                        padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 20),
-                                        child: FoodVertialContainer(
-                                          name: controller.name[index],
-                                          imageUrl: controller.imageUrl[index],
-                                          onPressed: controller.onPress[index], themeValue: 1,
-                                        ),
-                                      );});
-                              }
-                          ),
-                        ),
-
-                        Visibility(
-                            visible: controller.gridPressed.value ? true : false,
-                            child: HomeGridView()),
-                        Visibility(
-                            visible: controller.listPressed.value ? true : false,
-                            child: HomeListView()),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

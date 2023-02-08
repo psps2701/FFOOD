@@ -13,8 +13,8 @@ import '../util/app_colors.dart';
 import '../util/colors.dart';
 import '../util/get_storage_key.dart';
 import '../util/size_utils.dart';
-import '../widgets/back_button.dart';
 import '../widgets/big_text.dart';
+import '../widgets/custom_back_button.dart';
 import '../widgets/dish_container_box.dart';
 
 import 'package:get/get.dart';
@@ -44,6 +44,7 @@ class AddressListScreen extends GetView<AddressListController>
         height: size.height,
         child: ListView(
           children: [
+            SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,22 +54,17 @@ class AddressListScreen extends GetView<AddressListController>
                       Navigator.of(context).pop();
                     },
                     child: CustomBackButton()),
-                Padding(
-                  padding: const EdgeInsets.only(top: 14.0),
-                  child: BigText(text: "Delivery Address",color: ThemeColors().kPrimaryTextColor,),
+                BigText(text: "Delivery Address",color: ThemeColors().kPrimaryTextColor,),
+                Container(
+                  height: 38.h,
+                  width: 38.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.r),
+                  ),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.r),
+                      child: Image.asset("assets/sidemenuuser.png")),
                 ),
-                Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Container(
-                      height: 38.h,
-                      width: 38.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.r),
-                      ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16.r),
-                          child: Image.asset("assets/sidemenuuser.png")),
-                    )),
               ],
             ),
             SizedBox(
@@ -100,8 +96,9 @@ class AddressListScreen extends GetView<AddressListController>
               onTap: () => Get.toNamed(Routes.addressScreen),
 
               child: Container(
-                  width: 120.w,
-                  height: 70.h,
+                  width: size.width,
+                  margin: getMargin(left: 15,right: 15),
+                  height: 60.h,
                   // height: MediaQuery.of(context).size.height * 0.06,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),

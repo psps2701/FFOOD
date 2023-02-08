@@ -1,22 +1,25 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/SearchFoodController.dart';
-import 'package:ffood/controllers/WelcomeController.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themecolor/ThemeColors.dart';
-import '../util/app_colors.dart';
 import '../util/colors.dart';
 import '../util/get_storage_key.dart';
-import '../widgets/back_button.dart';
+
+import '../util/images.dart';
+import '../util/size_utils.dart';
+import '../widgets/CustomShadow.dart';
 import '../widgets/big_text.dart';
 import '../widgets/conatiner_with_image.dart';
+import '../widgets/custom_back_button.dart';
 import '../widgets/find_resturant_card.dart';
 import '../widgets/search_food_card.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get_storage/get_storage.dart';
+
+
 class SearchFoodScreen extends GetView<SearchFoodController>  {
   const SearchFoodScreen({super.key});
 
@@ -44,57 +47,84 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                     height: MediaQuery.of(context).size.height * 1.2 ,
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 0),
-                              child: GestureDetector(
-                                  onTap: (){
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: CustomBackButton()),
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+
+                        Padding(
+                            padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
+                            child: CustomBackButton()),
+                        Expanded(child: Center(child: BigText(text: "Search Food",color: ThemeColors().kPrimaryTextColor,))),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
+                          child: Container(
+                            height: 38.h,
+                            width: 38.w,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(image: AssetImage(
+                                  "assets/sidemenuuser.png",
+                                ),)
                             ),
-                            BigText(text: "Search Food",color: ThemeColors().kPrimaryTextColor,),
-                            Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Container(
-                                  height: 38.h,
-                                  width: 38.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(16.r),
-                                      child: Image.asset("assets/sidemenuuser.png")),
-                                )),
-                          ],
+                          ),
                         ),
+                      ],
+                    ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Row(
                             children: [
 
                               Expanded(
-                                child: GestureDetector(
-                                  onTap: () =>Get.toNamed(Routes.searchScreen),
-                                  child: Container(
-
-                                    height: 51.h,
-                                    // width: MediaQuery.of(context).size.width * 0.73,
-                                    padding: EdgeInsets.all(6).w,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16.r),
-                                        border: Border.all(color: ThemeColors().greyBlack)
+                                child: Container(
+                                  margin: getMargin(left: 10,right: 10),
+                                  child: CustomShadow(
+                                    blur:  2,
+                                    color: ThemeColors().outline.withOpacity(0.3),
+                                    offset: const Offset(1, 1),
+                                    child: Container(
+                                      decoration:   BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                                        color: ThemeColors().mainColor,
+                                      ),
+                                      height: 50,
+                                      child: Row(children: [
+                                        SizedBox(width: 10,),
+                                        Icon(Icons.search_outlined, color: orangeColor,),
+                                        SizedBox(width: 5,),
+                                        Expanded(child: BigText(text: "Find for food or restaurant...",size: 12,color: Colors.grey,))
+                                      ],),
                                     ),
-                                    child: Row(children: [
-                                      Icon(Icons.search_outlined,color: ThemeColors().greyBlack,),
-                                      SizedBox(width: 5.w,),
-                                      BigText(text: "Find for food or restaurant...",size: 14.sp,color: ThemeColors().kSecondaryTextColor,)
-                                    ],),
                                   ),
                                 ),
                               ),
+                              const SizedBox(width: 10,),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: 45,
+                                  height: 45,
+                                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                                  decoration:  ShapeDecoration(
+                                      shadows: [
+                                        BoxShadow(
+                                          blurRadius: 4,
+                                          spreadRadius: 0,
+                                          offset: const Offset(0, 1),
+                                          color: Colors.black.withOpacity(0.25),
+                                        )
+                                      ],
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.all(Radius.circular(10))),
+                                      color: ThemeColors().mainColor),
+                                  // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                                  child: Image.asset(Images.icFilter,color: orangeColor,),
+                                ),
+                              ),
+                              const SizedBox(width: 15,),
                               //
                               // IconAppTextField(
                               //   textController: _searchTextField,
@@ -102,21 +132,7 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                               //   hintText: "Find for food or restaurant...",
                               // ),
                               // Expanded(child: Container()),
-                              SizedBox(width: 4,),
-                              Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: GestureDetector(
-                                    onTap: () {
 
-                                      // return navigateToCategoryPage();
-                                    },
-                                    child: ImageContainer(
-                                      imageName: "assets/filter_button.png",
-                                      width: 48.w,
-                                      height: 48.h, themeValue: 0,
-                                      // isPressed: gridPressed,
-                                    )),
-                              ),
                             ],
                           ),
                         ),

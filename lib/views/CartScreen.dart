@@ -43,32 +43,40 @@ class CartScreen extends GetView<CartScreenController>
               children: [
                 Row(
                   children: [
-                     GestureDetector(
-                        // onTap: navigateToHomeScreen,
-                        child: GestureDetector(
-                          onTap: (){
-                            var cm = Get.find<MainScreenController>();
+            GestureDetector(
+            // onTap: navigateToHomeScreen,
+            child: GestureDetector(
+                onTap: (){
+          var cm = Get.find<MainScreenController>();
 
-                            cm.navigationTapped(0);
-                            cm.currentIndex.value = 0 ;
-                            cm.currentIndex.refresh();
-                          },
-                          child: Container(
-                            width: 38,
-                            height: 38,
-                            margin: getMargin(left: 15,top: 15,bottom: 10),
-                            // padding: EdgeInsets.symmetric(horizontal: 15),
+          cm.navigationTapped(0);
+          cm.currentIndex.value = 0 ;
+          cm.currentIndex.refresh();
+          },
+            child: Container(
+              width: 38,
+              height: 38,
+              margin: getMargin(left: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              decoration:  ShapeDecoration(
+                  shadows: [
+                    BoxShadow(
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                      offset: const Offset(0, 4),
+                      color: Colors.black.withOpacity(0.25),
+                    )
+                  ],
+                  shape: const RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.all(Radius.circular(10))),
+                  color: ThemeColors().mainColor),
+              // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+              child:   Image.asset(Images.icBack,color: ThemeColors().lightDark,),
+            ),
+          ),
+        ),
 
-                            child: CustomCard(
-                              margin: 0,
-                              bgColor: ThemeColors().mainColor,
-                              color: ThemeColors().shadow,
-                              child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
 
 
                     Expanded(child: Center(child: BigText(text: "Cart", size: 20.sp,color: ThemeColors().lightDark,))),

@@ -40,6 +40,7 @@ import '../viewbindings/MainScreenBinding.dart';
 import '../viewbindings/OnBoardingBinding.dart';
 import '../viewbindings/WelcomeBinding.dart';
 import '../viewbindings/auth/RegistrationScreenBinding.dart';
+import '../viewbindings/mainscreen/MapViewScreenBinding.dart';
 import '../viewbindings/payment/PaymentScreenBinding.dart';
 import '../viewbindings/payment/ScanCardScreenBinding.dart';
 import '../viewbindings/sidemenu/PaymentMethodBinding.dart';
@@ -52,6 +53,7 @@ import '../views/OnBoardingScreen.dart';
 import '../views/Payment/PaymentScreen.dart';
 import '../views/Payment/ScanCardScreen.dart';
 import '../views/WelcomeScreen.dart';
+import '../views/mainscreen/MapViewScreen.dart';
 import '../views/sidemenu/PaymentMethodScreen.dart';
 import '../views/sidemenu/SettingScreen.dart';
 
@@ -85,6 +87,7 @@ class Routes {
   static const String ratingScreen = '/ratingScreen';
   static const String categoryScreen = '/categoryScreen';
   static const String filterScreen = '/filterScreen';
+  static const String mapViewScreen = '/mapViewScreen';
 
   static final routes = [
     GetPage(
@@ -224,5 +227,11 @@ class Routes {
       page: () => const FilterScreen(),
       binding: FilterScreenBinding(),
     ),
+    GetPage(
+      name: mapViewScreen,
+      page: () =>  MapViewScreen(),
+      binding: MapViewScreenBinding(),
+    ),
+
   ];
 }

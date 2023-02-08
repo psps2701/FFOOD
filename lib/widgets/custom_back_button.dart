@@ -3,33 +3,12 @@
 import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../util/app_constants.dart';
-import '../util/colors.dart';
 import '../util/images.dart';
 
-class CustomBackButton extends StatefulWidget {
+class CustomBackButton extends StatelessWidget {
   const CustomBackButton({Key? key}) : super(key: key);
 
-  @override
-  State<CustomBackButton> createState() => _CustomBackButtonState();
-}
-
-class _CustomBackButtonState extends State<CustomBackButton> {
-  late SharedPreferences sharedPreferences;
-  var themeValue;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    sharedPreferences = Get.find<SharedPreferences>();
-
-    themeValue = sharedPreferences.get(AppConstants.THEMEVALUE);
-    print(themeValue);
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,7 +29,7 @@ class _CustomBackButtonState extends State<CustomBackButton> {
                   color: Colors.black.withOpacity(0.25),
                 )
               ],
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius:
                   BorderRadius.all(Radius.circular(10))),
               color: ThemeColors().mainColor),

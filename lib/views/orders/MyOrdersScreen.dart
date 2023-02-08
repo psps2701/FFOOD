@@ -1,19 +1,15 @@
-
 import 'package:ffood/views/orders/OrdersEmptyScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../controllers/MainScreen/MainScreenController.dart';
 import '../../controllers/orders/MyOrdersController.dart';
 import '../../themecolor/ThemeColors.dart';
-import '../../util/app_colors.dart';
 import '../../util/colors.dart';
 import '../../util/get_storage_key.dart';
 import '../../util/images.dart';
 import '../../util/size_utils.dart';
-import '../../widgets/CustomCard.dart';
-import '../../widgets/back_button.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/order_screens_widgets/history_card.dart';
 import '../../widgets/order_screens_widgets/my_order_card.dart';
@@ -51,26 +47,50 @@ class MyOrdersScreen extends GetView<MyOrdersController>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      GestureDetector(
-                        // onTap: navigateToHomeScreen,
-                        child: GestureDetector(
-                          onTap: (){
-                            Get.back();
-                          },
-                          child: Container(
-                            width: 38,
-                            height: 38,
-                            margin: getMargin(left: 15,top: 10,bottom: 10),
-                            // padding: EdgeInsets.symmetric(horizontal: 15),
+              GestureDetector(
+              // onTap: navigateToHomeScreen,
+              child: GestureDetector(
+              onTap: (){
 
-                            child: CustomCard(
-                              margin: 0,
-                              child: Image.asset(Images.icBack,color: ThemeColors().lightDark,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                if(controller.isFromSide.value)
+                  {
+                    Get.back();
+                  }
+                else
+                  {
+                    var cm = Get.find<MainScreenController>();
+
+                    cm.navigationTapped(0);
+                    cm.currentIndex.value = 0 ;
+                    cm.currentIndex.refresh();
+                  }
+
+
+            },
+              child: Container(
+                width: 38,
+                height: 38,
+                margin: getMargin(left: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                decoration:  ShapeDecoration(
+                    shadows: [
+                      BoxShadow(
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                        offset: const Offset(0, 4),
+                        color: Colors.black.withOpacity(0.25),
+                      )
+                    ],
+                    shape: const RoundedRectangleBorder(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(10))),
+                    color: ThemeColors().mainColor),
+                // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                child:   Image.asset(Images.icBack,color: ThemeColors().lightDark,),
+              ),
+            ),
+          ),
+          SizedBox(width: 10,),
                       Expanded(child: Center(child: BigText(text: "My Orders",color: ThemeColors().kPrimaryTextColor,))),
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),
@@ -79,7 +99,7 @@ class MyOrdersScreen extends GetView<MyOrdersController>
                           width: 38.w,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(image: AssetImage(
+                              image: const DecorationImage(image: AssetImage(
                                 "assets/sidemenuuser.png",
                               ),)
                           ),

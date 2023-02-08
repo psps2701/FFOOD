@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../util/colors.dart';
+import '../util/images.dart';
 import 'big_text.dart';
 
 class SearchFoodCard extends StatefulWidget {
@@ -65,8 +66,9 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                 ),
                 Padding(
                     padding: const EdgeInsets.all(8.0).r,
-                    child: SmallText(text: widget.details,size: 14.sp,color: ThemeColors().kPrimaryTextColor,)
-                )
+                    child: SmallText(text: widget.details,textAlign : TextAlign.start,size: 14.sp,color: ThemeColors().kPrimaryTextColor,)
+                ),
+                SizedBox(height: 5,)
               ],
             ),
           ),
@@ -75,7 +77,7 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
             borderRadius: BorderRadius.circular(20.r),
             child: Image.network(
               widget.imageUrl,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               // width: 154.w,
               height: double.infinity,
             )),
@@ -184,8 +186,8 @@ class _SearchFoodCardState extends State<SearchFoodCard> {
                       color: ThemeColors().kPrimaryTextColor,
                     ),
                     Image.asset(
-                      "assets/star.png",
-                      width: 15.w,
+                    Images.icStar,
+                      width: 10.w,
                       height: MediaQuery.of(context).size.height * 0.0177,
                     ),
                     SmallText(

@@ -49,7 +49,6 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
    body: Column(
      children: [
        Row(
-
          mainAxisAlignment: MainAxisAlignment.spaceAround,
          children: [
            GestureDetector(
@@ -65,19 +64,27 @@ class FavoriteScreen extends GetView<FavoriteScreenController>
                child: Container(
                  width: 38,
                  height: 38,
-                 margin: getMargin(left: 15,top: 10,bottom: 10),
-                 // padding: EdgeInsets.symmetric(horizontal: 15),
-
-                 child: CustomCard(
-                   margin: 0,
-                   bgColor: ThemeColors().mainColor,
-                   color: ThemeColors().shadow,
-                   child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
-                   ),
-                 ),
+                 margin: getMargin(left: 15),
+                 padding: const EdgeInsets.symmetric(horizontal: 15),
+                 decoration:  ShapeDecoration(
+                     shadows: [
+                       BoxShadow(
+                         blurRadius: 4,
+                         spreadRadius: 0,
+                         offset: const Offset(0, 4),
+                         color: Colors.black.withOpacity(0.25),
+                       )
+                     ],
+                     shape: const RoundedRectangleBorder(
+                         borderRadius:
+                         BorderRadius.all(Radius.circular(10))),
+                     color: ThemeColors().mainColor),
+                 // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                 child:   Image.asset(Images.icBack,color: ThemeColors().lightDark,),
                ),
              ),
            ),
+           SizedBox(width: 10,),
            Expanded(child: Center(child: BigText(text: "Favorites",color: ThemeColors().kPrimaryTextColor,))),
            Padding(
              padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),

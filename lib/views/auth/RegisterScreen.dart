@@ -205,28 +205,39 @@ class RegisterScreen extends GetView<RegisterController> {
                             children: [
                               Container(
                                 width: 147.w,
-
+                                height: 57.h,
                                 padding: EdgeInsets.all(10.w),
                                 decoration: BoxDecoration(
-                                    color:ThemeColors().mainBgColor,
-                                    borderRadius: BorderRadius.all(Radius.circular(100.r)),
+                                    color: ThemeColors().mainColor,
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(100.r)),
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 3,
-                                        spreadRadius: 1,
-                                        offset: const Offset(1, 10),
-                                        color: ThemeColors().shadow.withOpacity(0.1),
+                                        blurRadius: 4,
+                                        spreadRadius: 0,
+                                        offset: const Offset(0, 4),
+                                        color: Colors.black.withOpacity(0.25),
                                       )
-                                    ]
-                                ),
+                                    ]),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Image.asset("assets/fb_logo.png", width: 39.w,),
-                                    SizedBox(width: 5.w,),
+                                    Image.asset(
+                                      "assets/ic_fb.png",
+                                      width: 38.w,
+                                    ),
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
                                     Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
                                       children: [
-                                        SmallText(text: "FACEBOOK", size: 13.sp,color: ThemeColors().kPrimaryTextColor,),
+                                        SmallText(
+                                          text: "FACEBOOK",
+                                          size: 13.sp,
+                                          color: ThemeColors().lightDark,
+                                        ),
                                       ],
                                     )
                                   ],
@@ -234,36 +245,46 @@ class RegisterScreen extends GetView<RegisterController> {
                               ),
                               Container(
                                 width: 147.w,
+                                height: 57.h,
                                 padding: EdgeInsets.all(10.w),
                                 decoration: BoxDecoration(
-                                    color: ThemeColors().mainBgColor,
-                                    borderRadius: BorderRadius.all(Radius.circular(100.r)),
+                                    color: ThemeColors().mainColor,
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(100.r)),
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 3,
-                                        spreadRadius: 1,
-                                        offset: const Offset(1, 10),
-                                        color: ThemeColors().shadow.withOpacity(0.1),
+                                        blurRadius: 4,
+                                        spreadRadius: 0,
+                                        offset: const Offset(0, 4),
+                                        color: Colors.black.withOpacity(0.25),
                                       )
-                                    ]
-                                ),
+                                    ]),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Image.asset("assets/google_logo.png", width: 36.w,),
-                                    SizedBox(width: 5.w,),
+                                    Image.asset(
+                                      "assets/google_logo.png",
+                                      width: 38.w,
+                                    ),
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
                                     Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
                                       children: [
-                                        SmallText(text: "GOOGLE", size: 13.sp,color: ThemeColors().kPrimaryTextColor,),
+                                        SmallText(
+                                          text: "GOOGLE",
+                                          size: 13.sp,
+                                          color: ThemeColors().lightDark,
+                                        ),
                                       ],
                                     )
                                   ],
                                 ),
                               ),
                               // SizedBox(width: 10,),
-
-
                             ],
                           ),
                         ),

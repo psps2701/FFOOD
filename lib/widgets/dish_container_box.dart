@@ -199,7 +199,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(9.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
                       Container(

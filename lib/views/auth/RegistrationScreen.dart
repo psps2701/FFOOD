@@ -11,8 +11,9 @@ import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
 import '../../util/colors.dart';
 import '../../util/get_storage_key.dart';
-import '../../widgets/back_button.dart';
+
 import '../../widgets/big_text.dart';
+import '../../widgets/custom_back_button.dart';
 import '../../widgets/small_text.dart';
 import 'package:get_storage/get_storage.dart';
 class RegistrationScreen extends GetView<RegistrationController> {

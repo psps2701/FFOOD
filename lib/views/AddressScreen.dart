@@ -1,27 +1,19 @@
-import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/AddressScreenController.dart';
-import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../controllers/MainScreen/HomeScreenController.dart';
-import '../controllers/MainScreen/ReviewScreenController.dart';
 import '../themecolor/ThemeColors.dart';
-import '../util/app_colors.dart';
 import '../util/colors.dart';
 import '../util/get_storage_key.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/app_text_field.dart';
-import '../widgets/back_button.dart';
 import '../widgets/big_text.dart';
-import '../widgets/common_image_view.dart';
 import '../widgets/small_text.dart';
-
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
 class AddressScreen extends GetView<AddressController>
 
 {
@@ -43,39 +35,53 @@ class AddressScreen extends GetView<AddressController>
         backgroundColor: ThemeColors().mainBgColor,
         body: SingleChildScrollView(
           child: Column(children: [
+            const SizedBox(height: 15,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 0),
-                  child: GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).pop();
-                      },
-                      child: CustomBackButton()),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: 38,
+                    height: 38,
+                    margin: getMargin(left: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    decoration:  ShapeDecoration(
+                        shadows: [
+                          BoxShadow(
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                            offset: const Offset(0, 4),
+                            color: Colors.black.withOpacity(0.25),
+                          )
+                        ],
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(10))),
+                        color: ThemeColors().mainColor),
+                    // child:   Icon(Icons.arrow_back_ios, size: 15,color: blackColor),
+                    child:   Image.asset(Images.icBack,color: ThemeColors().lightDark,),
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 14.0),
-                  child: BigText(text: "Add new address",color: ThemeColors().kPrimaryTextColor,),
+                BigText(text: "Add new address",color: ThemeColors().kPrimaryTextColor,),
+                Container(
+                  height: 38.h,
+                  width: 38.w,
+                  margin: getMargin(right: 15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.r),
+                  ),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.r),
+                      child: Image.asset("assets/sidemenuuser.png")),
                 ),
-                Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Container(
-                      height: 38.h,
-                      width: 38.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.r),
-                      ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16.r),
-                          child: Image.asset("assets/sidemenuuser.png")),
-                    )),
               ],
             ),
-
             SizedBox(
-              height: 10.h,
+              height: 20.h,
             ),
             Row(
               children: [

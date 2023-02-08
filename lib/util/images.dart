@@ -36,5 +36,10 @@ class Images {
   static String icDocument = "assets/ic_document.png";
   static String icBack = "assets/ic_back.png";
   static String icStar = "assets/ic_star.png";
+  static String icFilter = "assets/ic_filter.png";
+  static String icPizza = "assets/ic_pizza.png";
+  static String icMap = "assets/map.png";
+  static String topMap = "assets/top_map.png";
+  static String locationPoint = "assets/ic_location_point.png";
 
 }

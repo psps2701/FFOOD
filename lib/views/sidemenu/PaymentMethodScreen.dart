@@ -1,11 +1,10 @@
+import 'package:ffood/widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../controllers/SideMenu/PaymentMethodController.dart';
-import '../../controllers/SideMenu/SettingController.dart';
 import '../../themecolor/ThemeColors.dart';
 import '../../util/app_colors.dart';
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import '../../util/colors.dart';
 import '../../util/images.dart';
 import '../../util/size_utils.dart';
@@ -37,29 +36,13 @@ class PaymentMethodScreen extends GetView<PaymentMethodController> {
           backgroundColor:ThemeColors().mainBgColor,
           body: Column(
             children: [
+              SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                    // onTap: navigateToHomeScreen,
-                    child: GestureDetector(
-                      onTap: (){
-                        Get.back();
-                      },
-                      child: Container(
-                        width: 38,
-                        height: 38,
-                        margin: getMargin(left: 15,top: 10,bottom: 10),
-                        // padding: EdgeInsets.symmetric(horizontal: 15),
-
-                        child: CustomCard(
-                          margin: 0,
-                          child: Image.asset(Images.icBack, color: ThemeColors().kPrimaryTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Container(
+                      margin: getMargin(left: 10),
+                      child: CustomBackButton()),
                   Expanded(child: Center(child: BigText(text: "Payment Method",color: ThemeColors().kPrimaryTextColor,))),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),

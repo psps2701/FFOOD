@@ -2,6 +2,7 @@ import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:ffood/controllers/orders/OrderDetailController.dart';
 import 'package:ffood/themecolor/ThemeColors.dart';
+import 'package:ffood/widgets/custom_back_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +16,6 @@ import '../../util/get_storage_key.dart';
 import '../../util/images.dart';
 import '../../util/size_utils.dart';
 import '../../widgets/CustomCard.dart';
-import '../../widgets/back_button.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/order_screens_widgets/order_detail_header_card.dart';
 import '../../widgets/order_screens_widgets/order_food_card.dart';
@@ -51,26 +51,9 @@ class OrderDetailsScreen extends GetView<OrderDetailController>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                GestureDetector(
-                  // onTap: navigateToHomeScreen,
-                  child: GestureDetector(
-                    onTap: (){
-                      Get.back();
-                    },
-                    child: Container(
-                      width: 38,
-                      height: 38,
-                      margin: getMargin(left: 15,top: 10,bottom: 10),
-                      // padding: EdgeInsets.symmetric(horizontal: 15),
-
-                      child: CustomCard(
-                        margin: 0,
-                        child: Image.asset(Images.icBack, color: ThemeColors().lightDark,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                SizedBox(width: 15,),
+                CustomBackButton(),
+                SizedBox(width: 10,),
                 Expanded(child: Center(child: BigText(text: "Order Details",color: ThemeColors().kPrimaryTextColor))),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 20.0.w),

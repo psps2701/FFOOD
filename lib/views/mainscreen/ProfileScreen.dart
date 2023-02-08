@@ -13,6 +13,7 @@ import '../../util/images.dart';
 import '../../util/size_utils.dart';
 import '../../widgets/CustomCard.dart';
 import '../../widgets/big_text.dart';
+import '../../widgets/custom_back_button.dart';
 import '../../widgets/small_text.dart';
 
 
@@ -26,14 +27,14 @@ class ProfileScreen extends GetView<ProfileScreenController>
     return  AnnotatedRegion<SystemUiOverlayStyle>(
       value:   SystemUiOverlayStyle(
         systemNavigationBarColor:  ThemeColors().mainBgColor, // Navigation bar
-        statusBarColor:  ThemeColors().statusBarColor,
-        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
-        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.dark : Brightness.light,
+        statusBarColor:  Colors.transparent,
+        statusBarBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
+        statusBarIconBrightness: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  Brightness.light : Brightness.dark,
         // Status bar
       ),
       child: SizedBox(
         child: Scaffold(
-          backgroundColor: ThemeColors().mainBgColor,
+          backgroundColor: Colors.transparent,
           body: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -51,24 +52,9 @@ class ProfileScreen extends GetView<ProfileScreenController>
                   top: 20,
                   child:    GestureDetector(
                     // onTap: navigateToHomeScreen,
-                    child: GestureDetector(
-                      onTap: (){
-
-                        Get.back();
-                      },
-                      child: Container(
-                        width: 38,
-                        height: 38,
-                        margin: getMargin(left: 15,top: 30,bottom: 10),
-                        // padding: EdgeInsets.symmetric(horizontal: 15),
-
-                        child: CustomCard(
-                          margin: 0,
-                          child: Image.asset(Images.icBack, color: ThemeColors().kPrimaryTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
+                    child: Container(
+                        margin: getMargin(left: 15,right: 10),
+                        child: CustomBackButton()),
                   ),
 
                 ),

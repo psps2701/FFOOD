@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../themecolor/ThemeColors.dart';
 import '../util/colors.dart';
+import '../util/images.dart';
 import 'big_text.dart';
 
 
@@ -26,16 +27,17 @@ class _FindResurentCardState extends State<FindResurentCard> {
       decoration: BoxDecoration(
         color: ThemeColors().mainColor,
         border: Border.all(color:
-        ThemeColors().greyBlack),
+        ThemeColors().shadow.withOpacity(0.3)),
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
-          BoxShadow(
-            color: ThemeColors().greyBlack,
+           const BoxShadow(
+            color: Colors.grey,
+
           ),
-          BoxShadow(
-            color: ThemeColors().kWhiteColor,
-            spreadRadius: -3,
-            blurRadius: 4.0,
+           BoxShadow(
+            color: ThemeColors().mainColor,
+            spreadRadius: -12.0,
+            blurRadius: 12.0,
           ),
         ],
       ),
@@ -109,13 +111,13 @@ class _FindResurentCardState extends State<FindResurentCard> {
                     width: 28.w,
                     height: 28.h,
                     // padding: EdgeInsets.symmetric(horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: ThemeColors().mainColor,
+                    decoration: const BoxDecoration(
+                      color: orangeColor,
                       shape: BoxShape.circle
                     ),
                     child: Icon(
                       Icons.favorite,
-                      color: ThemeColors().mainOrangeWhite,
+                      color: ThemeColors().darkLight,
                       size: 16.sp,
                     ),
                   ),
@@ -133,7 +135,12 @@ class _FindResurentCardState extends State<FindResurentCard> {
           ),
           Row(
             children: [
-              Image.asset("assets/rider.png"),
+
+              Container(
+
+                  height : 15,
+                  width : 15,
+                  child: Image.asset(Images.icBike)),
               SizedBox(
                 width: 5,
               ),
@@ -145,7 +152,11 @@ class _FindResurentCardState extends State<FindResurentCard> {
               SizedBox(
                 width: 10,
               ),
-              Image.asset("assets/stopwatch.png"),
+              Container(
+
+                  height : 15,
+                  width : 15,
+                  child: Image.asset(Images.icClock)),
               SizedBox(
                 width: 5,
               ),

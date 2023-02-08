@@ -6,7 +6,6 @@ import 'HomeView.dart';
 
 
 class HomeScreen extends GetView<HomeScreenController>
-
 {
   const HomeScreen({super.key});
 

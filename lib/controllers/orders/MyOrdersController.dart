@@ -7,6 +7,7 @@ class MyOrdersController extends GetxController  with GetTickerProviderStateMixi
 
   late TabController tabController;
 
+  var isFromSide = false.obs;
   List<String> items = ["Upcoming", "History"].obs;
   int orders = 0;
 

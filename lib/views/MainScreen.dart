@@ -19,7 +19,6 @@ import '../widgets/small_text.dart';
 import 'CartScreen.dart';
 import 'FavoriteScreen.dart';
 import 'HomeScreen.dart';
-import 'ProfileScreen.dart';
 import 'ReviewScreen.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -63,10 +62,10 @@ class MainScreen extends GetView<MainScreenController>
                       margin: getMargin(left: 10,right: 10),
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                          color:  Colors.white,
+                          color:  ThemeColors().mainBgColor,
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey.withOpacity(0.3),
+                              color:  ThemeColors().outline.withOpacity(0.3),
                               spreadRadius: 1,
                               blurRadius: 7,
                               offset: Offset(0, 3), // changes position of shadow

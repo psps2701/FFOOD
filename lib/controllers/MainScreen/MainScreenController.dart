@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 import '../../views/CartScreen.dart';
 import '../../views/FavoriteScreen.dart';
-import '../../views/ProfileScreen.dart';
-import '../../views/ReviewScreen.dart';
+import '../../views/mainscreen/MapViewScreen.dart';
+import '../orders/MyOrdersController.dart';
 
 
 class MainScreenController extends GetxController with StateMixin<dynamic> {
@@ -22,7 +22,7 @@ class MainScreenController extends GetxController with StateMixin<dynamic> {
 
  var mainScreenItems = [
     HomeScreen(),
-    ReviewScreen(),
+    MapViewScreen(),
     CartScreen(),
     FavoriteScreen(),
     MyOrdersScreen()
@@ -43,6 +43,10 @@ class MainScreenController extends GetxController with StateMixin<dynamic> {
  void navigationTapped(int page) {
    // this will act as a link between tab bar and the pageView widget in the scaffold body.
    pageController.jumpToPage(page);
+   if(page == 4)
+     {
+       Get.find<MyOrdersController>().isFromSide.value = false;
+     }
  }
 
 

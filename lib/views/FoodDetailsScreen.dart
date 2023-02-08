@@ -1,21 +1,15 @@
 import 'package:ffood/Route/Routes.dart';
 import 'package:ffood/controllers/FoodDetailsController.dart';
-import 'package:ffood/controllers/WelcomeController.dart';
 import 'package:ffood/themecolor/ThemeColors.dart';
-import 'package:ffood/widgets/back_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
-import '../util/get_storage_key.dart';
-import '../util/images.dart';
-import '../util/size_utils.dart';
 import '../widgets/big_text.dart';
-import '../widgets/common_image_view.dart';
+import '../widgets/custom_back_button.dart';
 import '../widgets/small_text.dart';
 
 class FoodDetailsScreen extends GetView<FoodDetailsController> {

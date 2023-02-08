@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../util/colors.dart';
+import '../util/images.dart';
 import 'big_text.dart';
 
 
@@ -120,17 +121,18 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
                       SizedBox(width: 7.w,),
                       SmallText(text: "10-15 mins", size: 14.sp, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
                       SizedBox(width: 2.w,),
-                      Image.asset("assets/stopwatch.png", width: 16.w,),
-
-
+                      SizedBox(
+                          width: 15,
+                          height: 15,
+                          child: Image.asset(Images.icClock, width: 16.w,)),
                     ],
                   ),
 
                   Row(
                     children: [
-                      TagBoxWidget(tagLAbel: "Burger",labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? ThemeColors().tagBoxColor: ThemeColors().tagBoxColor,),
+                      TagBoxWidget(tagLAbel: "Burger",labelSize: 10, themeValue: widget.themeValue,color: orangeColor,),
                       SizedBox(width: 7.w,),
-                      TagBoxWidget(tagLAbel: "FAST FOOD", labelSize: 10, themeValue: widget.themeValue,color: widget.themeValue == 1 ? ThemeColors().tagBoxColor: ThemeColors().tagBoxColor),
+                      TagBoxWidget(tagLAbel: "FAST FOOD", labelSize: 10, themeValue: widget.themeValue,color:  orangeColor),
                     ],
                   ),
 

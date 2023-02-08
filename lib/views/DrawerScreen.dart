@@ -1,3 +1,4 @@
+import 'package:ffood/controllers/orders/MyOrdersController.dart';
 import 'package:ffood/themecolor/ThemeColors.dart';
 import 'package:ffood/util/size_utils.dart';
 import 'package:flutter/gestures.dart';
@@ -63,7 +64,9 @@ class DrawerScreen extends GetView<HomeScreenController>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
-                         onTap: () => Get.toNamed(Routes.myOrderScreen),
+                         onTap: ()  {
+                           Get.find<MyOrdersController>().isFromSide.value = true;
+                           Get.toNamed(Routes.myOrderScreen);},
                         child: Row(
                           children: [
                             SizedBox(

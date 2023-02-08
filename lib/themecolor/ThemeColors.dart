@@ -42,7 +42,7 @@ class ThemeColors {
   var outline =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#5B5B5E');
   var shadow =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#BDBDBD');
   var tagBoxColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#F6F6F6');
-  var tagBoxColorNew =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#474755');
+  var tagBoxColorNew =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#F6F6F6');
   var heartshaepColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#FFFFFF');
   var heartbgColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#000000') :  fromHex('#FC8019');
   var loginPageLabelColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FFFFFF');
@@ -69,6 +69,18 @@ class ThemeColors {
   var btntxtColorSelected = GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FC8019');
   var btntxtColorUnSelected = GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FC8019');
 
+  var newColor = GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FC8019') :  fromHex('#FC8019');
+  var containerColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#2D2D3A') :  fromHex('#FFFFFF');
+
+  var whiteGrey =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#ADADB8') :  fromHex('#5B5B5E');
+
+
+  var whiteBlack =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#474755') :  fromHex('#F6F6F6');
+
+
+  var textColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#5B5B5E') :  fromHex('#ADADB8');
+  var whiteBlackColor =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#FFFFFF') :  fromHex('#000000');
+  var greyWhite =  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?  fromHex('#2D2D3A') :  fromHex('#FFFFFF');
 
   static Color fromHex(String hexString) {
     final buffer = StringBuffer();

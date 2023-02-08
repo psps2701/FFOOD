@@ -28,7 +28,7 @@ class _CategoryScreenFoodContainerState
   Widget build(BuildContext context) {
     return Container(
       // width: MediaQuery.of(context).size.width,
-      height: 320.h,
+      height: 322.h,
 
       decoration:  ShapeDecoration(
         shape: RoundedRectangleBorder(
@@ -46,7 +46,7 @@ class _CategoryScreenFoodContainerState
                   borderRadius: BorderRadius.circular(20.0.r),
                   child: Image.network(
                     widget.imageUrl,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                     width: ScreenUtil().screenWidth,
                     height: 239.h,
                   )),
