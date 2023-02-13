@@ -1,11 +1,19 @@
+import 'dart:convert';
+
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../Models/HomeResponseModel.dart';
+import '../../Service/ApiService.dart';
+import '../../helper/SharedKey.dart';
+import '../../helper/singleton.dart';
 import '../../util/app_themes.dart';
 import '../../util/get_storage_key.dart';
+import '../../widgets/custom_snack_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreenController extends GetxController with StateMixin<dynamic> {
   var isLoading = false.obs;
@@ -55,11 +63,18 @@ class HomeScreenController extends GetxController with StateMixin<dynamic> {
   var page = 0.obs;
   PageController pageController = PageController();
 
+
+
+  var sharedPreferences;
+  var homeResposneModel = HomeResponseModel(success: false, message: '').obs;
+
   @override
   Future<void> onInit() async {
     super.onInit();
     _getStorage = GetStorage();
+    sharedPreferences = await SharedPreferences.getInstance();
     isDarkMode.value = _getStorage.read(GetStorageKey.IS_DARK_MODE);
+    //await home();
   }
 
   void changeTheme(BuildContext context) {
@@ -92,5 +107,29 @@ class HomeScreenController extends GetxController with StateMixin<dynamic> {
       yOffset.value = 200;
       scaleFactor.value = 0.6;
     }
+  }
+
+  Future<void> home() async {
+
+
+      late Map<String, String> body;
+
+      body = {
+        "latitude":"40.77938309719483",
+        "longitude":"21.404710494379223"
+      };
+
+      var homeResponse = await ApiService.home(body);
+
+      if (homeResponse.success!) {
+        homeResposneModel.value =homeResponse ;
+      }
+      else
+      {
+        showCustomsnackBar(homeResponse.message!);
+      }
+
+
+
   }
 }

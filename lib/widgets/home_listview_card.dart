@@ -4,14 +4,18 @@ import 'package:ffood/widgets/tag_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Models/HomeResponseModel.dart';
 import '../util/colors.dart';
 import '../util/images.dart';
 import 'big_text.dart';
 
-
 class HomeListViewCard extends StatefulWidget {
   final int themeValue;
-  const HomeListViewCard({Key? key, required this.themeValue}) : super(key: key);
+  FeaturedRestaurants? featuredRestaurants = FeaturedRestaurants();
+
+  HomeListViewCard(
+      {Key? key, required this.themeValue, required this.featuredRestaurants})
+      : super(key: key);
 
   @override
   _HomeListViewCardState createState() => _HomeListViewCardState();
@@ -20,20 +24,19 @@ class HomeListViewCard extends StatefulWidget {
 class _HomeListViewCardState extends State<HomeListViewCard> {
   @override
   void initState() {
-    // TODO: implement initState
-    print("int home list view ${widget.themeValue}");
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       // width: 43.w,
       // height: 69.h,
       decoration: BoxDecoration(
-          color: widget.themeValue == 1 ? ThemeColors().mainColor: ThemeColors().mainColor,
-
-          borderRadius: BorderRadius.circular(10.r)
-      ),
+          color: widget.themeValue == 1
+              ? ThemeColors().mainColor
+              : ThemeColors().mainColor,
+          borderRadius: BorderRadius.circular(10.r)),
       padding: const EdgeInsets.all(10).w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,140 +45,204 @@ class _HomeListViewCardState extends State<HomeListViewCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Stack(children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0).w,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 100.w,
-                        height: 25.h,
-                        padding: EdgeInsets.only(right: 16, bottom: 3).r,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            color: orangeColor
-
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0).w,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 100.w,
+                          height: 25.h,
+                          padding: EdgeInsets.only(right: 16, bottom: 3).r,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.r),
+                              color: orangeColor),
+                          child: Align(
+                              alignment: Alignment.centerRight,
+                              child: BigText(
+                                text: widget.featuredRestaurants!.rating!,
+                                color: Colors.white,
+                                size: 18.sp,
+                              )),
                         ),
-                        child: Align(
-                            alignment: Alignment.centerRight,
-                            child: BigText(text: "4.5", color: Colors.white, size: 18.sp,)),
-                      ),
-                      SizedBox(height: 3.h,),
-                      Container(
-                        width: 100.w,
-                        height: 42.h,
-                        padding: EdgeInsets.only(right: 16, bottom: 3).r,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.r),
-                            color: orangeColor
-
+                        SizedBox(
+                          height: 3.h,
                         ),
-                        child: Align(
-                            alignment: Alignment.centerRight,
-                            child: BigText(text: "5€", color: Colors.white, size: 18.sp,)),
-                      ),
-                    ],
-                  ),
-                ),
-
-                Container(
-                  width: 70.w,
-                  height: 70.h,
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 3,
-                          spreadRadius: 1,
-                          offset: const Offset(2, 10),
-                          color: Colors.grey.withOpacity(0.2),
-                        )
+                        Container(
+                          width: 100.w,
+                          height: 42.h,
+                          padding: EdgeInsets.only(right: 16, bottom: 3).r,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.r),
+                              color: orangeColor),
+                          child: Align(
+                              alignment: Alignment.centerRight,
+                              child: BigText(
+                                text: widget.featuredRestaurants!.priceRange!,
+                                color: Colors.white,
+                                size: 18.sp,
+                              )),
+                        ),
                       ],
-                      image: DecorationImage(
-                          fit: BoxFit.none,
-                          image: AssetImage("assets/wendy_logo.png")),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white
+                    ),
                   ),
-                )
-
-              ],),
-
+                  Container(
+                    width: 70.w,
+                    height: 70.h,
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 3,
+                            spreadRadius: 1,
+                            offset: const Offset(2, 10),
+                            color: Colors.grey.withOpacity(0.2),
+                          )
+                        ],
+                        image: DecorationImage(
+                            fit: BoxFit.none,
+                            image: NetworkImage(
+                                widget.featuredRestaurants!.image!)),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white),
+                  )
+                ],
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      BigText(text: "Wendy’s", size: 14.sp,color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
-                      Icon(Icons.check_circle, color: greyColor,size: 10.h, )
-
+                      BigText(
+                        text: widget.featuredRestaurants!.name!,
+                        size: 14.sp,
+                        color: widget.themeValue == 1
+                            ? ThemeColors().kPrimaryTextColor
+                            : ThemeColors().kPrimaryTextColor,
+                      ),
+                      Icon(
+                        Icons.check_circle,
+                        color: greyColor,
+                        size: 10.h,
+                      )
                     ],
                   ),
-
                   Row(
                     children: [
-                      SmallText(text: "0.50", size: 14.sp, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
-                      SizedBox(width: 2.w,),
-                      Image.asset("assets/riderLogo.png", width: 16.w,),
-                      SizedBox(width: 7.w,),
-                      SmallText(text: "10-15 mins", size: 14.sp, color: widget.themeValue == 1 ? ThemeColors().kPrimaryTextColor: ThemeColors().kPrimaryTextColor,),
-                      SizedBox(width: 2.w,),
+                      SmallText(
+                        text: widget.featuredRestaurants!.distance!.toString(),
+                        size: 14.sp,
+                        color: widget.themeValue == 1
+                            ? ThemeColors().kPrimaryTextColor
+                            : ThemeColors().kPrimaryTextColor,
+                      ),
+                      SizedBox(
+                        width: 2.w,
+                      ),
+                      Image.asset(
+                        "assets/riderLogo.png",
+                        width: 16.w,
+                      ),
+                      SizedBox(
+                        width: 7.w,
+                      ),
+                      SmallText(
+                        text: widget.featuredRestaurants!.deliveryTime!,
+                        size: 14.sp,
+                        color: widget.themeValue == 1
+                            ? ThemeColors().kPrimaryTextColor
+                            : ThemeColors().kPrimaryTextColor,
+                      ),
+                      SizedBox(
+                        width: 2.w,
+                      ),
                       SizedBox(
                           width: 15,
                           height: 15,
-                          child: Image.asset(Images.icClock, width: 16.w,)),
+                          child: Image.asset(
+                            Images.icClock,
+                            width: 16.w,
+                          )),
                     ],
                   ),
-
                   Row(
                     children: [
-                      TagBoxWidget(tagLAbel: "Burger",labelSize: 10, themeValue: widget.themeValue,color: orangeColor,),
-                      SizedBox(width: 7.w,),
-                      TagBoxWidget(tagLAbel: "FAST FOOD", labelSize: 10, themeValue: widget.themeValue,color:  orangeColor),
+                      TagBoxWidget(
+                        tagLAbel: "Burger",
+                        labelSize: 10,
+                        themeValue: widget.themeValue,
+                        color: orangeColor,
+                      ),
+                      SizedBox(
+                        width: 7.w,
+                      ),
+                      TagBoxWidget(
+                          tagLAbel: "FAST FOOD",
+                          labelSize: 10,
+                          themeValue: widget.themeValue,
+                          color: orangeColor),
                     ],
                   ),
-
-
-
-
-
+                  widget.featuredRestaurants!.customFeaturedName!.isNotEmpty
+                      ? Container(
+                          // width: 43.w,
+                          // height: 69.h,
+                          // padding: const EdgeInsets.all(10).w,
+                          child: ListView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: widget.featuredRestaurants!
+                                  .customFeaturedName!.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: TagBoxWidget(
+                                    tagLAbel: widget.featuredRestaurants!
+                                        .customFeaturedName![index],
+                                    labelSize: 10,
+                                    themeValue: widget.themeValue,
+                                    color: orangeColor,
+                                  ),
+                                );
+                              }))
+                      : Container()
                 ],
               ),
-
               GestureDetector(
-                onTap: (){
-                },
+                onTap: () {},
                 child: Container(
                   width: 28.w,
                   height: 28.h,
                   // padding: EdgeInsets.symmetric(horizontal: 15),
-                  decoration:  BoxDecoration(
-                    // shadows: withShadow == true
-                    //     ? [
-                    //         BoxShadow(
-                    //             // color: Colors.grey.withOpacity(0.2),
-                    //             blurRadius: 3,
-                    //             color: greayColor,
-                    //             offset: Offset(1, 10))
-                    //       ]
-                    //     : [],
+                  decoration: BoxDecoration(
+                      // shadows: withShadow == true
+                      //     ? [
+                      //         BoxShadow(
+                      //             // color: Colors.grey.withOpacity(0.2),
+                      //             blurRadius: 3,
+                      //             color: greayColor,
+                      //             offset: Offset(1, 10))
+                      //       ]
+                      //     : [],
                       shape: BoxShape.circle,
-                      color: widget.themeValue ==1   ? ThemeColors().mainColor :ThemeColors().mainColor),
+                      color: widget.themeValue == 1
+                          ? ThemeColors().mainColor
+                          : ThemeColors().mainColor),
                   child: Icon(
                     Icons.favorite,
-                    color: widget.themeValue ==1   ? ThemeColors().kPrimaryTextColor :ThemeColors().kPrimaryTextColor,
+                    color: widget.themeValue == 1
+                        ? ThemeColors().kPrimaryTextColor
+                        : ThemeColors().kPrimaryTextColor,
                     size: 15.w,
                   ),
                 ),
               ),
-
             ],
           ),
         ],
       ),
-
     );
   }
 }
-

@@ -21,6 +21,7 @@ class HomeListView extends GetView<HomeScreenController>
           child: BigText(text: "All restaurants", size: 18,color: 0 == 1 ? ThemeColors().kPrimaryTextColor:ThemeColors().kPrimaryTextColor,),
         ),
 
+        controller.homeResposneModel.value.data!.featuredRestaurants!.isNotEmpty ?
         Container(
           // width: 43.w,
           // height: 69.h,
@@ -28,15 +29,15 @@ class HomeListView extends GetView<HomeScreenController>
             child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: controller.homeResposneModel.value.data!.featuredRestaurants!.length,
                 itemBuilder: (context, index){
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: HomeListViewCard(themeValue: 0,),
+                    child: HomeListViewCard(themeValue: 0,featuredRestaurants: controller.homeResposneModel.value.data!.featuredRestaurants![index],),
                   );
                 })
 
-        ),
+        ):Container(),
       ],
     );
   }

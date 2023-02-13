@@ -256,6 +256,7 @@ class HomeView extends GetView<HomeScreenController>
                         SizedBox(
                           height: 30,
                         ),
+                        controller.homeResposneModel.value.data!.categorySlide!.categoriesIds!.isNotEmpty ?
                         Container(
                           width: size.width,
                           height: 130,
@@ -264,21 +265,21 @@ class HomeView extends GetView<HomeScreenController>
                               builder: (controller) {
                                 return ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: controller.name.length,
+                                    itemCount: controller.homeResposneModel.value.data!.categorySlide!.categoriesIds!.length,
                                     itemBuilder: (context, index)  {
 
                                       print("image==>${controller.imageUrl[index]}");
                                       return Padding(
                                         padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 20),
                                         child: FoodVertialContainer(
-                                          name: controller.name[index],
+                                          name: controller.homeResposneModel.value.data!.categorySlide!.categoriesIds![index].label.toString(),
                                           imageUrl: controller.imageUrl[index],
                                           onPressed: controller.onPress[index], themeValue: 1,
                                         ),
                                       );});
                               }
                           ),
-                        ),
+                        ):Container(),
 
                         Visibility(
                             visible: controller.gridPressed.value ? true : false,

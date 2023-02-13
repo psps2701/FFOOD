@@ -29,7 +29,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
 
 
       width: 260.w,
-      
+
       // height: MediaQuery.of(context).size.height * 0.02,
       // padding: EdgeInsets.symmetric(horizontal: 15),
       decoration:  BoxDecoration(
@@ -70,16 +70,16 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                         // height: MediaQuery.of(context).size.height * 0.04,
                         // padding: EdgeInsets.symmetric(horizontal: 15),
                         decoration:  ShapeDecoration(
-                            // shadows: withShadow == true ? [
-                            //   BoxShadow(
-                            //     // color: Colors.grey.withOpacity(0.2),
-                            //       blurRadius: 3,
-                            //       color: greayColor,
-                            //       offset: Offset(1, 10))
-                            // ]: [],
+                          // shadows: withShadow == true ? [
+                          //   BoxShadow(
+                          //     // color: Colors.grey.withOpacity(0.2),
+                          //       blurRadius: 3,
+                          //       color: greayColor,
+                          //       offset: Offset(1, 10))
+                          // ]: [],
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(MediaQuery.of(context).size.height/42.2))),
+                                BorderRadius.all(Radius.circular(MediaQuery.of(context).size.height/42.2))),
                             color: ThemeColors().mainColor),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -119,18 +119,18 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                           height: 28.h,
                           // padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: ShapeDecoration(
-                              // shadows: withShadow == true
-                              //     ? [
-                              //         BoxShadow(
-                              //             // color: Colors.grey.withOpacity(0.2),
-                              //             blurRadius: 3,
-                              //             color: greayColor,
-                              //             offset: Offset(1, 10))
-                              //       ]
-                              //     : [],
+                            // shadows: withShadow == true
+                            //     ? [
+                            //         BoxShadow(
+                            //             // color: Colors.grey.withOpacity(0.2),
+                            //             blurRadius: 3,
+                            //             color: greayColor,
+                            //             offset: Offset(1, 10))
+                            //       ]
+                            //     : [],
                               shape: RoundedRectangleBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(100))),
+                                  BorderRadius.all(Radius.circular(100))),
                               color: ThemeColors().mainColor),
                           child: Icon(
                             Icons.favorite,
@@ -203,9 +203,9 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                   child: Row(
                     children: [
                       Container(
-                          // width: MediaQuery.of(context).size.width * 0.15,
-                          // height: MediaQuery.of(context).size.height * 0.036,
-                          // padding: EdgeInsets.symmetric(horizontal: 15),
+                        // width: MediaQuery.of(context).size.width * 0.15,
+                        // height: MediaQuery.of(context).size.height * 0.036,
+                        // padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: ShapeDecoration(
                             // shadows: withShadow == true ? [
                             //   BoxShadow(
@@ -216,7 +216,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                             // ]: [],
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                             color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Center(
@@ -230,9 +230,9 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                           )),
                       SizedBox(width: 5.w),
                       Container(
-                          // width: MediaQuery.of(context).size.width * 0.15,
-                          // height: MediaQuery.of(context).size.height * 0.036,
-                          // padding: EdgeInsets.symmetric(horizontal: 15),
+                        // width: MediaQuery.of(context).size.width * 0.15,
+                        // height: MediaQuery.of(context).size.height * 0.036,
+                        // padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: ShapeDecoration(
                             // shadows: withShadow == true ? [
                             //   BoxShadow(
@@ -243,7 +243,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                             // ]: [],
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                             color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Center(
@@ -257,9 +257,9 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                           )),
                       SizedBox(width: 5.w),
                       Container(
-                          // width: MediaQuery.of(context).size.width * 0.15,
-                          // height: MediaQuery.of(context).size.height * 0.036,
-                          // padding: EdgeInsets.symmetric(horizontal: 15),
+                        // width: MediaQuery.of(context).size.width * 0.15,
+                        // height: MediaQuery.of(context).size.height * 0.036,
+                        // padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: ShapeDecoration(
                             // shadows: withShadow == true ? [
                             //   BoxShadow(
@@ -270,7 +270,7 @@ class _FeatureResturantContainerState extends State<FeatureResturantContainer> {
                             // ]: [],
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                BorderRadius.all(Radius.circular(10))),
                             color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Center(

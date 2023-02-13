@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../themecolor/ThemeColors.dart';
 import '../util/colors.dart';
 import '../util/get_storage_key.dart';
-
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import '../util/images.dart';
 import '../util/size_utils.dart';
 import '../widgets/CustomShadow.dart';
@@ -78,10 +78,22 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                               Expanded(
                                 child: Container(
                                   margin: getMargin(left: 10,right: 10),
-                                  child: CustomShadow(
-                                    blur:  2,
-                                    color: ThemeColors().outline.withOpacity(0.3),
-                                    offset: const Offset(1, 1),
+                                  child: Neumorphic(
+                                    style: NeumorphicStyle(
+                                      depth: -1,
+                                      intensity: 0.8,
+
+                                      border: NeumorphicBorder(
+                                        color: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?   const Color(0xDD2C2C37) : Colors.grey.shade100,
+                                        width: 0.8,
+                                      ),
+                                      lightSource: LightSource.topLeft,
+                                      shadowDarkColorEmboss:  GetStorage().read(GetStorageKey.IS_DARK_MODE) ?   const Color(0xDD2C2C37) :Colors.grey.shade400,
+                                      shadowLightColorEmboss: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?   const Color(0xDD2C2C37) :Colors.grey.shade400,
+                                      color: GetStorage().read(GetStorageKey.IS_DARK_MODE) ?   const Color(0xDD393948) : Colors.white,
+                                      boxShape: NeumorphicBoxShape.roundRect(
+                                          BorderRadius.circular(10)),
+                                    ),
                                     child: Container(
                                       decoration:   BoxDecoration(
                                         borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -106,7 +118,7 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                                 child: Container(
                                   width: 45,
                                   height: 45,
-                                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                                  padding: const EdgeInsets.symmetric(horizontal: 14),
                                   decoration:  ShapeDecoration(
                                       shadows: [
                                         BoxShadow(
@@ -234,11 +246,11 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                                   gridDelegate: SliverWovenGridDelegate.count(
                                     crossAxisCount: 2,
                                     mainAxisSpacing: 0,
-                                    crossAxisSpacing: 20,
+                                    crossAxisSpacing: 10,
                                     tileBottomSpace: 20,
                                     pattern: [
                                       WovenGridTile(1),
-                                      WovenGridTile(
+                                      const WovenGridTile(
                                         5 / 6,
                                         crossAxisRatio: 1,
                                         alignment: AlignmentDirectional.topEnd,
@@ -247,7 +259,7 @@ class SearchFoodScreen extends GetView<SearchFoodController>  {
                                   ),
                                   childrenDelegate: SliverChildBuilderDelegate(
                                       childCount: controller.popularItemRating.length,
-                                          (context, index) => FindResurentCard()
+                                          (context, index) => const FindResurentCard()
                                   ),
                                 ),
 

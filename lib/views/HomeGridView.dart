@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../Models/HomeResponseModel.dart';
 import '../controllers/MainScreen/HomeScreenController.dart';
 import '../util/app_colors.dart';
 import '../util/colors.dart';
@@ -66,15 +67,20 @@ class HomeGridView extends GetView<HomeScreenController>
         Container(
           width: size.width,
           height: 250.h,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.name.length,
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: GestureDetector(
-                    onTap: () => Get.toNamed(Routes.restaurantProfileScreen),
-                    child: const FeatureResturantContainer(themeValue: 0,)),
-              )),
+          child: GetX<HomeScreenController>(
+
+            builder: (controller) {
+              return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.name.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: GestureDetector(
+                        onTap: () => Get.toNamed(Routes.restaurantProfileScreen),
+                        child: FeatureResturantContainer(themeValue: 0)),
+                  ));
+            }
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10.0),

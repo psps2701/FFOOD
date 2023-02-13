@@ -62,7 +62,7 @@ class UserData {
     email: json["email"],
     phone: json["phone"],
     defaultAddressId: json["default_address_id"],
-    defaultAddress: DefaultAddress.fromJson(json["default_address"]),
+    defaultAddress: json["default_address"] == null ? null : DefaultAddress.fromJson(json["default_address"]),
     walletBalance: json["wallet_balance"],
     avatar: json["avatar"],
     taxNumber: json["tax_number"],

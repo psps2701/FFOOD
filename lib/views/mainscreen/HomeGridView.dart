@@ -53,20 +53,21 @@ class HomeGridView extends GetView<HomeScreenController>
           ),
         ),
         const SizedBox(height: 15,),
+        controller.homeResposneModel.value.data!.featuredRestaurants!.isNotEmpty ?
         Container(
           width: size.width,
           height: 240.h,
 
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: controller.name.length,
+              itemCount: controller.homeResposneModel.value.data!.featuredRestaurants!.length,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: GestureDetector(
                     onTap: () => Get.toNamed(Routes.restaurantProfileScreen),
-                    child: const FeatureResturantContainer(themeValue: 0,)),
+                    child: FeatureResturantContainer(themeValue: 0,)),
               )),
-        ),
+        ):Container(),
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: BigText(
@@ -75,19 +76,20 @@ class HomeGridView extends GetView<HomeScreenController>
             color: Colors.black,
           ),
         ),
+        controller.homeResposneModel.value.data!.popularItems!.isNotEmpty ?
         Container(
           // width: ScreenUtil().screenWidth,
           height:280,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: controller.popularItemName.length,
+            itemCount: controller.homeResposneModel.value.data!.popularItems!.length,
             itemBuilder: (context, index) => GestureDetector(
               onTap: () => print(""),
-              child: PopularItemCard(name: controller.popularItemName[index], details: controller.popularItemDetails[index], rating: controller.popularItemRating[index], reviewsCount: controller.popularItemReviewCount[index],imageUrl: controller.popularItemImageUrl[index], price: controller.popularItemPrice[index], themeValue: 0, ),
+              child: PopularItemCard(name: controller.homeResposneModel.value.data!.popularItems![index].name.toString(), details: controller.homeResposneModel.value.data!.popularItems![index].name.toString(), rating: controller.homeResposneModel.value.data!.popularItems![index].name.toString(), reviewsCount: controller.homeResposneModel.value.data!.popularItems![index].price.toString(),imageUrl: controller.homeResposneModel.value.data!.popularItems![index].image.toString(), price: controller.homeResposneModel.value.data!.popularItems![index].price.toString(), themeValue: 0, ),
             ),
           ),
-        )
+        ):Container()
       ],
     );
   }

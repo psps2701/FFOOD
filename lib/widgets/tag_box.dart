@@ -2,6 +2,7 @@ import 'package:ffood/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../themecolor/ThemeColors.dart';
 import '../util/colors.dart';
 
 
@@ -28,7 +29,7 @@ class TagBoxWidget extends StatelessWidget {
           color: color
 
       ),
-      child: Center(child: SmallText(text: tagLAbel, color: themeValue == 1 ? darkThemeFontColor:textColor, size: labelSize.toDouble(),)),
+      child: Center(child: SmallText(text: tagLAbel, color: ThemeColors().tagBoxColorNew2,fontWeight: FontWeight.w500 ,size: labelSize.toDouble(),)),
     );
   }
 }

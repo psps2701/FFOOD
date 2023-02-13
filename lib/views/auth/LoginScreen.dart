@@ -16,6 +16,9 @@ import 'package:lottie/lottie.dart';
 import '../../Route/Routes.dart';
 import '../../util/colors.dart';
 import '../../util/get_storage_key.dart';
+import 'package:progress_state_button/iconed_button.dart';
+import 'package:progress_state_button/progress_button.dart';
+
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
 
@@ -146,9 +149,13 @@ class LoginScreen extends GetView<LoginController> {
                           onTap: () {
                             //Get.toNamed(Routes.mainScreen);
                             FocusManager.instance.primaryFocus?.unfocus();
+                            //Get.toNamed(Routes.mainScreen);
+
+
                             controller.login();
+
                           },
-                          child: Container(
+                          child: /*Container(
                               width: 248.w,
                               height: 60.h,
                               // height: MediaQuery.of(context).size.height * 0.06,
@@ -166,10 +173,7 @@ class LoginScreen extends GetView<LoginController> {
                                   ],
                                   borderRadius: BorderRadius.circular(100.r),
                                   color: orangeColor),
-                              child: controller.isLoading.value
-                                  ? Lottie.asset('assets/loader2.json',
-                                  height: 200)
-                                  : BigText(
+                              child: BigText(
                                 text: "LOGIN",
                                 size: 15.sp,
                                 color: Colors.white,
@@ -179,7 +183,8 @@ class LoginScreen extends GetView<LoginController> {
                             //   'LOGIN',
                             //   style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height/50),
                             // ),
-                          ),
+                          ),*/
+                          loginCustomButton()
                         ),
                       ),
                       SizedBox(
@@ -347,4 +352,40 @@ class LoginScreen extends GetView<LoginController> {
       ),
     );
   }
+
+  Widget loginCustomButton() {
+    return GetX<LoginController>(
+      builder: (controller) {
+        return ProgressButton.icon(
+            iconedButtons: {
+          ButtonState.idle: IconedButton(
+              text: "Login",
+              icon: const Icon(Icons.send, color: Colors.white),
+              color: orangeColor),
+          ButtonState.loading:
+          IconedButton(text: "Loading", color: orangeColor),
+          ButtonState.fail: IconedButton(
+              text: "Failed",
+              icon: const Icon(Icons.cancel, color: Colors.white),
+              color: Colors.red.shade300),
+          ButtonState.success: IconedButton(
+              text: "success",
+              icon: const Icon(
+                Icons.check_circle,
+                color: Colors.white,
+              ),
+              color: Colors.green.shade400)
+        }, onPressed: ()
+            {
+              FocusManager.instance.primaryFocus?.unfocus();
+              //Get.toNamed(Routes.mainScreen);
+
+              controller.login();
+            }, state: controller.loginState.value);
+      }
+    );
+  }
+
+
+
 }
